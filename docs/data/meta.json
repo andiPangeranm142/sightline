@@ -1,0 +1,2687 @@
+{
+  "generated_at": "2026-11-22T23:32:20Z",
+  "series_count": 337,
+  "games_count": 848,
+  "rounds_count": 17435,
+  "events_processed": 1421082,
+  "teams": [
+    {
+      "id": "337",
+      "name": "100 Thieves"
+    },
+    {
+      "id": "55259",
+      "name": "100 Thieves GC"
+    },
+    {
+      "id": "53367",
+      "name": "2GAME eSports"
+    },
+    {
+      "id": "55261",
+      "name": ":3"
+    },
+    {
+      "id": "55797",
+      "name": "Alliance Angels"
+    },
+    {
+      "id": "55799",
+      "name": "Artificial Intelligence"
+    },
+    {
+      "id": "57053",
+      "name": "Auraboros"
+    },
+    {
+      "id": "55263",
+      "name": "Berzerkers Dawn"
+    },
+    {
+      "id": "48626",
+      "name": "Bilibili Gaming"
+    },
+    {
+      "id": "55266",
+      "name": "Catnappers"
+    },
+    {
+      "id": "79",
+      "name": "Cloud9"
+    },
+    {
+      "id": "3429",
+      "name": "Cloud9 GC"
+    },
+    {
+      "id": "57054",
+      "name": "EMPIRE GC"
+    },
+    {
+      "id": "56733",
+      "name": "Evictix GC"
+    },
+    {
+      "id": "281",
+      "name": "Evil Geniuses"
+    },
+    {
+      "id": "55267",
+      "name": "Evolution"
+    },
+    {
+      "id": "99",
+      "name": "FURIA"
+    },
+    {
+      "id": "55264",
+      "name": "Fisher Fumblers"
+    },
+    {
+      "id": "52324",
+      "name": "FlyQuest Red"
+    },
+    {
+      "id": "94",
+      "name": "Fnatic"
+    },
+    {
+      "id": "57051",
+      "name": "Frost White"
+    },
+    {
+      "id": "96",
+      "name": "G2 Esports"
+    },
+    {
+      "id": "3530",
+      "name": "G2 Gozen"
+    },
+    {
+      "id": "53372",
+      "name": "GIANTX (2)"
+    },
+    {
+      "id": "404",
+      "name": "Gen.G"
+    },
+    {
+      "id": "3612",
+      "name": "Ghost Gaming"
+    },
+    {
+      "id": "57787",
+      "name": "HIMMERS"
+    },
+    {
+      "id": "57050",
+      "name": "HyperSpeed Golden"
+    },
+    {
+      "id": "48457",
+      "name": "KRÜ Esports"
+    },
+    {
+      "id": "48235",
+      "name": "Karmine Corp GC"
+    },
+    {
+      "id": "55260",
+      "name": "Kiri Magenta"
+    },
+    {
+      "id": "3412",
+      "name": "LOUD (1)"
+    },
+    {
+      "id": "1611",
+      "name": "Leviatán Esports"
+    },
+    {
+      "id": "57791",
+      "name": "Los Chudeles"
+    },
+    {
+      "id": "81",
+      "name": "MIBR (1)"
+    },
+    {
+      "id": "57055",
+      "name": "MVSK Treasure"
+    },
+    {
+      "id": "53638",
+      "name": "Made In Brazil"
+    },
+    {
+      "id": "55794",
+      "name": "Mak N Cheese"
+    },
+    {
+      "id": "56734",
+      "name": "Maui Wowie"
+    },
+    {
+      "id": "57056",
+      "name": "Monarch-X GC"
+    },
+    {
+      "id": "97",
+      "name": "NRG"
+    },
+    {
+      "id": "55477",
+      "name": "Ninetails"
+    },
+    {
+      "id": "56253",
+      "name": "Nova Esports GC"
+    },
+    {
+      "id": "48623",
+      "name": "Overkill"
+    },
+    {
+      "id": "917",
+      "name": "Paper Rex"
+    },
+    {
+      "id": "55268",
+      "name": "Prosperity X"
+    },
+    {
+      "id": "57048",
+      "name": "Puppy Thieves"
+    },
+    {
+      "id": "57789",
+      "name": "ROSO GC"
+    },
+    {
+      "id": "57788",
+      "name": "Revitalize GC"
+    },
+    {
+      "id": "3604",
+      "name": "Rex Regum Qeon"
+    },
+    {
+      "id": "55796",
+      "name": "SEN Otters"
+    },
+    {
+      "id": "57052",
+      "name": "SaD GC"
+    },
+    {
+      "id": "1079",
+      "name": "Sentinels"
+    },
+    {
+      "id": "3427",
+      "name": "Shopify Rebellion Gold"
+    },
+    {
+      "id": "55675",
+      "name": "Shopify Rebellion Gold"
+    },
+    {
+      "id": "57049",
+      "name": "SwimTrek Blue"
+    },
+    {
+      "id": "173",
+      "name": "Team Heretics"
+    },
+    {
+      "id": "83",
+      "name": "Team Liquid"
+    },
+    {
+      "id": "53005",
+      "name": "Team Liquid Visa"
+    },
+    {
+      "id": "54087",
+      "name": "Teddy Tactics"
+    },
+    {
+      "id": "55262",
+      "name": "Teevee"
+    },
+    {
+      "id": "55798",
+      "name": "Tenax GC"
+    },
+    {
+      "id": "57794",
+      "name": "The Spiders"
+    },
+    {
+      "id": "3416",
+      "name": "VISA KRÜ Blaze"
+    },
+    {
+      "id": "53322",
+      "name": "WOLVES ESPORTS"
+    },
+    {
+      "id": "55258",
+      "name": "Wadadaa"
+    },
+    {
+      "id": "54395",
+      "name": "Xi Lai Gaming"
+    },
+    {
+      "id": "55641",
+      "name": "Xipto Esports"
+    },
+    {
+      "id": "55795",
+      "name": "YDZ Black"
+    },
+    {
+      "id": "53435",
+      "name": "YFP X"
+    },
+    {
+      "id": "4557",
+      "name": "^-^"
+    },
+    {
+      "id": "55265",
+      "name": "kessoku band"
+    }
+  ],
+  "players": [
+    {
+      "id": "170821",
+      "name": "001",
+      "team_id": "57791"
+    },
+    {
+      "id": "15674",
+      "name": "332",
+      "team_id": "55477"
+    },
+    {
+      "id": "117100",
+      "name": "7er",
+      "team_id": "56253"
+    },
+    {
+      "id": "13864",
+      "name": "abbie2k",
+      "team_id": "55261"
+    },
+    {
+      "id": "179268",
+      "name": "acedia",
+      "team_id": "57056"
+    },
+    {
+      "id": "10628",
+      "name": "add3r",
+      "team_id": "99"
+    },
+    {
+      "id": "136787",
+      "name": "adoluvr38",
+      "team_id": "55268"
+    },
+    {
+      "id": "206",
+      "name": "adverso",
+      "team_id": "99"
+    },
+    {
+      "id": "29971",
+      "name": "aeri",
+      "team_id": "55260"
+    },
+    {
+      "id": "112624",
+      "name": "aki",
+      "team_id": "57053"
+    },
+    {
+      "id": "111816",
+      "name": "Akita",
+      "team_id": "3530"
+    },
+    {
+      "id": "145386",
+      "name": "alby",
+      "team_id": "4557"
+    },
+    {
+      "id": "876",
+      "name": "alexis",
+      "team_id": "55675"
+    },
+    {
+      "id": "2260",
+      "name": "Alfajer",
+      "team_id": "94"
+    },
+    {
+      "id": "3401",
+      "name": "alkyia",
+      "team_id": "48235"
+    },
+    {
+      "id": "14933",
+      "name": "aluvily",
+      "team_id": "57049"
+    },
+    {
+      "id": "13772",
+      "name": "always",
+      "team_id": "57050"
+    },
+    {
+      "id": "1215",
+      "name": "alyssa",
+      "team_id": "56253"
+    },
+    {
+      "id": "174502",
+      "name": "amegayme",
+      "team_id": "57051"
+    },
+    {
+      "id": "10755",
+      "name": "amy",
+      "team_id": "3530"
+    },
+    {
+      "id": "111846",
+      "name": "anesilia",
+      "team_id": "48235"
+    },
+    {
+      "id": "112596",
+      "name": "aneXcks",
+      "team_id": "55799"
+    },
+    {
+      "id": "112404",
+      "name": "AngeI",
+      "team_id": "55260"
+    },
+    {
+      "id": "29937",
+      "name": "angle",
+      "team_id": "55266"
+    },
+    {
+      "id": "948",
+      "name": "Aniemal",
+      "team_id": "56734"
+    },
+    {
+      "id": "136791",
+      "name": "ariaa",
+      "team_id": "54087"
+    },
+    {
+      "id": "2837",
+      "name": "artzin",
+      "team_id": "81"
+    },
+    {
+      "id": "32962",
+      "name": "Ash",
+      "team_id": "404"
+    },
+    {
+      "id": "187648",
+      "name": "ashley",
+      "team_id": "57789"
+    },
+    {
+      "id": "3318",
+      "name": "askia",
+      "team_id": "53367"
+    },
+    {
+      "id": "14",
+      "name": "aspas",
+      "team_id": "81"
+    },
+    {
+      "id": "296",
+      "name": "Asuna",
+      "team_id": "337"
+    },
+    {
+      "id": "18766",
+      "name": "aurelia",
+      "team_id": "55797"
+    },
+    {
+      "id": "115005",
+      "name": "aus",
+      "team_id": "55266"
+    },
+    {
+      "id": "13777",
+      "name": "Australis",
+      "team_id": "55258"
+    },
+    {
+      "id": "968",
+      "name": "avery",
+      "team_id": "55796"
+    },
+    {
+      "id": "29985",
+      "name": "awpi",
+      "team_id": "53435"
+    },
+    {
+      "id": "709",
+      "name": "BABYBAY",
+      "team_id": "96"
+    },
+    {
+      "id": "13937",
+      "name": "Bahzar",
+      "team_id": "55265"
+    },
+    {
+      "id": "127423",
+      "name": "Ballooncat",
+      "team_id": "4557"
+    },
+    {
+      "id": "727",
+      "name": "bang",
+      "team_id": "1079"
+    },
+    {
+      "id": "29973",
+      "name": "battison",
+      "team_id": "55796"
+    },
+    {
+      "id": "2357",
+      "name": "bdog",
+      "team_id": "99"
+    },
+    {
+      "id": "9253",
+      "name": "benjyfishy",
+      "team_id": "173"
+    },
+    {
+      "id": "162",
+      "name": "biazik",
+      "team_id": "3416"
+    },
+    {
+      "id": "14939",
+      "name": "Biffy",
+      "team_id": "4557"
+    },
+    {
+      "id": "152",
+      "name": "bizerra",
+      "team_id": "53005"
+    },
+    {
+      "id": "134253",
+      "name": "blair",
+      "team_id": "57056"
+    },
+    {
+      "id": "13791",
+      "name": "BlueOwl",
+      "team_id": "55261"
+    },
+    {
+      "id": "6",
+      "name": "Boaster",
+      "team_id": "94"
+    },
+    {
+      "id": "890",
+      "name": "Bob",
+      "team_id": "57049"
+    },
+    {
+      "id": "1701",
+      "name": "Boo",
+      "team_id": "173"
+    },
+    {
+      "id": "2345",
+      "name": "Boostio",
+      "team_id": "337"
+    },
+    {
+      "id": "153003",
+      "name": "BOT3",
+      "team_id": "4557"
+    },
+    {
+      "id": "137364",
+      "name": "BOT8",
+      "team_id": "53435"
+    },
+    {
+      "id": "137366",
+      "name": "BOT9",
+      "team_id": "52324"
+    },
+    {
+      "id": "2513",
+      "name": "brawk",
+      "team_id": "97"
+    },
+    {
+      "id": "167",
+      "name": "bstrdd",
+      "team_id": "53638"
+    },
+    {
+      "id": "12489",
+      "name": "bunnybee",
+      "team_id": "57794"
+    },
+    {
+      "id": "2515",
+      "name": "C0M",
+      "team_id": "1611"
+    },
+    {
+      "id": "177161",
+      "name": "c1apie",
+      "team_id": "57054"
+    },
+    {
+      "id": "29822",
+      "name": "calsushi",
+      "team_id": "57794"
+    },
+    {
+      "id": "1243",
+      "name": "capriciouS",
+      "team_id": "55641"
+    },
+    {
+      "id": "1812",
+      "name": "cauanzin",
+      "team_id": "3412"
+    },
+    {
+      "id": "13792",
+      "name": "caya1",
+      "team_id": "54087"
+    },
+    {
+      "id": "143028",
+      "name": "caydia",
+      "team_id": "55794"
+    },
+    {
+      "id": "174297",
+      "name": "ch0mpy",
+      "team_id": "57791"
+    },
+    {
+      "id": "145390",
+      "name": "CHAROD",
+      "team_id": "57049"
+    },
+    {
+      "id": "28882",
+      "name": "chip",
+      "team_id": "57791"
+    },
+    {
+      "id": "18585",
+      "name": "chiyeu",
+      "team_id": "57056"
+    },
+    {
+      "id": "668",
+      "name": "Chronicle",
+      "team_id": "94"
+    },
+    {
+      "id": "18612",
+      "name": "cia",
+      "team_id": "57054"
+    },
+    {
+      "id": "174303",
+      "name": "cleiYo",
+      "team_id": "57787"
+    },
+    {
+      "id": "19680",
+      "name": "Clem",
+      "team_id": "56253"
+    },
+    {
+      "id": "29836",
+      "name": "cloudzzy",
+      "team_id": "57051"
+    },
+    {
+      "id": "136788",
+      "name": "Cloudzzys",
+      "team_id": "55795"
+    },
+    {
+      "id": "9542",
+      "name": "coconut",
+      "team_id": "54395"
+    },
+    {
+      "id": "41750",
+      "name": "colby",
+      "team_id": "57787"
+    },
+    {
+      "id": "493",
+      "name": "conir",
+      "team_id": "3416"
+    },
+    {
+      "id": "3320",
+      "name": "cortezia",
+      "team_id": "81"
+    },
+    {
+      "id": "291",
+      "name": "Crashies",
+      "team_id": "94"
+    },
+    {
+      "id": "766",
+      "name": "crazyguy",
+      "team_id": "3604"
+    },
+    {
+      "id": "2361",
+      "name": "Cryo",
+      "team_id": "337"
+    },
+    {
+      "id": "112552",
+      "name": "cuteasa",
+      "team_id": "3612"
+    },
+    {
+      "id": "124568",
+      "name": "cyn",
+      "team_id": "55796"
+    },
+    {
+      "id": "811",
+      "name": "d4v41",
+      "team_id": "917"
+    },
+    {
+      "id": "168",
+      "name": "daiki",
+      "team_id": "53005"
+    },
+    {
+      "id": "138476",
+      "name": "DaNa",
+      "team_id": "55477"
+    },
+    {
+      "id": "28813",
+      "name": "Dantedeu5",
+      "team_id": "48457"
+    },
+    {
+      "id": "11334",
+      "name": "Demon1",
+      "team_id": "1611"
+    },
+    {
+      "id": "306",
+      "name": "Derrek",
+      "team_id": "281"
+    },
+    {
+      "id": "121485",
+      "name": "DGZ",
+      "team_id": "3412"
+    },
+    {
+      "id": "1003",
+      "name": "dodonut",
+      "team_id": "55675"
+    },
+    {
+      "id": "40472",
+      "name": "dods",
+      "team_id": "3416"
+    },
+    {
+      "id": "12482",
+      "name": "edith",
+      "team_id": "52324"
+    },
+    {
+      "id": "2341",
+      "name": "eeiu",
+      "team_id": "337"
+    },
+    {
+      "id": "13917",
+      "name": "Elab0rate",
+      "team_id": "55261"
+    },
+    {
+      "id": "117277",
+      "name": "elfonshelf",
+      "team_id": "56733"
+    },
+    {
+      "id": "127467",
+      "name": "elora",
+      "team_id": "55266"
+    },
+    {
+      "id": "14973",
+      "name": "emm",
+      "team_id": "55799"
+    },
+    {
+      "id": "145388",
+      "name": "enderz2",
+      "team_id": "55797"
+    },
+    {
+      "id": "40551",
+      "name": "ennui",
+      "team_id": "57787"
+    },
+    {
+      "id": "135493",
+      "name": "erza1",
+      "team_id": "55796"
+    },
+    {
+      "id": "176054",
+      "name": "Esub 1",
+      "team_id": "57049"
+    },
+    {
+      "id": "176013",
+      "name": "Esub 2",
+      "team_id": "57052"
+    },
+    {
+      "id": "112931",
+      "name": "Esub6",
+      "team_id": "57788"
+    },
+    {
+      "id": "297",
+      "name": "Ethan",
+      "team_id": "97"
+    },
+    {
+      "id": "1104",
+      "name": "eva",
+      "team_id": "53372"
+    },
+    {
+      "id": "3382",
+      "name": "EveR",
+      "team_id": "55477"
+    },
+    {
+      "id": "127557",
+      "name": "evil eli",
+      "team_id": "3612"
+    },
+    {
+      "id": "13799",
+      "name": "evv",
+      "team_id": "52324"
+    },
+    {
+      "id": "174307",
+      "name": "EXOT1C",
+      "team_id": "57055"
+    },
+    {
+      "id": "814",
+      "name": "f0rsakeN",
+      "team_id": "917"
+    },
+    {
+      "id": "173517",
+      "name": "fate",
+      "team_id": "57794"
+    },
+    {
+      "id": "136793",
+      "name": "femboy",
+      "team_id": "57049"
+    },
+    {
+      "id": "33414",
+      "name": "florescent",
+      "team_id": "57048"
+    },
+    {
+      "id": "74432",
+      "name": "FNS",
+      "team_id": "97"
+    },
+    {
+      "id": "2617",
+      "name": "Foxy9",
+      "team_id": "404"
+    },
+    {
+      "id": "15708",
+      "name": "FullMoon",
+      "team_id": "55477"
+    },
+    {
+      "id": "134968",
+      "name": "gabby",
+      "team_id": "55267"
+    },
+    {
+      "id": "174413",
+      "name": "gerald",
+      "team_id": "57789"
+    },
+    {
+      "id": "1023",
+      "name": "gia",
+      "team_id": "3429"
+    },
+    {
+      "id": "1281",
+      "name": "Glance",
+      "team_id": "48235"
+    },
+    {
+      "id": "142941",
+      "name": "glowstick",
+      "team_id": "57049"
+    },
+    {
+      "id": "3315",
+      "name": "gobera",
+      "team_id": "53367"
+    },
+    {
+      "id": "112628",
+      "name": "gracious",
+      "team_id": "55268"
+    },
+    {
+      "id": "40318",
+      "name": "grahams",
+      "team_id": "55641"
+    },
+    {
+      "id": "15281",
+      "name": "h4ste",
+      "team_id": "55477"
+    },
+    {
+      "id": "112634",
+      "name": "habibti",
+      "team_id": "56734"
+    },
+    {
+      "id": "13488",
+      "name": "happywei",
+      "team_id": "54395"
+    },
+    {
+      "id": "136777",
+      "name": "harper",
+      "team_id": "55262"
+    },
+    {
+      "id": "3314",
+      "name": "havoc",
+      "team_id": "99"
+    },
+    {
+      "id": "48",
+      "name": "Heat",
+      "team_id": "99"
+    },
+    {
+      "id": "14989",
+      "name": "huga",
+      "team_id": "55799"
+    },
+    {
+      "id": "15020",
+      "name": "Hyungwonho",
+      "team_id": "55797"
+    },
+    {
+      "id": "168294",
+      "name": "icebox",
+      "team_id": "56253"
+    },
+    {
+      "id": "136778",
+      "name": "Iceey",
+      "team_id": "55261"
+    },
+    {
+      "id": "14940",
+      "name": "icy",
+      "team_id": "281"
+    },
+    {
+      "id": "142947",
+      "name": "idda",
+      "team_id": "56733"
+    },
+    {
+      "id": "136789",
+      "name": "Ieah",
+      "team_id": "4557"
+    },
+    {
+      "id": "144059",
+      "name": "invert",
+      "team_id": "55796"
+    },
+    {
+      "id": "136779",
+      "name": "iraa",
+      "team_id": "55263"
+    },
+    {
+      "id": "15009",
+      "name": "irene",
+      "team_id": "55262"
+    },
+    {
+      "id": "961",
+      "name": "irene",
+      "team_id": "55262"
+    },
+    {
+      "id": "132",
+      "name": "isaa",
+      "team_id": "53005"
+    },
+    {
+      "id": "11969",
+      "name": "Jakee",
+      "team_id": "99"
+    },
+    {
+      "id": "2347",
+      "name": "JAWGEMO",
+      "team_id": "96"
+    },
+    {
+      "id": "878",
+      "name": "Jazzyk1ns",
+      "team_id": "52324"
+    },
+    {
+      "id": "41838",
+      "name": "jeje",
+      "team_id": "55798"
+    },
+    {
+      "id": "41138",
+      "name": "jelly",
+      "team_id": "53005"
+    },
+    {
+      "id": "2621",
+      "name": "Jemkin",
+      "team_id": "3604"
+    },
+    {
+      "id": "174954",
+      "name": "jia2",
+      "team_id": "56733"
+    },
+    {
+      "id": "31758",
+      "name": "jid",
+      "team_id": "57791"
+    },
+    {
+      "id": "12626",
+      "name": "Jiex",
+      "team_id": "48235"
+    },
+    {
+      "id": "2232",
+      "name": "Jinggg",
+      "team_id": "917"
+    },
+    {
+      "id": "2512",
+      "name": "johnqt",
+      "team_id": "1079"
+    },
+    {
+      "id": "2351",
+      "name": "JonahP",
+      "team_id": "96"
+    },
+    {
+      "id": "1266",
+      "name": "joojina",
+      "team_id": "53005"
+    },
+    {
+      "id": "124466",
+      "name": "joona",
+      "team_id": "55258"
+    },
+    {
+      "id": "10533",
+      "name": "juicy",
+      "team_id": "53322"
+    },
+    {
+      "id": "32409",
+      "name": "K0rupt",
+      "team_id": "57049"
+    },
+    {
+      "id": "29152",
+      "name": "Kaajak",
+      "team_id": "94"
+    },
+    {
+      "id": "1738",
+      "name": "kamo",
+      "team_id": "83"
+    },
+    {
+      "id": "13840",
+      "name": "karie",
+      "team_id": "55265"
+    },
+    {
+      "id": "32982",
+      "name": "Karon",
+      "team_id": "404"
+    },
+    {
+      "id": "2794",
+      "name": "keiko",
+      "team_id": "83"
+    },
+    {
+      "id": "119048",
+      "name": "Kess",
+      "team_id": "337"
+    },
+    {
+      "id": "136790",
+      "name": "KestreI",
+      "team_id": "55258"
+    },
+    {
+      "id": "175993",
+      "name": "Kestrel",
+      "team_id": "55261"
+    },
+    {
+      "id": "13802",
+      "name": "KETARYS",
+      "team_id": "3612"
+    },
+    {
+      "id": "77",
+      "name": "keznitdeuS",
+      "team_id": "48457"
+    },
+    {
+      "id": "179269",
+      "name": "khaleesi",
+      "team_id": "3612"
+    },
+    {
+      "id": "51",
+      "name": "khalil",
+      "team_id": "99"
+    },
+    {
+      "id": "207",
+      "name": "kiNgg",
+      "team_id": "1611"
+    },
+    {
+      "id": "15314",
+      "name": "Knightt",
+      "team_id": "48626"
+    },
+    {
+      "id": "15564",
+      "name": "kon",
+      "team_id": "55641"
+    },
+    {
+      "id": "112556",
+      "name": "kora",
+      "team_id": "57056"
+    },
+    {
+      "id": "15016",
+      "name": "korosu",
+      "team_id": "55260"
+    },
+    {
+      "id": "31957",
+      "name": "KrossUnity",
+      "team_id": "57050"
+    },
+    {
+      "id": "122600",
+      "name": "Kushy",
+      "team_id": "3604"
+    },
+    {
+      "id": "13922",
+      "name": "kyedae",
+      "team_id": "55262"
+    },
+    {
+      "id": "945",
+      "name": "L4CE",
+      "team_id": "52324"
+    },
+    {
+      "id": "1192",
+      "name": "leaf",
+      "team_id": "96"
+    },
+    {
+      "id": "179280",
+      "name": "Leah2",
+      "team_id": "55262"
+    },
+    {
+      "id": "943",
+      "name": "leelee",
+      "team_id": "3429"
+    },
+    {
+      "id": "100510",
+      "name": "Levius",
+      "team_id": "48626"
+    },
+    {
+      "id": "127540",
+      "name": "lidyuh",
+      "team_id": "55675"
+    },
+    {
+      "id": "3159",
+      "name": "lissA",
+      "team_id": "53638"
+    },
+    {
+      "id": "37001",
+      "name": "liv",
+      "team_id": "55263"
+    },
+    {
+      "id": "14967",
+      "name": "Logic",
+      "team_id": "55794"
+    },
+    {
+      "id": "179267",
+      "name": "logic1",
+      "team_id": "57055"
+    },
+    {
+      "id": "174299",
+      "name": "lovergirl",
+      "team_id": "57050"
+    },
+    {
+      "id": "32337",
+      "name": "luk xo",
+      "team_id": "3412"
+    },
+    {
+      "id": "30018",
+      "name": "Luna1",
+      "team_id": "57050"
+    },
+    {
+      "id": "136783",
+      "name": "Luna4",
+      "team_id": "55795"
+    },
+    {
+      "id": "136786",
+      "name": "LunaFox",
+      "team_id": "55261"
+    },
+    {
+      "id": "57620",
+      "name": "lylac",
+      "team_id": "55266"
+    },
+    {
+      "id": "13566",
+      "name": "Lysoar",
+      "team_id": "53322"
+    },
+    {
+      "id": "32033",
+      "name": "Lz",
+      "team_id": "53367"
+    },
+    {
+      "id": "18688",
+      "name": "m0narcS",
+      "team_id": "57053"
+    },
+    {
+      "id": "2358",
+      "name": "mada",
+      "team_id": "97"
+    },
+    {
+      "id": "136781",
+      "name": "maddiee",
+      "team_id": "55263"
+    },
+    {
+      "id": "31916",
+      "name": "maple",
+      "team_id": "56734"
+    },
+    {
+      "id": "29996",
+      "name": "marceline",
+      "team_id": "3429"
+    },
+    {
+      "id": "882",
+      "name": "Maryna",
+      "team_id": "55794"
+    },
+    {
+      "id": "117913",
+      "name": "may2",
+      "team_id": "55796"
+    },
+    {
+      "id": "29764",
+      "name": "MAYYY",
+      "team_id": "55796"
+    },
+    {
+      "id": "74",
+      "name": "Mazino",
+      "team_id": "48457"
+    },
+    {
+      "id": "145387",
+      "name": "mei1",
+      "team_id": "55798"
+    },
+    {
+      "id": "877",
+      "name": "meL",
+      "team_id": "55675"
+    },
+    {
+      "id": "179270",
+      "name": "melikecats",
+      "team_id": "57051"
+    },
+    {
+      "id": "41137",
+      "name": "melissa",
+      "team_id": "53638"
+    },
+    {
+      "id": "208",
+      "name": "Melser",
+      "team_id": "48457"
+    },
+    {
+      "id": "36273",
+      "name": "melya",
+      "team_id": "52324"
+    },
+    {
+      "id": "1443",
+      "name": "micaela",
+      "team_id": "3416"
+    },
+    {
+      "id": "137218",
+      "name": "Midi",
+      "team_id": "54395"
+    },
+    {
+      "id": "10960",
+      "name": "Miku",
+      "team_id": "57052"
+    },
+    {
+      "id": "13858",
+      "name": "mili",
+      "team_id": "3612"
+    },
+    {
+      "id": "1119",
+      "name": "mimi",
+      "team_id": "3530"
+    },
+    {
+      "id": "1625",
+      "name": "MiniBoo",
+      "team_id": "173"
+    },
+    {
+      "id": "13943",
+      "name": "misu",
+      "team_id": "55259"
+    },
+    {
+      "id": "1195",
+      "name": "mitch",
+      "team_id": "79"
+    },
+    {
+      "id": "13940",
+      "name": "miyara",
+      "team_id": "57048"
+    },
+    {
+      "id": "134221",
+      "name": "mizubabe",
+      "team_id": "55262"
+    },
+    {
+      "id": "1375",
+      "name": "mmonch",
+      "team_id": "3416"
+    },
+    {
+      "id": "18686",
+      "name": "mochimei",
+      "team_id": "57791"
+    },
+    {
+      "id": "738",
+      "name": "Monyet",
+      "team_id": "3604"
+    },
+    {
+      "id": "115",
+      "name": "Munchkin",
+      "team_id": "404"
+    },
+    {
+      "id": "57",
+      "name": "mwzera",
+      "team_id": "99"
+    },
+    {
+      "id": "134707",
+      "name": "myneko",
+      "team_id": "55266"
+    },
+    {
+      "id": "11013",
+      "name": "N4RRATE",
+      "team_id": "1079"
+    },
+    {
+      "id": "2431",
+      "name": "nataNk",
+      "team_id": "1611"
+    },
+    {
+      "id": "671",
+      "name": "nAts",
+      "team_id": "83"
+    },
+    {
+      "id": "303",
+      "name": "NaturE",
+      "team_id": "281"
+    },
+    {
+      "id": "3006",
+      "name": "nephh",
+      "team_id": "48626"
+    },
+    {
+      "id": "1585",
+      "name": "ness2",
+      "team_id": "53372"
+    },
+    {
+      "id": "2348",
+      "name": "neT",
+      "team_id": "79"
+    },
+    {
+      "id": "967",
+      "name": "nmutuA",
+      "team_id": "55260"
+    },
+    {
+      "id": "1089",
+      "name": "Noia",
+      "team_id": "55675"
+    },
+    {
+      "id": "136792",
+      "name": "norabora",
+      "team_id": "55267"
+    },
+    {
+      "id": "57748",
+      "name": "nova",
+      "team_id": "57051"
+    },
+    {
+      "id": "136780",
+      "name": "novaa",
+      "team_id": "55795"
+    },
+    {
+      "id": "52",
+      "name": "nzr",
+      "team_id": "81"
+    },
+    {
+      "id": "126299",
+      "name": "oasis",
+      "team_id": "55796"
+    },
+    {
+      "id": "10621",
+      "name": "okeanos",
+      "team_id": "1611"
+    },
+    {
+      "id": "13769",
+      "name": "oranges",
+      "team_id": "55260"
+    },
+    {
+      "id": "10636",
+      "name": "OXY",
+      "team_id": "79"
+    },
+    {
+      "id": "32038",
+      "name": "Palla",
+      "team_id": "99"
+    },
+    {
+      "id": "277",
+      "name": "pANcada",
+      "team_id": "3412"
+    },
+    {
+      "id": "12486",
+      "name": "panday",
+      "team_id": "55265"
+    },
+    {
+      "id": "142927",
+      "name": "pangolin",
+      "team_id": "57050"
+    },
+    {
+      "id": "872",
+      "name": "panini",
+      "team_id": "53435"
+    },
+    {
+      "id": "1151",
+      "name": "paTiTek",
+      "team_id": "83"
+    },
+    {
+      "id": "10302",
+      "name": "PatMen",
+      "team_id": "917"
+    },
+    {
+      "id": "177163",
+      "name": "peep",
+      "team_id": "57054"
+    },
+    {
+      "id": "93",
+      "name": "penny",
+      "team_id": "83"
+    },
+    {
+      "id": "1118",
+      "name": "Petra",
+      "team_id": "3530"
+    },
+    {
+      "id": "18785",
+      "name": "Pickles",
+      "team_id": "3612"
+    },
+    {
+      "id": "2486",
+      "name": "piety",
+      "team_id": "55641"
+    },
+    {
+      "id": "27795",
+      "name": "Player 1",
+      "team_id": "96"
+    },
+    {
+      "id": "12480",
+      "name": "PowerPixele",
+      "team_id": "55258"
+    },
+    {
+      "id": "32030",
+      "name": "pryze",
+      "team_id": "53367"
+    },
+    {
+      "id": "3305",
+      "name": "PxS",
+      "team_id": "53367"
+    },
+    {
+      "id": "31879",
+      "name": "qrthur",
+      "team_id": "57054"
+    },
+    {
+      "id": "145389",
+      "name": "R0sie",
+      "team_id": "55798"
+    },
+    {
+      "id": "2646",
+      "name": "raafa",
+      "team_id": "99"
+    },
+    {
+      "id": "1727",
+      "name": "Rarga",
+      "team_id": "54395"
+    },
+    {
+      "id": "143026",
+      "name": "Raven Rawr",
+      "team_id": "55261"
+    },
+    {
+      "id": "2259",
+      "name": "RieNs",
+      "team_id": "173"
+    },
+    {
+      "id": "145391",
+      "name": "rina1",
+      "team_id": "57051"
+    },
+    {
+      "id": "126924",
+      "name": "risorah666",
+      "team_id": "55797"
+    },
+    {
+      "id": "29975",
+      "name": "riv",
+      "team_id": "55259"
+    },
+    {
+      "id": "1686",
+      "name": "RobbieBk",
+      "team_id": "3412"
+    },
+    {
+      "id": "119399",
+      "name": "Rosetta",
+      "team_id": "57052"
+    },
+    {
+      "id": "2890",
+      "name": "Rossy",
+      "team_id": "1611"
+    },
+    {
+      "id": "135014",
+      "name": "rotten1",
+      "team_id": "57055"
+    },
+    {
+      "id": "14987",
+      "name": "rover",
+      "team_id": "55795"
+    },
+    {
+      "id": "176035",
+      "name": "ruincrest",
+      "team_id": "57794"
+    },
+    {
+      "id": "119352",
+      "name": "rushia",
+      "team_id": "48626"
+    },
+    {
+      "id": "2340",
+      "name": "s0m",
+      "team_id": "97"
+    },
+    {
+      "id": "145432",
+      "name": "sabooboo",
+      "team_id": "55262"
+    },
+    {
+      "id": "19085",
+      "name": "safiaa",
+      "team_id": "48235"
+    },
+    {
+      "id": "177192",
+      "name": "SaintClaws",
+      "team_id": "57048"
+    },
+    {
+      "id": "134976",
+      "name": "saiyje",
+      "team_id": "55266"
+    },
+    {
+      "id": "12474",
+      "name": "sarah",
+      "team_id": "55675"
+    },
+    {
+      "id": "14526",
+      "name": "sarah",
+      "team_id": "53372"
+    },
+    {
+      "id": "145881",
+      "name": "sarie",
+      "team_id": "55262"
+    },
+    {
+      "id": "174466",
+      "name": "sarie",
+      "team_id": "3429"
+    },
+    {
+      "id": "14826",
+      "name": "Sato",
+      "team_id": "1611"
+    },
+    {
+      "id": "174447",
+      "name": "sayfposting",
+      "team_id": "57052"
+    },
+    {
+      "id": "158",
+      "name": "sayuri",
+      "team_id": "53638"
+    },
+    {
+      "id": "186826",
+      "name": "scaredy",
+      "team_id": "57788"
+    },
+    {
+      "id": "119480",
+      "name": "scaryshark",
+      "team_id": "57794"
+    },
+    {
+      "id": "136784",
+      "name": "seal1",
+      "team_id": "56734"
+    },
+    {
+      "id": "15092",
+      "name": "Sekkya",
+      "team_id": "57052"
+    },
+    {
+      "id": "29108",
+      "name": "Serial",
+      "team_id": "83"
+    },
+    {
+      "id": "142953",
+      "name": "SHIN3Y",
+      "team_id": "57789"
+    },
+    {
+      "id": "1247",
+      "name": "shirazi",
+      "team_id": "56253"
+    },
+    {
+      "id": "3078",
+      "name": "Shyy",
+      "team_id": "48457"
+    },
+    {
+      "id": "32268",
+      "name": "silentzz",
+      "team_id": "53367"
+    },
+    {
+      "id": "126930",
+      "name": "silly girl",
+      "team_id": "57789"
+    },
+    {
+      "id": "142937",
+      "name": "SIMULACRA",
+      "team_id": "57056"
+    },
+    {
+      "id": "2412",
+      "name": "SiuFatBB",
+      "team_id": "53322"
+    },
+    {
+      "id": "312",
+      "name": "skuba",
+      "team_id": "97"
+    },
+    {
+      "id": "895",
+      "name": "Slandy",
+      "team_id": "57787"
+    },
+    {
+      "id": "187645",
+      "name": "Sleepy Aria",
+      "team_id": "57049"
+    },
+    {
+      "id": "1095",
+      "name": "Sliicyy",
+      "team_id": "55261"
+    },
+    {
+      "id": "1280",
+      "name": "Smurfette",
+      "team_id": "53372"
+    },
+    {
+      "id": "145385",
+      "name": "snackb0x",
+      "team_id": "4557"
+    },
+    {
+      "id": "111742",
+      "name": "snackbox",
+      "team_id": "57052"
+    },
+    {
+      "id": "30039",
+      "name": "Snowy",
+      "team_id": "57055"
+    },
+    {
+      "id": "124478",
+      "name": "sobersushi",
+      "team_id": "57054"
+    },
+    {
+      "id": "467",
+      "name": "something",
+      "team_id": "917"
+    },
+    {
+      "id": "3427",
+      "name": "sonder",
+      "team_id": "52324"
+    },
+    {
+      "id": "136785",
+      "name": "Sp00ky",
+      "team_id": "55268"
+    },
+    {
+      "id": "41829",
+      "name": "speqKR",
+      "team_id": "55797"
+    },
+    {
+      "id": "32032",
+      "name": "spikeziN",
+      "team_id": "53367"
+    },
+    {
+      "id": "732",
+      "name": "Spring",
+      "team_id": "53322"
+    },
+    {
+      "id": "17022",
+      "name": "srN",
+      "team_id": "53638"
+    },
+    {
+      "id": "187639",
+      "name": "ssssss",
+      "team_id": "57788"
+    },
+    {
+      "id": "15059",
+      "name": "StarBound",
+      "team_id": "55258"
+    },
+    {
+      "id": "983",
+      "name": "Starlight",
+      "team_id": "55794"
+    },
+    {
+      "id": "951",
+      "name": "stayval",
+      "team_id": "55258"
+    },
+    {
+      "id": "2886",
+      "name": "Stellar",
+      "team_id": "99"
+    },
+    {
+      "id": "307",
+      "name": "supamen",
+      "team_id": "281"
+    },
+    {
+      "id": "13955",
+      "name": "SUPERKAT",
+      "team_id": "55265"
+    },
+    {
+      "id": "30063",
+      "name": "svv",
+      "team_id": "57053"
+    },
+    {
+      "id": "174311",
+      "name": "swerve",
+      "team_id": "57055"
+    },
+    {
+      "id": "112588",
+      "name": "Sythrine",
+      "team_id": "4557"
+    },
+    {
+      "id": "377",
+      "name": "t3xture",
+      "team_id": "404"
+    },
+    {
+      "id": "14808",
+      "name": "Tailo",
+      "team_id": "55264"
+    },
+    {
+      "id": "117912",
+      "name": "Teddy3",
+      "team_id": "55261"
+    },
+    {
+      "id": "41836",
+      "name": "terror",
+      "team_id": "57048"
+    },
+    {
+      "id": "2343",
+      "name": "tex",
+      "team_id": "1611"
+    },
+    {
+      "id": "934",
+      "name": "theia",
+      "team_id": "52324"
+    },
+    {
+      "id": "174328",
+      "name": "thump",
+      "team_id": "3612"
+    },
+    {
+      "id": "2783",
+      "name": "Toki",
+      "team_id": "53372"
+    },
+    {
+      "id": "2353",
+      "name": "trent",
+      "team_id": "96"
+    },
+    {
+      "id": "112590",
+      "name": "trushi",
+      "team_id": "55799"
+    },
+    {
+      "id": "272",
+      "name": "tuyz",
+      "team_id": "99"
+    },
+    {
+      "id": "42",
+      "name": "Urango",
+      "team_id": "99"
+    },
+    {
+      "id": "10612",
+      "name": "v1c",
+      "team_id": "79"
+    },
+    {
+      "id": "3301",
+      "name": "v1nNy",
+      "team_id": "3412"
+    },
+    {
+      "id": "15106",
+      "name": "Valusia",
+      "team_id": "4557"
+    },
+    {
+      "id": "2349",
+      "name": "valyn",
+      "team_id": "96"
+    },
+    {
+      "id": "1297",
+      "name": "Vania",
+      "team_id": "3530"
+    },
+    {
+      "id": "136782",
+      "name": "vanitas",
+      "team_id": "3612"
+    },
+    {
+      "id": "10630",
+      "name": "Verno",
+      "team_id": "81"
+    },
+    {
+      "id": "187641",
+      "name": "Vexnss",
+      "team_id": "57789"
+    },
+    {
+      "id": "174285",
+      "name": "Vienna",
+      "team_id": "57053"
+    },
+    {
+      "id": "10901",
+      "name": "Virtyy",
+      "team_id": "3412"
+    },
+    {
+      "id": "13569",
+      "name": "Viva",
+      "team_id": "54395"
+    },
+    {
+      "id": "187640",
+      "name": "waster",
+      "team_id": "57788"
+    },
+    {
+      "id": "13525",
+      "name": "whzy",
+      "team_id": "48626"
+    },
+    {
+      "id": "13836",
+      "name": "winter",
+      "team_id": "57051"
+    },
+    {
+      "id": "174295",
+      "name": "winter3",
+      "team_id": "57788"
+    },
+    {
+      "id": "40578",
+      "name": "wlloh",
+      "team_id": "57056"
+    },
+    {
+      "id": "9324",
+      "name": "Wo0t",
+      "team_id": "173"
+    },
+    {
+      "id": "629",
+      "name": "xenom",
+      "team_id": "81"
+    },
+    {
+      "id": "1193",
+      "name": "Xeppaa",
+      "team_id": "79"
+    },
+    {
+      "id": "740",
+      "name": "Xffero",
+      "team_id": "3604"
+    },
+    {
+      "id": "866",
+      "name": "yay",
+      "team_id": "281"
+    },
+    {
+      "id": "176049",
+      "name": "yuhan",
+      "team_id": "57787"
+    },
+    {
+      "id": "10686",
+      "name": "Yuicaw",
+      "team_id": "53322"
+    },
+    {
+      "id": "15253",
+      "name": "yunie",
+      "team_id": "3429"
+    },
+    {
+      "id": "127880",
+      "name": "yxqme",
+      "team_id": "55641"
+    },
+    {
+      "id": "2359",
+      "name": "Zander",
+      "team_id": "337"
+    },
+    {
+      "id": "32269",
+      "name": "zap",
+      "team_id": "53367"
+    },
+    {
+      "id": "287",
+      "name": "zekken",
+      "team_id": "1079"
+    },
+    {
+      "id": "94",
+      "name": "Zellsis",
+      "team_id": "1079"
+    },
+    {
+      "id": "18787",
+      "name": "Zeukos",
+      "team_id": "57053"
+    },
+    {
+      "id": "18740",
+      "name": "zev",
+      "team_id": "55268"
+    },
+    {
+      "id": "124367",
+      "name": "zoriental",
+      "team_id": "57049"
+    },
+    {
+      "id": "29992",
+      "name": "Zoue",
+      "team_id": "57055"
+    }
+  ],
+  "maps": [
+    {
+      "name": "Abyss",
+      "bounds": {
+        "min": {
+          "x": -6000.0,
+          "y": -6800.0
+        },
+        "max": {
+          "x": 6000.0,
+          "y": 5800.0
+        }
+      }
+    },
+    {
+      "name": "Ascent",
+      "bounds": {
+        "min": {
+          "x": -4850.0,
+          "y": -11100.0
+        },
+        "max": {
+          "x": 7550.0,
+          "y": 2200.0
+        }
+      }
+    },
+    {
+      "name": "Bind",
+      "bounds": {
+        "min": {
+          "x": 100.0,
+          "y": -7300.0
+        },
+        "max": {
+          "x": 16100.0,
+          "y": 6050.0
+        }
+      }
+    },
+    {
+      "name": "Breeze",
+      "bounds": {
+        "min": {
+          "x": -1650.0,
+          "y": -6200.0
+        },
+        "max": {
+          "x": 11450.0,
+          "y": 7200.0
+        }
+      }
+    },
+    {
+      "name": "Corrode",
+      "bounds": {
+        "min": {
+          "x": -6000.0,
+          "y": -7100.0
+        },
+        "max": {
+          "x": 6000.0,
+          "y": 6500.0
+        }
+      }
+    },
+    {
+      "name": "Fracture",
+      "bounds": {
+        "min": {
+          "x": 3000.0,
+          "y": -6850.0
+        },
+        "max": {
+          "x": 13900.0,
+          "y": 4700.0
+        }
+      }
+    },
+    {
+      "name": "Haven",
+      "bounds": {
+        "min": {
+          "x": -3700.0,
+          "y": -14100.0
+        },
+        "max": {
+          "x": 7450.0,
+          "y": -1800.0
+        }
+      }
+    },
+    {
+      "name": "Icebox",
+      "bounds": {
+        "min": {
+          "x": -8300.0,
+          "y": -5200.0
+        },
+        "max": {
+          "x": 3100.0,
+          "y": 7200.0
+        }
+      }
+    },
+    {
+      "name": "Lotus",
+      "bounds": {
+        "min": {
+          "x": 300.0,
+          "y": -5500.0
+        },
+        "max": {
+          "x": 11000.0,
+          "y": 6550.0
+        }
+      }
+    },
+    {
+      "name": "Pearl",
+      "bounds": {
+        "min": {
+          "x": -500.0,
+          "y": -6100.0
+        },
+        "max": {
+          "x": 11250.0,
+          "y": 6550.0
+        }
+      }
+    },
+    {
+      "name": "Split",
+      "bounds": {
+        "min": {
+          "x": -3450.0,
+          "y": -10050.0
+        },
+        "max": {
+          "x": 8300.0,
+          "y": 950.0
+        }
+      }
+    },
+    {
+      "name": "Summit",
+      "bounds": {
+        "min": {
+          "x": 300.0,
+          "y": -50.0
+        },
+        "max": {
+          "x": 12700.0,
+          "y": 10250.0
+        }
+      }
+    },
+    {
+      "name": "Sunset",
+      "bounds": {
+        "min": {
+          "x": -6000.0,
+          "y": -5800.0
+        },
+        "max": {
+          "x": 6450.0,
+          "y": 6000.0
+        }
+      }
+    }
+  ],
+  "series_ids": [
+    "2748743",
+    "2748744",
+    "2748745",
+    "2748746",
+    "2748747",
+    "2748748",
+    "2748749",
+    "2748750",
+    "2748753",
+    "2748754",
+    "2748756",
+    "2748755",
+    "2748757",
+    "2748758",
+    "2748759",
+    "2748760",
+    "2748761",
+    "2748762",
+    "2748763",
+    "2748764",
+    "2748765",
+    "2748766",
+    "2775953",
+    "2775954",
+    "2775955",
+    "2775956",
+    "2775957",
+    "2775958",
+    "2775959",
+    "2775960",
+    "2775961",
+    "2775962",
+    "2775963",
+    "2775964",
+    "2789396",
+    "2775966",
+    "2775967",
+    "2775968",
+    "2775969",
+    "2775970",
+    "2775971",
+    "2775972",
+    "2775973",
+    "2775974",
+    "2775975",
+    "2775976",
+    "2792924",
+    "2792925",
+    "2792926",
+    "2792927",
+    "2792928",
+    "2792929",
+    "2792930",
+    "2792931",
+    "2775977",
+    "2775978",
+    "2775979",
+    "2775980",
+    "2775981",
+    "2775982",
+    "2792932",
+    "2792933",
+    "2792934",
+    "2792935",
+    "2792936",
+    "2792937",
+    "2792938",
+    "2792939",
+    "2775983",
+    "2775984",
+    "2775985",
+    "2775986",
+    "2775987",
+    "2775988",
+    "2775989",
+    "2775990",
+    "2792941",
+    "2792942",
+    "2792944",
+    "2792945",
+    "2792946",
+    "2792947",
+    "2775991",
+    "2775992",
+    "2775993",
+    "2775994",
+    "2792957",
+    "2792958",
+    "2792959",
+    "2792960",
+    "2792961",
+    "2792962",
+    "2792964",
+    "2792968",
+    "2792965",
+    "2792966",
+    "2792969",
+    "2792970",
+    "2792972",
+    "2792973",
+    "2792974",
+    "2792975",
+    "2792976",
+    "2792977",
+    "2792978",
+    "2792979",
+    "2792980",
+    "2792981",
+    "2792982",
+    "2792983",
+    "2792984",
+    "2792985",
+    "2808410",
+    "2808411",
+    "2808412",
+    "2808413",
+    "2808414",
+    "2808415",
+    "2808416",
+    "2808417",
+    "2808418",
+    "2808419",
+    "2808422",
+    "2808423",
+    "2808420",
+    "2808421",
+    "2808425",
+    "2808424",
+    "2808427",
+    "2808428",
+    "2808430",
+    "2808429",
+    "2808431",
+    "2808432",
+    "2808433",
+    "2808434",
+    "2819676",
+    "2819677",
+    "2819678",
+    "2819679",
+    "2819680",
+    "2819681",
+    "2819682",
+    "2819683",
+    "2819684",
+    "2819685",
+    "2819686",
+    "2819687",
+    "2833627",
+    "2833628",
+    "2833629",
+    "2833630",
+    "2833631",
+    "2833633",
+    "2833634",
+    "2833635",
+    "2819688",
+    "2819689",
+    "2819690",
+    "2819691",
+    "2819692",
+    "2819693",
+    "2833637",
+    "2833639",
+    "2833640",
+    "2833643",
+    "2833636",
+    "2833638",
+    "2833641",
+    "2833642",
+    "2819694",
+    "2819695",
+    "2819696",
+    "2819697",
+    "2819698",
+    "2819699",
+    "2833645",
+    "2833646",
+    "2833647",
+    "2833651",
+    "2833648",
+    "2833649",
+    "2833650",
+    "2833652",
+    "2819700",
+    "2819701",
+    "2819702",
+    "2819703",
+    "2819704",
+    "2819705",
+    "2833653",
+    "2833654",
+    "2833657",
+    "2833660",
+    "2833656",
+    "2833658",
+    "2833659",
+    "2843060",
+    "2843061",
+    "2843062",
+    "2843063",
+    "2843064",
+    "2843065",
+    "2843067",
+    "2843066",
+    "2833662",
+    "2833663",
+    "2833664",
+    "2833665",
+    "2833666",
+    "2833667",
+    "2833668",
+    "2843068",
+    "2843069",
+    "2843070",
+    "2843071",
+    "2833669",
+    "2833670",
+    "2833671",
+    "2833672",
+    "2833673",
+    "2833674",
+    "2833675",
+    "2833676",
+    "2833677",
+    "2833678",
+    "2833679",
+    "2833680",
+    "2833681",
+    "2833682",
+    "2833683",
+    "2833684",
+    "2833685",
+    "2833686",
+    "2833687",
+    "2833688",
+    "2833689",
+    "2864124",
+    "2864125",
+    "2864127",
+    "2864126",
+    "2864128",
+    "2864129",
+    "2864131",
+    "2864130",
+    "2864133",
+    "2864132",
+    "2864134",
+    "2864135",
+    "2864136",
+    "2864137",
+    "2864138",
+    "2864139",
+    "2864140",
+    "2864141",
+    "2888822",
+    "2888823",
+    "2888824",
+    "2888825",
+    "2888826",
+    "2888827",
+    "2888828",
+    "2888829",
+    "2888830",
+    "2888831",
+    "2888832",
+    "2888833",
+    "2888834",
+    "2888835",
+    "2934509",
+    "2934511",
+    "2934512",
+    "2934513",
+    "2934514",
+    "2934515",
+    "2934516",
+    "2934517",
+    "2934521",
+    "2934522",
+    "2934523",
+    "2934524",
+    "2934525",
+    "2934526",
+    "2934527",
+    "2934528",
+    "2934530",
+    "2934531",
+    "2934532",
+    "2934534",
+    "2934529",
+    "2934533",
+    "2934535",
+    "2934536",
+    "2934537",
+    "2934538",
+    "2934539",
+    "2934541",
+    "2934540",
+    "2934542",
+    "2934544",
+    "2934545",
+    "2934549",
+    "2934547",
+    "2934548",
+    "2934551",
+    "2934546",
+    "2934550",
+    "2934552",
+    "2934555",
+    "2934557",
+    "2934558",
+    "2934559",
+    "2934560",
+    "2934561",
+    "2934562",
+    "2934563",
+    "2934564",
+    "2934565",
+    "2934566",
+    "2934567",
+    "2934568",
+    "2934569",
+    "2934570",
+    "2934571",
+    "2934572",
+    "2934573",
+    "2934574",
+    "2934575",
+    "2972877",
+    "2972883",
+    "2972893",
+    "2972904",
+    "2972913",
+    "2972924",
+    "2972926",
+    "2972931",
+    "2972936"
+  ],
+  "heatmap_sampling": {
+    "points_total": 580455,
+    "points_kept": 18991,
+    "method": "reservoir sampling per map (cap 3000/map, seed 42); systematic stride downsampling applied only if the 8 MB total budget would otherwise be exceeded",
+    "per_map_cap": 3000
+  },
+  "landing_zones_note": "landing-zones.json berisi ESTIMASI proyeksi balistik, bukan posisi pendaratan terukur — lihat pipeline/README.md",
+  "operator_evidence_note": "rounds_with_operator dari snapshot inventory (game-started-round / game-ended-round) + player-pickedUp-item; kill Operator dipakai sebagai bukti fallback bila tidak ada snapshot"
+}

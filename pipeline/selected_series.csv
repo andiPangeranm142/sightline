@@ -1,0 +1,338 @@
+series_id,event,stage,scheduled_start,teams
+2748743,VCT Americas - Kickoff 2025,Knockouts,2025-01-16T22:00:00Z,Evil Geniuses (1) vs LOUD
+2748744,VCT Americas - Kickoff 2025,Knockouts,2025-01-17T01:00:00Z,MIBR vs 100 Thieves
+2748745,VCT Americas - Kickoff 2025,Knockouts,2025-01-17T22:00:00Z,2GAME eSports vs FURIA
+2748746,VCT Americas - Kickoff 2025,Knockouts,2025-01-18T01:00:00Z,NRG vs Cloud9
+2748747,VCT Americas - Kickoff 2025,Knockouts,2025-01-18T22:00:00Z,LOUD vs KRÜ Visa
+2748748,VCT Americas - Kickoff 2025,Knockouts,2025-01-19T01:00:00Z,100 Thieves vs Sentinels
+2748749,VCT Americas - Kickoff 2025,Knockouts,2025-01-19T22:00:00Z,FURIA vs Leviatán Esports
+2748750,VCT Americas - Kickoff 2025,Knockouts,2025-01-20T01:00:00Z,Cloud9 vs G2 Esports
+2748753,VCT Americas - Kickoff 2025,Knockouts,2025-01-23T22:00:00Z,FURIA vs Evil Geniuses (1)
+2748754,VCT Americas - Kickoff 2025,Knockouts,2025-01-24T01:00:00Z,Cloud9 vs MIBR
+2748756,VCT Americas - Kickoff 2025,Knockouts,2025-01-24T22:00:00Z,KRÜ Visa vs 2GAME eSports
+2748755,VCT Americas - Kickoff 2025,Knockouts,2025-01-25T01:00:00Z,100 Thieves vs NRG
+2748757,VCT Americas - Kickoff 2025,Knockouts,2025-01-31T22:00:00Z,Sentinels vs LOUD
+2748758,VCT Americas - Kickoff 2025,Knockouts,2025-02-01T01:00:00Z,Leviatán Esports vs G2 Esports
+2748759,VCT Americas - Kickoff 2025,Knockouts,2025-02-01T22:00:00Z,MIBR vs Evil Geniuses (1)
+2748760,VCT Americas - Kickoff 2025,Knockouts,2025-02-02T01:00:00Z,KRÜ Visa vs NRG
+2748761,VCT Americas - Kickoff 2025,Knockouts,2025-02-02T22:00:00Z,MIBR vs Leviatán Esports
+2748762,VCT Americas - Kickoff 2025,Knockouts,2025-02-03T01:00:00Z,KRÜ Visa vs LOUD
+2748763,VCT Americas - Kickoff 2025,Knockouts,2025-02-06T22:00:00Z,G2 Esports vs Sentinels
+2748764,VCT Americas - Kickoff 2025,Knockouts,2025-02-07T01:00:00Z,KRÜ Visa vs MIBR
+2748765,VCT Americas - Kickoff 2025,Knockouts,2025-02-07T22:00:00Z,MIBR vs Sentinels
+2748766,VCT Americas - Kickoff 2025,Knockouts,2025-02-08T22:00:00Z,Sentinels vs G2 Esports
+2775953,VCT Americas - Stage 1 2025,Regular Season,2025-03-21T21:00:00Z,Cloud9 vs NRG
+2775954,VCT Americas - Stage 1 2025,Regular Season,2025-03-22T00:00:00Z,KRÜ Visa vs LOUD
+2775955,VCT Americas - Stage 1 2025,Regular Season,2025-03-22T21:00:00Z,G2 Esports vs FURIA
+2775956,VCT Americas - Stage 1 2025,Regular Season,2025-03-23T00:00:00Z,Leviatán Esports vs MIBR
+2775957,VCT Americas - Stage 1 2025,Regular Season,2025-03-23T21:00:00Z,2GAME eSports vs Evil Geniuses (1)
+2775958,VCT Americas - Stage 1 2025,Regular Season,2025-03-24T00:00:00Z,Sentinels vs 100 Thieves
+2775959,VCT Americas - Stage 1 2025,Regular Season,2025-03-28T21:00:00Z,NRG vs FURIA
+2775960,VCT Americas - Stage 1 2025,Regular Season,2025-03-29T00:00:00Z,Sentinels vs KRÜ Visa
+2775961,VCT Americas - Stage 1 2025,Regular Season,2025-03-29T21:00:00Z,100 Thieves vs Evil Geniuses (1)
+2775962,VCT Americas - Stage 1 2025,Regular Season,2025-03-30T00:00:00Z,G2 Esports vs MIBR
+2775963,VCT Americas - Stage 1 2025,Regular Season,2025-03-30T21:00:00Z,LOUD vs 2GAME eSports
+2775964,VCT Americas - Stage 1 2025,Regular Season,2025-03-31T00:00:00Z,Cloud9 vs Leviatán Esports
+2789396,VCT Americas - Stage 1 2025,Regular Season,2025-04-04T21:20:00Z,Evil Geniuses (1) vs Sentinels
+2775966,VCT Americas - Stage 1 2025,Regular Season,2025-04-05T00:00:00Z,100 Thieves vs LOUD
+2775967,VCT Americas - Stage 1 2025,Regular Season,2025-04-05T21:00:00Z,2GAME eSports vs KRÜ Visa
+2775968,VCT Americas - Stage 1 2025,Regular Season,2025-04-06T00:00:00Z,G2 Esports vs NRG
+2775969,VCT Americas - Stage 1 2025,Regular Season,2025-04-06T21:00:00Z,FURIA vs Leviatán Esports
+2775970,VCT Americas - Stage 1 2025,Regular Season,2025-04-07T00:00:00Z,Cloud9 vs MIBR
+2775971,VCT Americas - Stage 1 2025,Regular Season,2025-04-11T21:00:00Z,100 Thieves vs 2GAME eSports
+2775972,VCT Americas - Stage 1 2025,Regular Season,2025-04-12T00:00:00Z,Leviatán Esports vs G2 Esports
+2775973,VCT Americas - Stage 1 2025,Regular Season,2025-04-12T21:00:00Z,FURIA vs Cloud9
+2775974,VCT Americas - Stage 1 2025,Regular Season,2025-04-13T00:00:00Z,Sentinels vs LOUD
+2775975,VCT Americas - Stage 1 2025,Regular Season,2025-04-13T21:00:00Z,KRÜ Visa vs Evil Geniuses (1)
+2775976,VCT Americas - Stage 1 2025,Regular Season,2025-04-14T00:00:00Z,NRG vs MIBR
+2792924,Game Changers NA - Split 1 2025,Swiss,2025-04-14T21:00:00Z,Shopify Rebellion Gold vs Catnappers
+2792925,Game Changers NA - Split 1 2025,Swiss,2025-04-14T21:00:00Z,:3 vs Fisher Fumblers
+2792926,Game Changers NA - Split 1 2025,Swiss,2025-04-14T21:00:00Z,Kiri Magenta vs Teevee
+2792927,Game Changers NA - Split 1 2025,Swiss,2025-04-14T21:00:00Z,Wadadaa vs Berzerkers Dawn
+2792928,Game Changers NA - Split 1 2025,Swiss,2025-04-14T23:30:00Z,FlyQuest Red vs Evolution
+2792929,Game Changers NA - Split 1 2025,Swiss,2025-04-14T23:30:00Z,YFP X vs kessoku band
+2792930,Game Changers NA - Split 1 2025,Swiss,2025-04-14T23:30:00Z,100 Thieves GC vs Prosperity X
+2792931,Game Changers NA - Split 1 2025,Swiss,2025-04-14T23:30:00Z,Overkill vs Teddy Tactics
+2775977,VCT Americas - Stage 1 2025,Regular Season,2025-04-18T21:00:00Z,G2 Esports vs Cloud9
+2775978,VCT Americas - Stage 1 2025,Regular Season,2025-04-19T00:00:00Z,MIBR vs FURIA
+2775979,VCT Americas - Stage 1 2025,Regular Season,2025-04-19T21:00:00Z,Sentinels vs 2GAME eSports
+2775980,VCT Americas - Stage 1 2025,Regular Season,2025-04-20T00:00:00Z,100 Thieves vs KRÜ Visa
+2775981,VCT Americas - Stage 1 2025,Regular Season,2025-04-20T21:00:00Z,Evil Geniuses (1) vs LOUD
+2775982,VCT Americas - Stage 1 2025,Regular Season,2025-04-21T01:15:00Z,NRG vs Leviatán Esports
+2792932,Game Changers NA - Split 1 2025,Swiss,2025-04-21T21:00:00Z,Kiri Magenta vs Catnappers
+2792933,Game Changers NA - Split 1 2025,Swiss,2025-04-21T21:00:00Z,Wadadaa vs Shopify Rebellion Gold
+2792934,Game Changers NA - Split 1 2025,Swiss,2025-04-21T21:00:00Z,Teddy Tactics vs Fisher Fumblers
+2792935,Game Changers NA - Split 1 2025,Swiss,2025-04-21T21:00:00Z,100 Thieves GC vs :3
+2792936,Game Changers NA - Split 1 2025,Swiss,2025-04-21T23:30:00Z,YFP X vs Teevee
+2792937,Game Changers NA - Split 1 2025,Swiss,2025-04-21T23:30:00Z,FlyQuest Red vs Ghost Gaming
+2792938,Game Changers NA - Split 1 2025,Swiss,2025-04-21T23:30:00Z,Prosperity X vs Evolution
+2792939,Game Changers NA - Split 1 2025,Swiss,2025-04-21T23:30:00Z,kessoku band vs Berzerkers Dawn
+2775983,VCT Americas - Stage 1 2025,Playoffs,2025-04-24T21:00:00Z,MIBR vs 100 Thieves
+2775984,VCT Americas - Stage 1 2025,Playoffs,2025-04-25T00:00:00Z,Sentinels vs Cloud9
+2775985,VCT Americas - Stage 1 2025,Playoffs,2025-04-25T21:00:00Z,100 Thieves vs NRG
+2775986,VCT Americas - Stage 1 2025,Playoffs,2025-04-26T00:00:00Z,Cloud9 vs Evil Geniuses (1)
+2775987,VCT Americas - Stage 1 2025,Playoffs,2025-04-26T21:00:00Z,MIBR vs KRÜ Visa
+2775988,VCT Americas - Stage 1 2025,Playoffs,2025-04-27T00:00:00Z,Sentinels vs G2 Esports
+2775989,VCT Americas - Stage 1 2025,Playoffs,2025-04-27T21:00:00Z,KRÜ Visa vs Evil Geniuses (1)
+2775990,VCT Americas - Stage 1 2025,Playoffs,2025-04-28T00:00:00Z,G2 Esports vs 100 Thieves
+2792941,Game Changers NA - Split 1 2025,Swiss,2025-04-28T21:00:00Z,Teevee vs Fisher Fumblers
+2792942,Game Changers NA - Split 1 2025,Swiss,2025-04-28T21:00:00Z,Prosperity X vs Wadadaa
+2792944,Game Changers NA - Split 1 2025,Swiss,2025-04-28T21:00:00Z,Catnappers vs Teddy Tactics
+2792945,Game Changers NA - Split 1 2025,Swiss,2025-04-28T23:30:00Z,kessoku band vs Evolution
+2792946,Game Changers NA - Split 1 2025,Swiss,2025-04-28T23:30:00Z,Berzerkers Dawn vs :3
+2792947,Game Changers NA - Split 1 2025,Swiss,2025-04-28T23:30:00Z,100 Thieves GC vs FlyQuest Red
+2775991,VCT Americas - Stage 1 2025,Playoffs,2025-05-02T21:00:00Z,Sentinels vs MIBR
+2775992,VCT Americas - Stage 1 2025,Playoffs,2025-05-03T00:00:00Z,Evil Geniuses (1) vs G2 Esports
+2775993,VCT Americas - Stage 1 2025,Playoffs,2025-05-03T21:00:00Z,G2 Esports vs MIBR
+2775994,VCT Americas - Stage 1 2025,Playoffs,2025-05-04T21:00:00Z,G2 Esports vs Sentinels
+2792957,Game Changers NA - Split 1 2025,Swiss,2025-05-09T21:00:00Z,100 Thieves GC vs Ghost Gaming
+2792958,Game Changers NA - Split 1 2025,Swiss,2025-05-09T21:00:00Z,Fisher Fumblers vs YFP X
+2792959,Game Changers NA - Split 1 2025,Swiss,2025-05-09T21:00:00Z,Wadadaa vs FlyQuest Red
+2792960,Game Changers NA - Split 1 2025,Swiss,2025-05-09T21:00:00Z,kessoku band vs :3
+2792961,Game Changers NA - Split 1 2025,Swiss,2025-05-09T23:30:00Z,Teevee vs Berzerkers Dawn
+2792962,Game Changers NA - Split 1 2025,Swiss,2025-05-09T23:30:00Z,Evolution vs Teddy Tactics
+2792964,Game Changers NA - Split 1 2025,Swiss,2025-05-12T21:00:00Z,:3 vs FlyQuest Red
+2792968,Game Changers NA - Split 1 2025,Swiss,2025-05-12T21:00:00Z,Teddy Tactics vs Prosperity X
+2792965,Game Changers NA - Split 1 2025,Swiss,2025-05-12T23:30:00Z,YFP X vs Ghost Gaming
+2792966,Game Changers NA - Split 1 2025,Swiss,2025-05-12T23:30:00Z,Berzerkers Dawn vs Teevee
+2792969,Game Changers NA - Split 1 2025,Swiss,2025-05-16T21:00:00Z,Prosperity X vs Ghost Gaming
+2792970,Game Changers NA - Split 1 2025,Swiss,2025-05-16T23:30:00Z,Fisher Fumblers vs :3
+2792972,Game Changers NA - Split 1 2025,Playoffs,2025-05-23T21:00:00Z,Shopify Rebellion Gold vs :3
+2792973,Game Changers NA - Split 1 2025,Playoffs,2025-05-23T21:00:00Z,YFP X vs FlyQuest Red
+2792974,Game Changers NA - Split 1 2025,Playoffs,2025-05-23T23:30:00Z,Wadadaa vs Ghost Gaming
+2792975,Game Changers NA - Split 1 2025,Playoffs,2025-05-23T23:30:00Z,100 Thieves GC vs Teevee
+2792976,Game Changers NA - Split 1 2025,Playoffs,2025-05-24T21:00:00Z,YFP X vs Shopify Rebellion Gold
+2792977,Game Changers NA - Split 1 2025,Playoffs,2025-05-24T21:00:00Z,FlyQuest Red vs :3
+2792978,Game Changers NA - Split 1 2025,Playoffs,2025-05-24T23:30:00Z,100 Thieves GC vs Wadadaa
+2792979,Game Changers NA - Split 1 2025,Playoffs,2025-05-24T23:30:00Z,Teevee vs Ghost Gaming
+2792980,Game Changers NA - Split 1 2025,Playoffs,2025-05-25T21:00:00Z,Ghost Gaming vs YFP X
+2792981,Game Changers NA - Split 1 2025,Playoffs,2025-05-25T23:30:00Z,:3 vs 100 Thieves GC
+2792982,Game Changers NA - Split 1 2025,Playoffs,2025-05-30T21:00:00Z,Wadadaa vs Shopify Rebellion Gold
+2792983,Game Changers NA - Split 1 2025,Playoffs,2025-05-30T23:30:00Z,Ghost Gaming vs 100 Thieves GC
+2792984,Game Changers NA - Split 1 2025,Playoffs,2025-05-31T21:00:00Z,Ghost Gaming vs Wadadaa
+2792985,Game Changers NA - Split 1 2025,Playoffs,2025-06-01T21:00:00Z,Wadadaa vs Shopify Rebellion Gold
+2808410,VALORANT Masters - Masters Toronto,Swiss,2025-06-07T16:00:00Z,Team Heretics vs Paper Rex
+2808411,VALORANT Masters - Masters Toronto,Swiss,2025-06-07T19:00:00Z,Bilibili Gaming vs Team Liquid
+2808412,VALORANT Masters - Masters Toronto,Swiss,2025-06-08T16:00:00Z,Sentinels vs WOLVES ESPORTS
+2808413,VALORANT Masters - Masters Toronto,Swiss,2025-06-08T19:00:00Z,Gen.G vs MIBR
+2808414,VALORANT Masters - Masters Toronto,Swiss,2025-06-09T16:00:00Z,Bilibili Gaming vs Sentinels
+2808415,VALORANT Masters - Masters Toronto,Swiss,2025-06-09T19:00:00Z,Paper Rex vs Gen.G
+2808416,VALORANT Masters - Masters Toronto,Swiss,2025-06-10T16:00:00Z,Team Heretics vs WOLVES ESPORTS
+2808417,VALORANT Masters - Masters Toronto,Swiss,2025-06-10T19:00:00Z,Team Liquid vs MIBR
+2808418,VALORANT Masters - Masters Toronto,Swiss,2025-06-11T16:00:00Z,WOLVES ESPORTS vs Bilibili Gaming
+2808419,VALORANT Masters - Masters Toronto,Swiss,2025-06-11T19:00:00Z,Team Liquid vs Paper Rex
+2808422,VALORANT Masters - Masters Toronto,Playoffs,2025-06-13T16:00:00Z,G2 Esports vs Paper Rex
+2808423,VALORANT Masters - Masters Toronto,Playoffs,2025-06-13T19:00:00Z,Xi Lai Gaming vs Sentinels
+2808420,VALORANT Masters - Masters Toronto,Playoffs,2025-06-14T16:00:00Z,Rex Regum Qeon vs WOLVES ESPORTS
+2808421,VALORANT Masters - Masters Toronto,Playoffs,2025-06-14T19:00:00Z,Fnatic vs Gen.G
+2808425,VALORANT Masters - Masters Toronto,Playoffs,2025-06-15T16:00:00Z,Xi Lai Gaming vs G2 Esports
+2808424,VALORANT Masters - Masters Toronto,Playoffs,2025-06-15T19:00:00Z,Fnatic vs Rex Regum Qeon
+2808427,VALORANT Masters - Masters Toronto,Playoffs,2025-06-16T16:00:00Z,WOLVES ESPORTS vs Gen.G
+2808428,VALORANT Masters - Masters Toronto,Playoffs,2025-06-16T19:00:00Z,Paper Rex vs Sentinels
+2808430,VALORANT Masters - Masters Toronto,Playoffs,2025-06-17T16:00:00Z,G2 Esports vs Gen.G
+2808429,VALORANT Masters - Masters Toronto,Playoffs,2025-06-17T19:00:00Z,Fnatic vs Sentinels
+2808431,VALORANT Masters - Masters Toronto,Playoffs,2025-06-20T16:00:00Z,Paper Rex vs WOLVES ESPORTS
+2808432,VALORANT Masters - Masters Toronto,Playoffs,2025-06-20T19:00:00Z,G2 Esports vs Fnatic
+2808433,VALORANT Masters - Masters Toronto,Playoffs,2025-06-21T16:00:00Z,Fnatic vs WOLVES ESPORTS
+2808434,VALORANT Masters - Masters Toronto,Playoffs,2025-06-22T17:00:00Z,Fnatic vs Paper Rex
+2819676,VCT Americas - Stage 2 2025,Regular Season,2025-07-18T21:00:00Z,Cloud9 vs FURIA
+2819677,VCT Americas - Stage 2 2025,Regular Season,2025-07-19T00:00:00Z,Leviatán Esports vs LOUD
+2819678,VCT Americas - Stage 2 2025,Regular Season,2025-07-19T21:00:00Z,Evil Geniuses (1) vs 2GAME eSports
+2819679,VCT Americas - Stage 2 2025,Regular Season,2025-07-20T00:15:00Z,MIBR vs KRÜ Visa
+2819680,VCT Americas - Stage 2 2025,Regular Season,2025-07-20T21:00:00Z,100 Thieves vs NRG
+2819681,VCT Americas - Stage 2 2025,Regular Season,2025-07-21T00:00:00Z,Sentinels vs G2 Esports
+2819682,VCT Americas - Stage 2 2025,Regular Season,2025-07-25T21:00:00Z,2GAME eSports vs G2 Esports
+2819683,VCT Americas - Stage 2 2025,Regular Season,2025-07-26T00:00:00Z,FURIA vs Sentinels
+2819684,VCT Americas - Stage 2 2025,Regular Season,2025-07-26T21:00:00Z,100 Thieves vs KRÜ Visa
+2819685,VCT Americas - Stage 2 2025,Regular Season,2025-07-27T00:00:00Z,LOUD vs NRG
+2819686,VCT Americas - Stage 2 2025,Regular Season,2025-07-27T21:00:00Z,Cloud9 vs Evil Geniuses (1)
+2819687,VCT Americas - Stage 2 2025,Regular Season,2025-07-28T00:00:00Z,MIBR vs Leviatán Esports
+2833627,Game Changers NA - Split 2 2025,Swiss,2025-07-28T21:00:00Z,Ghost Gaming vs Alliance Angels
+2833628,Game Changers NA - Split 2 2025,Swiss,2025-07-28T21:00:00Z,FlyQuest Red vs Kiri Magenta
+2833629,Game Changers NA - Split 2 2025,Swiss,2025-07-28T21:00:00Z,Shopify Rebellion Gold vs Artificial Intelligence
+2833630,Game Changers NA - Split 2 2025,Swiss,2025-07-28T21:00:00Z,100 Thieves GC vs SEN Otters
+2833631,Game Changers NA - Split 2 2025,Swiss,2025-07-28T23:30:00Z,:3 vs Tenax GC
+2833633,Game Changers NA - Split 2 2025,Swiss,2025-07-28T23:30:00Z,Wadadaa vs ^-^
+2833634,Game Changers NA - Split 2 2025,Swiss,2025-07-28T23:30:00Z,YFP X vs YDZ Black
+2833635,Game Changers NA - Split 2 2025,Swiss,2025-07-28T23:30:00Z,Teevee vs Mak N Cheese
+2819688,VCT Americas - Stage 2 2025,Regular Season,2025-08-01T21:00:00Z,2GAME eSports vs FURIA
+2819689,VCT Americas - Stage 2 2025,Regular Season,2025-08-02T00:00:00Z,Leviatán Esports vs NRG
+2819690,VCT Americas - Stage 2 2025,Regular Season,2025-08-02T21:00:00Z,Sentinels vs Cloud9
+2819691,VCT Americas - Stage 2 2025,Regular Season,2025-08-03T00:00:00Z,100 Thieves vs MIBR
+2819692,VCT Americas - Stage 2 2025,Regular Season,2025-08-03T21:00:00Z,G2 Esports vs Evil Geniuses (1)
+2819693,VCT Americas - Stage 2 2025,Regular Season,2025-08-04T00:00:00Z,LOUD vs KRÜ Visa
+2833637,Game Changers NA - Split 2 2025,Swiss,2025-08-04T21:00:00Z,Wadadaa vs YFP X
+2833639,Game Changers NA - Split 2 2025,Swiss,2025-08-04T21:00:00Z,Shopify Rebellion Gold vs Mak N Cheese
+2833640,Game Changers NA - Split 2 2025,Swiss,2025-08-04T21:00:00Z,SEN Otters vs Alliance Angels
+2833643,Game Changers NA - Split 2 2025,Swiss,2025-08-04T21:00:00Z,:3 vs YDZ Black
+2833636,Game Changers NA - Split 2 2025,Swiss,2025-08-04T23:30:00Z,Ghost Gaming vs Tenax GC
+2833638,Game Changers NA - Split 2 2025,Swiss,2025-08-04T23:30:00Z,100 Thieves GC vs Kiri Magenta
+2833641,Game Changers NA - Split 2 2025,Swiss,2025-08-04T23:30:00Z,Teevee vs Artificial Intelligence
+2833642,Game Changers NA - Split 2 2025,Swiss,2025-08-04T23:30:00Z,FlyQuest Red vs ^-^
+2819694,VCT Americas - Stage 2 2025,Regular Season,2025-08-08T21:00:00Z,Cloud9 vs 2GAME eSports
+2819695,VCT Americas - Stage 2 2025,Regular Season,2025-08-09T00:00:00Z,MIBR vs NRG
+2819696,VCT Americas - Stage 2 2025,Regular Season,2025-08-09T21:00:00Z,Sentinels vs Evil Geniuses (1)
+2819697,VCT Americas - Stage 2 2025,Regular Season,2025-08-10T00:00:00Z,Leviatán Esports vs KRÜ Visa
+2819698,VCT Americas - Stage 2 2025,Regular Season,2025-08-10T21:00:00Z,FURIA vs G2 Esports
+2819699,VCT Americas - Stage 2 2025,Regular Season,2025-08-11T00:00:00Z,LOUD vs 100 Thieves
+2833645,Game Changers NA - Split 2 2025,Swiss,2025-08-11T21:00:00Z,100 Thieves GC vs Ghost Gaming
+2833646,Game Changers NA - Split 2 2025,Swiss,2025-08-11T21:00:00Z,:3 vs Kiri Magenta
+2833647,Game Changers NA - Split 2 2025,Swiss,2025-08-11T21:00:00Z,Shopify Rebellion Gold vs Wadadaa
+2833651,Game Changers NA - Split 2 2025,Swiss,2025-08-11T21:00:00Z,^-^ vs YDZ Black
+2833648,Game Changers NA - Split 2 2025,Swiss,2025-08-11T23:30:00Z,FlyQuest Red vs Artificial Intelligence
+2833649,Game Changers NA - Split 2 2025,Swiss,2025-08-11T23:30:00Z,Mak N Cheese vs Tenax GC
+2833650,Game Changers NA - Split 2 2025,Swiss,2025-08-11T23:30:00Z,SEN Otters vs YFP X
+2833652,Game Changers NA - Split 2 2025,Swiss,2025-08-11T23:30:00Z,Alliance Angels vs Teevee
+2819700,VCT Americas - Stage 2 2025,Regular Season,2025-08-15T21:00:00Z,KRÜ Visa vs NRG
+2819701,VCT Americas - Stage 2 2025,Regular Season,2025-08-16T00:00:00Z,100 Thieves vs Leviatán Esports
+2819702,VCT Americas - Stage 2 2025,Regular Season,2025-08-16T21:00:00Z,FURIA vs Evil Geniuses (1)
+2819703,VCT Americas - Stage 2 2025,Regular Season,2025-08-17T00:00:00Z,2GAME eSports vs Sentinels
+2819704,VCT Americas - Stage 2 2025,Regular Season,2025-08-17T21:00:00Z,G2 Esports vs Cloud9
+2819705,VCT Americas - Stage 2 2025,Regular Season,2025-08-18T00:00:00Z,MIBR vs LOUD
+2833653,Game Changers NA - Split 2 2025,Swiss,2025-08-18T21:00:00Z,Shopify Rebellion Gold vs 100 Thieves GC
+2833654,Game Changers NA - Split 2 2025,Swiss,2025-08-18T21:00:00Z,FlyQuest Red vs Ghost Gaming
+2833657,Game Changers NA - Split 2 2025,Swiss,2025-08-18T21:00:00Z,YDZ Black vs Kiri Magenta
+2833660,Game Changers NA - Split 2 2025,Swiss,2025-08-18T21:00:00Z,Artificial Intelligence vs Tenax GC
+2833656,Game Changers NA - Split 2 2025,Swiss,2025-08-18T23:30:00Z,Wadadaa vs Mak N Cheese
+2833658,Game Changers NA - Split 2 2025,Swiss,2025-08-18T23:30:00Z,^-^ vs Alliance Angels
+2833659,Game Changers NA - Split 2 2025,Swiss,2025-08-18T23:30:00Z,Teevee vs SEN Otters
+2843060,VCT Americas - Stage 2 2025,Playoffs,2025-08-21T21:00:00Z,Leviatán Esports vs Cloud9
+2843061,VCT Americas - Stage 2 2025,Playoffs,2025-08-22T00:00:00Z,G2 Esports vs 100 Thieves
+2843062,VCT Americas - Stage 2 2025,Playoffs,2025-08-22T21:00:00Z,Cloud9 vs Sentinels
+2843063,VCT Americas - Stage 2 2025,Playoffs,2025-08-23T00:00:00Z,G2 Esports vs NRG
+2843064,VCT Americas - Stage 2 2025,Playoffs,2025-08-23T21:00:00Z,Leviatán Esports vs KRÜ Visa
+2843065,VCT Americas - Stage 2 2025,Playoffs,2025-08-24T00:00:00Z,100 Thieves vs Evil Geniuses (1)
+2843067,VCT Americas - Stage 2 2025,Playoffs,2025-08-24T21:00:00Z,NRG vs Leviatán Esports
+2843066,VCT Americas - Stage 2 2025,Playoffs,2025-08-25T00:00:00Z,Cloud9 vs 100 Thieves
+2833662,Game Changers NA - Split 2 2025,Swiss,2025-08-25T21:00:00Z,Ghost Gaming vs Wadadaa
+2833663,Game Changers NA - Split 2 2025,Swiss,2025-08-25T21:00:00Z,100 Thieves GC vs YFP X
+2833664,Game Changers NA - Split 2 2025,Swiss,2025-08-25T21:00:00Z,:3 vs SEN Otters
+2833665,Game Changers NA - Split 2 2025,Swiss,2025-08-25T21:00:00Z,FlyQuest Red vs Mak N Cheese
+2833666,Game Changers NA - Split 2 2025,Swiss,2025-08-25T23:30:00Z,Kiri Magenta vs Tenax GC
+2833667,Game Changers NA - Split 2 2025,Swiss,2025-08-25T23:30:00Z,Artificial Intelligence vs ^-^
+2833668,Game Changers NA - Split 2 2025,Swiss,2025-08-25T23:30:00Z,Teevee vs YDZ Black
+2843068,VCT Americas - Stage 2 2025,Playoffs,2025-08-29T21:00:00Z,G2 Esports vs Sentinels
+2843069,VCT Americas - Stage 2 2025,Playoffs,2025-08-30T00:00:00Z,Cloud9 vs NRG
+2843070,VCT Americas - Stage 2 2025,Playoffs,2025-08-30T21:00:00Z,NRG vs Sentinels
+2843071,VCT Americas - Stage 2 2025,Playoffs,2025-08-31T21:00:00Z,NRG vs G2 Esports
+2833669,Game Changers NA - Split 2 2025,Swiss,2025-09-08T21:00:00Z,100 Thieves GC vs FlyQuest Red
+2833670,Game Changers NA - Split 2 2025,Swiss,2025-09-08T21:00:00Z,Ghost Gaming vs Kiri Magenta
+2833671,Game Changers NA - Split 2 2025,Swiss,2025-09-08T23:30:00Z,:3 vs Tenax GC
+2833672,Game Changers NA - Split 2 2025,Swiss,2025-09-08T23:30:00Z,SEN Otters vs YDZ Black
+2833673,Game Changers NA - Split 2 2025,Swiss,2025-09-08T23:30:00Z,Mak N Cheese vs ^-^
+2833674,Game Changers NA - Split 2 2025,Swiss,2025-09-10T21:00:00Z,FlyQuest Red vs SEN Otters
+2833675,Game Changers NA - Split 2 2025,Swiss,2025-09-10T23:30:00Z,Kiri Magenta vs ^-^
+2833676,Game Changers NA - Split 2 2025,Playoffs,2025-10-07T21:00:00Z,Shopify Rebellion Gold vs SEN Otters
+2833677,Game Changers NA - Split 2 2025,Playoffs,2025-10-07T21:00:00Z,100 Thieves GC vs Ghost Gaming
+2833678,Game Changers NA - Split 2 2025,Playoffs,2025-10-07T23:30:00Z,YFP X vs Kiri Magenta
+2833679,Game Changers NA - Split 2 2025,Playoffs,2025-10-07T23:30:00Z,Wadadaa vs :3
+2833680,Game Changers NA - Split 2 2025,Playoffs,2025-10-08T21:00:00Z,100 Thieves GC vs Shopify Rebellion Gold
+2833681,Game Changers NA - Split 2 2025,Playoffs,2025-10-08T21:00:00Z,Ghost Gaming vs SEN Otters
+2833682,Game Changers NA - Split 2 2025,Playoffs,2025-10-08T23:30:00Z,Wadadaa vs YFP X
+2833683,Game Changers NA - Split 2 2025,Playoffs,2025-10-08T23:30:00Z,:3 vs Kiri Magenta
+2833684,Game Changers NA - Split 2 2025,Playoffs,2025-10-09T21:00:00Z,Kiri Magenta vs 100 Thieves GC
+2833685,Game Changers NA - Split 2 2025,Playoffs,2025-10-09T23:30:00Z,SEN Otters vs Wadadaa
+2833686,Game Changers NA - Split 2 2025,Playoffs,2025-10-10T21:00:00Z,YFP X vs Shopify Rebellion Gold
+2833687,Game Changers NA - Split 2 2025,Playoffs,2025-10-10T23:30:00Z,Kiri Magenta vs Wadadaa
+2833688,Game Changers NA - Split 2 2025,Playoffs,2025-10-11T21:00:00Z,Wadadaa vs YFP X
+2833689,Game Changers NA - Split 2 2025,Playoffs,2025-10-12T21:00:00Z,YFP X vs Shopify Rebellion Gold
+2864124,Game Changers Championship - 2025,Playoffs,2025-11-20T08:00:00Z,Ninetails vs Nova Esports GC
+2864125,Game Changers Championship - 2025,Playoffs,2025-11-20T11:00:00Z,Made In Brazil vs GIANTX (2)
+2864127,Game Changers Championship - 2025,Playoffs,2025-11-21T08:00:00Z,Xipto Esports vs Karmine Corp GC
+2864126,Game Changers Championship - 2025,Playoffs,2025-11-21T11:00:00Z,Team Liquid Visa vs VISA KRÜ Blaze
+2864128,Game Changers Championship - 2025,Playoffs,2025-11-22T08:00:00Z,Nova Esports GC vs G2 Gozen
+2864129,Game Changers Championship - 2025,Playoffs,2025-11-22T11:00:00Z,Made In Brazil vs Shopify Rebellion Gold
+2864131,Game Changers Championship - 2025,Playoffs,2025-11-23T08:00:00Z,Ninetails vs Xipto Esports
+2864130,Game Changers Championship - 2025,Playoffs,2025-11-23T11:00:00Z,GIANTX (2) vs VISA KRÜ Blaze
+2864133,Game Changers Championship - 2025,Playoffs,2025-11-24T08:00:00Z,Ninetails vs Made In Brazil
+2864132,Game Changers Championship - 2025,Playoffs,2025-11-24T11:00:00Z,VISA KRÜ Blaze vs Nova Esports GC
+2864134,Game Changers Championship - 2025,Playoffs,2025-11-26T08:00:00Z,Team Liquid Visa vs G2 Gozen
+2864135,Game Changers Championship - 2025,Playoffs,2025-11-26T11:00:00Z,Karmine Corp GC vs Shopify Rebellion Gold
+2864136,Game Changers Championship - 2025,Playoffs,2025-11-27T08:00:00Z,Made In Brazil vs G2 Gozen
+2864137,Game Changers Championship - 2025,Playoffs,2025-11-27T11:00:00Z,VISA KRÜ Blaze vs Karmine Corp GC
+2864138,Game Changers Championship - 2025,Playoffs,2025-11-28T08:00:00Z,Shopify Rebellion Gold vs Team Liquid Visa
+2864139,Game Changers Championship - 2025,Playoffs,2025-11-28T11:40:00Z,Made In Brazil vs VISA KRÜ Blaze
+2864140,Game Changers Championship - 2025,Playoffs,2025-11-29T09:00:00Z,Made In Brazil vs Shopify Rebellion Gold
+2864141,Game Changers Championship - 2025,Playoffs,2025-11-30T08:00:00Z,Shopify Rebellion Gold vs Team Liquid Visa
+2888822,Game Changers NA - Kickoff 2026,Knockouts,2026-02-20T22:00:00Z,Wadadaa vs Maui Wowie
+2888823,Game Changers NA - Kickoff 2026,Knockouts,2026-02-20T22:00:00Z,SEN Otters vs Evictix GC
+2888824,Game Changers NA - Kickoff 2026,Knockouts,2026-02-21T00:30:00Z,FlyQuest Red vs Ghost Gaming
+2888825,Game Changers NA - Kickoff 2026,Knockouts,2026-02-21T00:30:00Z,100 Thieves GC vs Teevee
+2888826,Game Changers NA - Kickoff 2026,Knockouts,2026-02-21T22:00:00Z,SEN Otters vs Wadadaa
+2888827,Game Changers NA - Kickoff 2026,Knockouts,2026-02-21T22:00:00Z,Evictix GC vs Maui Wowie
+2888828,Game Changers NA - Kickoff 2026,Knockouts,2026-02-22T00:30:00Z,100 Thieves GC vs FlyQuest Red
+2888829,Game Changers NA - Kickoff 2026,Knockouts,2026-02-22T00:30:00Z,Teevee vs Ghost Gaming
+2888830,Game Changers NA - Kickoff 2026,Knockouts,2026-02-22T22:00:00Z,Ghost Gaming vs SEN Otters
+2888831,Game Changers NA - Kickoff 2026,Knockouts,2026-02-23T00:30:00Z,Evictix GC vs 100 Thieves GC
+2888832,Game Changers NA - Kickoff 2026,Knockouts,2026-02-27T22:00:00Z,FlyQuest Red vs Wadadaa
+2888833,Game Changers NA - Kickoff 2026,Knockouts,2026-02-28T00:30:00Z,SEN Otters vs 100 Thieves GC
+2888834,Game Changers NA - Kickoff 2026,Knockouts,2026-02-28T22:00:00Z,SEN Otters vs Wadadaa
+2888835,Game Changers NA - Kickoff 2026,Knockouts,2026-03-01T22:00:00Z,SEN Otters vs FlyQuest Red
+2934509,Game Changers NA - Split 1 2026,Swiss,2026-04-15T21:00:00Z,:3 vs Ghost Gaming
+2934511,Game Changers NA - Split 1 2026,Swiss,2026-04-15T21:00:00Z,Puppy Thieves vs MVSK Secret
+2934512,Game Changers NA - Split 1 2026,Swiss,2026-04-15T21:00:00Z,FlyQuest Red vs Auraboros
+2934513,Game Changers NA - Split 1 2026,Swiss,2026-04-15T21:00:00Z,Wadadaa vs HyperSpeed Golden
+2934514,Game Changers NA - Split 1 2026,Swiss,2026-04-15T23:30:00Z,SEN Otters vs Teevee
+2934515,Game Changers NA - Split 1 2026,Swiss,2026-04-15T23:30:00Z,Shopify Rebellion Gold vs Frost White
+2934516,Game Changers NA - Split 1 2026,Swiss,2026-04-15T23:30:00Z,SwimTrek Blue vs Monarch-X GC
+2934517,Game Changers NA - Split 1 2026,Swiss,2026-04-15T23:30:00Z,SaD GC vs EMPIRE GC
+2934521,Game Changers NA - Split 1 2026,Swiss,2026-04-23T21:00:00Z,Ghost Gaming vs MVSK Secret
+2934522,Game Changers NA - Split 1 2026,Swiss,2026-04-23T21:00:00Z,Shopify Rebellion Gold vs SEN Otters
+2934523,Game Changers NA - Split 1 2026,Swiss,2026-04-23T21:00:00Z,Monarch-X GC vs Frost White
+2934524,Game Changers NA - Split 1 2026,Swiss,2026-04-23T21:00:00Z,Puppy Thieves vs Wadadaa
+2934525,Game Changers NA - Split 1 2026,Swiss,2026-04-23T23:30:00Z,FlyQuest Red vs SwimTrek Blue
+2934526,Game Changers NA - Split 1 2026,Swiss,2026-04-23T23:30:00Z,:3 vs SaD GC
+2934527,Game Changers NA - Split 1 2026,Swiss,2026-04-23T23:30:00Z,Auraboros vs Teevee
+2934528,Game Changers NA - Split 1 2026,Swiss,2026-04-23T23:30:00Z,HyperSpeed Golden vs EMPIRE GC
+2934530,Game Changers NA - Split 1 2026,Swiss,2026-04-29T21:00:00Z,Wadadaa vs Ghost Gaming
+2934531,Game Changers NA - Split 1 2026,Swiss,2026-04-29T21:00:00Z,SwimTrek Blue vs Puppy Thieves
+2934532,Game Changers NA - Split 1 2026,Swiss,2026-04-29T21:00:00Z,SEN Otters vs Auraboros
+2934534,Game Changers NA - Split 1 2026,Swiss,2026-04-29T21:00:00Z,Frost White vs MVSK Secret
+2934529,Game Changers NA - Split 1 2026,Swiss,2026-04-29T23:30:00Z,Shopify Rebellion Gold vs SaD GC
+2934533,Game Changers NA - Split 1 2026,Swiss,2026-04-29T23:30:00Z,Teevee vs HyperSpeed Golden
+2934535,Game Changers NA - Split 1 2026,Swiss,2026-04-29T23:30:00Z,Monarch-X GC vs EMPIRE GC
+2934536,Game Changers NA - Split 1 2026,Swiss,2026-04-29T23:30:00Z,:3 vs FlyQuest Red
+2934537,Game Changers NA - Split 1 2026,Swiss,2026-05-06T21:00:00Z,Puppy Thieves vs Shopify Rebellion Gold
+2934538,Game Changers NA - Split 1 2026,Swiss,2026-05-06T21:00:00Z,FlyQuest Red vs SEN Otters
+2934539,Game Changers NA - Split 1 2026,Swiss,2026-05-06T21:00:00Z,SwimTrek Blue vs Wadadaa
+2934541,Game Changers NA - Split 1 2026,Swiss,2026-05-06T21:00:00Z,:3 vs EMPIRE GC
+2934540,Game Changers NA - Split 1 2026,Swiss,2026-05-06T23:30:00Z,Monarch-X GC vs SaD GC
+2934542,Game Changers NA - Split 1 2026,Swiss,2026-05-06T23:30:00Z,Frost White vs HyperSpeed Golden
+2934544,Game Changers NA - Split 1 2026,Swiss,2026-05-06T23:30:00Z,Auraboros vs MVSK Secret
+2934545,Game Changers NA - Split 1 2026,Swiss,2026-05-06T23:30:00Z,Ghost Gaming vs Teevee
+2934549,Game Changers NA - Split 1 2026,Swiss,2026-05-13T00:00:00Z,SaD GC vs SwimTrek Blue
+2934547,Game Changers NA - Split 1 2026,Swiss,2026-05-13T21:00:00Z,SEN Otters vs MVSK Secret
+2934548,Game Changers NA - Split 1 2026,Swiss,2026-05-13T21:00:00Z,:3 vs Wadadaa
+2934551,Game Changers NA - Split 1 2026,Swiss,2026-05-13T21:00:00Z,Auraboros vs Frost White
+2934546,Game Changers NA - Split 1 2026,Swiss,2026-05-13T23:30:00Z,FlyQuest Red vs Puppy Thieves
+2934550,Game Changers NA - Split 1 2026,Swiss,2026-05-13T23:30:00Z,Ghost Gaming vs Monarch-X GC
+2934552,Game Changers NA - Split 1 2026,Swiss,2026-05-13T23:30:00Z,EMPIRE GC vs Teevee
+2934555,Game Changers NA - Split 1 2026,Swiss,2026-05-18T21:00:00Z,FlyQuest Red vs Ghost Gaming
+2934557,Game Changers NA - Split 1 2026,Swiss,2026-05-18T21:00:00Z,SEN Otters vs EMPIRE GC
+2934558,Game Changers NA - Split 1 2026,Swiss,2026-05-18T23:30:00Z,Monarch-X GC vs MVSK Secret
+2934559,Game Changers NA - Split 1 2026,Swiss,2026-05-18T23:30:00Z,:3 vs Frost White
+2934560,Game Changers NA - Split 1 2026,Swiss,2026-05-20T21:00:00Z,Ghost Gaming vs SaD GC
+2934561,Game Changers NA - Split 1 2026,Swiss,2026-05-20T23:30:00Z,:3 vs MVSK Secret
+2934562,Game Changers NA - Split 1 2026,Playoffs,2026-05-29T21:00:00Z,Shopify Rebellion Gold vs Ghost Gaming
+2934563,Game Changers NA - Split 1 2026,Playoffs,2026-05-29T21:00:00Z,Wadadaa vs FlyQuest Red
+2934564,Game Changers NA - Split 1 2026,Playoffs,2026-05-29T23:30:00Z,Puppy Thieves vs :3
+2934565,Game Changers NA - Split 1 2026,Playoffs,2026-05-29T23:30:00Z,SwimTrek Blue vs SEN Otters
+2934566,Game Changers NA - Split 1 2026,Playoffs,2026-05-30T21:00:00Z,FlyQuest Red vs Ghost Gaming
+2934567,Game Changers NA - Split 1 2026,Playoffs,2026-05-30T21:00:00Z,Wadadaa vs Shopify Rebellion Gold
+2934568,Game Changers NA - Split 1 2026,Playoffs,2026-05-30T23:30:00Z,SwimTrek Blue vs Puppy Thieves
+2934569,Game Changers NA - Split 1 2026,Playoffs,2026-05-30T23:30:00Z,SEN Otters vs :3
+2934570,Game Changers NA - Split 1 2026,Playoffs,2026-05-31T21:00:00Z,SEN Otters vs Ghost Gaming
+2934571,Game Changers NA - Split 1 2026,Playoffs,2026-05-31T23:30:00Z,Shopify Rebellion Gold vs Puppy Thieves
+2934572,Game Changers NA - Split 1 2026,Playoffs,2026-06-03T21:00:00Z,SwimTrek Blue vs FlyQuest Red
+2934573,Game Changers NA - Split 1 2026,Playoffs,2026-06-03T23:30:00Z,Ghost Gaming vs Shopify Rebellion Gold
+2934574,Game Changers NA - Split 1 2026,Playoffs,2026-06-04T21:00:00Z,Shopify Rebellion Gold vs FlyQuest Red
+2934575,Game Changers NA - Split 1 2026,Playoffs,2026-06-05T21:00:00Z,Shopify Rebellion Gold vs SwimTrek Blue
+2972877,Game Changers NA - Split 2 2026,Swiss,2026-07-13T20:59:00Z,Cloud9 GC vs ROSO GC
+2972883,Game Changers NA - Split 2 2026,Swiss,2026-07-20T21:00:00Z,Cloud9 GC vs FlyQuest Red
+2972893,Game Changers NA - Split 2 2026,Swiss,2026-07-27T21:00:00Z,Cloud9 GC vs The Spiders
+2972904,Game Changers NA - Split 2 2026,Swiss,2026-08-03T23:30:00Z,Cloud9 GC vs :3
+2972913,Game Changers NA - Split 2 2026,Swiss,2026-08-10T21:00:00Z,Revitalize GC vs Cloud9 GC
+2972924,Game Changers NA - Split 2 2026,Swiss,2026-08-12T23:30:00Z,Los Chudeles vs Cloud9 GC
+2972926,Game Changers NA - Split 2 2026,Swiss,2026-08-17T21:00:00Z,SEN Otters vs Cloud9 GC
+2972931,Game Changers NA - Split 2 2026,Playoffs,2026-09-01T23:30:00Z,Cloud9 GC vs SwimTrek Blue
+2972936,Game Changers NA - Split 2 2026,Playoffs,2026-09-02T23:30:00Z,HIMMERS vs Cloud9 GC
