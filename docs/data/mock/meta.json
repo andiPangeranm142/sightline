@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-11-22T22:44:25Z",
+  "series_count": 24,
+  "games_count": 51,
+  "rounds_count": 1187,
+  "events_processed": 48210,
+  "teams": [
+    {
+      "id": "c9",
+      "name": "Cloud9"
+    },
+    {
+      "id": "sen",
+      "name": "Sentinels"
+    },
+    {
+      "id": "fnc",
+      "name": "Fnatic"
+    }
+  ],
+  "players": [
+    {
+      "id": "c9-1",
+      "name": "OXY",
+      "team_id": "c9"
+    },
+    {
+      "id": "c9-2",
+      "name": "Xeppaa",
+      "team_id": "c9"
+    },
+    {
+      "id": "c9-3",
+      "name": "mitch",
+      "team_id": "c9"
+    },
+    {
+      "id": "c9-4",
+      "name": "v1c",
+      "team_id": "c9"
+    },
+    {
+      "id": "c9-5",
+      "name": "net",
+      "team_id": "c9"
+    },
+    {
+      "id": "sen-1",
+      "name": "TenZ",
+      "team_id": "sen"
+    },
+    {
+      "id": "sen-2",
+      "name": "zekken",
+      "team_id": "sen"
+    },
+    {
+      "id": "sen-3",
+      "name": "johnqt",
+      "team_id": "sen"
+    },
+    {
+      "id": "sen-4",
+      "name": "Zellsis",
+      "team_id": "sen"
+    },
+    {
+      "id": "sen-5",
+      "name": "N4RRATE",
+      "team_id": "sen"
+    },
+    {
+      "id": "fnc-1",
+      "name": "Derke",
+      "team_id": "fnc"
+    },
+    {
+      "id": "fnc-2",
+      "name": "Alfajer",
+      "team_id": "fnc"
+    },
+    {
+      "id": "fnc-3",
+      "name": "Boaster",
+      "team_id": "fnc"
+    },
+    {
+      "id": "fnc-4",
+      "name": "Chronicle",
+      "team_id": "fnc"
+    },
+    {
+      "id": "fnc-5",
+      "name": "crashies",
+      "team_id": "fnc"
+    }
+  ],
+  "maps": [
+    {
+      "name": "Ascent",
+      "bounds": {
+        "min": {
+          "x": -6500,
+          "y": -7000
+        },
+        "max": {
+          "x": 6500,
+          "y": 7000
+        }
+      }
+    },
+    {
+      "name": "Haven",
+      "bounds": {
+        "min": {
+          "x": -6000,
+          "y": -6800
+        },
+        "max": {
+          "x": 6000,
+          "y": 6800
+        }
+      }
+    }
+  ]
+}

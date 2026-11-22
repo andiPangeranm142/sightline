@@ -1,0 +1,34 @@
+[
+  {
+    "team_id": "sen",
+    "map": "Ascent",
+    "tendency": "Cypher tripwire ganda di A main + A lobby",
+    "n": 78,
+    "frequency": 0.78,
+    "response": "Clear dengan Raze satchel + Sova drone sebelum 0:35; jangan walk-up A main tanpa util clear."
+  },
+  {
+    "team_id": "sen",
+    "map": "Ascent",
+    "tendency": "TenZ Operator di mid defense (round 7+)",
+    "n": 41,
+    "frequency": 0.52,
+    "response": "Smoke mid top + dry-peek berpasangan; simpan flash untuk re-peek kedua."
+  },
+  {
+    "team_id": "fnc",
+    "map": "Haven",
+    "tendency": "Killjoy turret + alarmbot stack di C site",
+    "n": 64,
+    "frequency": 0.71,
+    "response": "Split C dari garage + long; hancurkan turret dengan shock dart sebelum execute."
+  },
+  {
+    "team_id": "fnc",
+    "map": "Ascent",
+    "tendency": "Derke Operator agresif di A site defense",
+    "n": 47,
+    "frequency": 0.64,
+    "response": "Fake A dengan util, execute B; atau double-satchel peek A main dengan trade siap."
+  }
+]

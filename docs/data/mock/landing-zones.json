@@ -1,0 +1,38 @@
+[
+  {
+    "map": "Ascent",
+    "team_id": "sen",
+    "player_id": "sen-3",
+    "ability": "sova-dart",
+    "cast_x": 500,
+    "cast_y": 700,
+    "est_x": 210,
+    "est_y": 180,
+    "confidence": 0.82,
+    "method": "proyeksi balistik dari posisi + view + velocity supplement"
+  },
+  {
+    "map": "Ascent",
+    "team_id": "fnc",
+    "player_id": "fnc-4",
+    "ability": "sova-dart",
+    "cast_x": 300,
+    "cast_y": 600,
+    "est_x": 780,
+    "est_y": 200,
+    "confidence": 0.76,
+    "method": "proyeksi balistik dari posisi + view + velocity supplement"
+  },
+  {
+    "map": "Haven",
+    "team_id": "sen",
+    "player_id": "sen-3",
+    "ability": "sova-dart",
+    "cast_x": 500,
+    "cast_y": 700,
+    "est_x": 850,
+    "est_y": 170,
+    "confidence": 0.69,
+    "method": "proyeksi balistik dari posisi + view + velocity supplement"
+  }
+]
