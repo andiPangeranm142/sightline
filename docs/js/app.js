@@ -55,6 +55,17 @@ function playerName(id) {
 
 function fmtNum(n) { return Number(n).toLocaleString("en-US"); }
 
+/** "2026-11-22T23:32:20Z" -> "22 Nov 2026, 23:32 UTC" (same instant). */
+const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function fmtDate(iso) {
+  const d = new Date(iso);
+  if (!iso || Number.isNaN(d.getTime())) return iso || "—";
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getUTCDate()} ${MONTHS_SHORT[d.getUTCMonth()]} ${d.getUTCFullYear()}, `
+    + `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())} UTC`;
+}
+
 /* ------------------------------------------------------------------ */
 /* Boot                                                                */
 /* ------------------------------------------------------------------ */
@@ -263,7 +274,7 @@ function renderCoverage() {
   $("#cov-games").textContent = fmtNum(m.games_count);
   $("#cov-rounds").textContent = fmtNum(m.rounds_count);
   $("#cov-events").textContent = fmtNum(m.events_processed);
-  $("#meta-generated").textContent = "Aggregates: " + (m.generated_at || "—");
+  $("#meta-generated").textContent = "Aggregates: " + fmtDate(m.generated_at);
 }
 
 /* ------------------------------------------------------------------ */
@@ -331,16 +342,43 @@ function renderHeatmap() {
     }
   }
 
-  // Landing zones (estimates — always labelled as such)
+  // Landing zones (estimates — always labelled as such). On-map text
+  // labels are capped at the top 4 by confidence and skipped when their
+  // box would overlap an already-placed label, so ESTIMASI labels never
+  // pile into unreadable stacks. Every zone still renders its circle +
+  // dashed line, and a <title> tooltip carries the ability + ESTIMASI
+  // confidence on hover.
+  $("#legend-lz").hidden = !state.showLanding;
   if (state.showLanding) {
     const zones = (state.datasets["landing-zones"] || []).filter((z) =>
       z.map === state.map && z.team_id === state.teamId);
+    const MAX_LABELS = 4;
+    const HALF_W = 88, TOP = 22, BOTTOM = 20; // label box around est point
+    const placed = [];
+    const labeled = new Set();
+    const byConfidence = zones.slice().sort((a, b) => b.confidence - a.confidence);
+    for (const z of byConfidence) {
+      if (labeled.size >= MAX_LABELS) break;
+      const labelY = Math.max(22, z.est_y - 42);
+      const box = {
+        x0: z.est_x - HALF_W, x1: z.est_x + HALF_W,
+        y0: labelY - TOP, y1: z.est_y + BOTTOM,
+      };
+      const collides = placed.some((p) =>
+        box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0);
+      if (!collides) { placed.push(box); labeled.add(z); }
+    }
     for (const z of zones) {
+      const labelY = Math.max(22, z.est_y - 42);
+      markup += `<g class="lz"><title>${esc(z.ability)} — ESTIMASI ${pct(z.confidence)} (estimate, not a measured position)</title>`;
       markup += `<line x1="${z.cast_x}" y1="${z.cast_y}" x2="${z.est_x}" y2="${z.est_y}" class="lz-line" />`;
       markup += `<circle cx="${z.cast_x}" cy="${z.cast_y}" r="7" class="lz-cast" />`;
       markup += `<circle cx="${z.est_x}" cy="${z.est_y}" r="34" class="lz-zone" />`;
-      markup += `<text x="${z.est_x}" y="${z.est_y - 42}" class="lz-label" text-anchor="middle">ESTIMASI ${pct(z.confidence)}</text>`;
-      markup += `<text x="${z.est_x}" y="${z.est_y + 4}" class="lz-label-sub" text-anchor="middle">${esc(z.ability)}</text>`;
+      if (labeled.has(z)) {
+        markup += `<text x="${z.est_x}" y="${labelY}" class="lz-label" text-anchor="middle">ESTIMASI ${pct(z.confidence)}</text>`;
+        markup += `<text x="${z.est_x}" y="${z.est_y + 4}" class="lz-label-sub" text-anchor="middle">${esc(z.ability)}</text>`;
+      }
+      markup += `</g>`;
     }
   }
 
@@ -380,6 +418,35 @@ function renderTopAbilities(points) {
 /* Operator Profiler                                                   */
 /* ------------------------------------------------------------------ */
 
+/**
+ * Deterministic declutter for setup markers: when two setups are closer
+ * than MIN_SEP, the later one is nudged out along a golden-angle spiral
+ * from its true position (same input always yields the same layout).
+ * Returns positions with display coords (dx, dy) alongside the true (x, y).
+ */
+function spreadSetups(positions) {
+  const MIN_SEP = 42;
+  const placed = [];
+  for (const s of positions) {
+    let x = s.x, y = s.y;
+    let angle = 0.7, radius = MIN_SEP;
+    let tries = 0;
+    // Clamp each candidate BEFORE testing it, so the final position
+    // always honours MIN_SEP (clamping after the loop could re-collide).
+    const clamp = (v) => Math.min(975, Math.max(25, v));
+    const collides = () => placed.some((p) => Math.hypot(x - p.dx, y - p.dy) < MIN_SEP);
+    while (collides() && tries < 24) {
+      angle += 2.39996; // golden angle — spreads neighbours evenly
+      radius += 7;
+      x = clamp(s.x + Math.cos(angle) * radius);
+      y = clamp(s.y + Math.sin(angle) * radius);
+      tries++;
+    }
+    placed.push({ ...s, dx: clamp(x), dy: clamp(y) });
+  }
+  return placed;
+}
+
 function renderOperator() {
   const ops = state.datasets.operators || [];
   const sel = $("#operator-player");
@@ -407,12 +474,19 @@ function renderOperator() {
   body.hidden = false;
   const m = prof.maps[state.map];
 
-  // Setup map (defense setups + attack setups)
+  // Setup map (defense setups + attack setups). Near-identical
+  // positions are spread out so each marker is visible; a dashed leader
+  // line + small dot mark the true position of any displaced marker.
   let markup = renderMapBase(state.map);
-  for (const s of m.setup_positions) {
+  for (const s of spreadSetups(m.setup_positions)) {
+    const displaced = Math.hypot(s.dx - s.x, s.dy - s.y) > 1;
+    if (displaced) {
+      markup += `<line x1="${s.x}" y1="${s.y}" x2="${s.dx}" y2="${s.dy}" class="op-spread-line" />`;
+      markup += `<circle cx="${s.x}" cy="${s.y}" r="4" class="op-true-dot" />`;
+    }
     markup += `<g class="op-setup op-setup--${s.side}">`
-      + `<circle cx="${s.x}" cy="${s.y}" r="16" />`
-      + `<text x="${s.x}" y="${s.y + 4}" text-anchor="middle">OP</text></g>`;
+      + `<circle cx="${s.dx}" cy="${s.dy}" r="16" />`
+      + `<text x="${s.dx}" y="${s.dy + 4}" text-anchor="middle">OP</text></g>`;
   }
   $("#operator-svg").innerHTML = markup;
 
@@ -537,7 +611,7 @@ function renderScoutCard() {
   const m = state.datasets.meta;
   $("#scout-meta").textContent =
     `Source: ${m.series_count} series · ${m.games_count} games · ${m.rounds_count} rounds of GRID data `
-    + `· aggregates ${m.generated_at || ""} · SIGHTLINE / Cloud9 x JetBrains Hackathon 2026`;
+    + `· aggregates ${m.generated_at ? fmtDate(m.generated_at) : ""} · SIGHTLINE / Cloud9 x JetBrains Hackathon 2026`;
 }
 
 /* ------------------------------------------------------------------ */
