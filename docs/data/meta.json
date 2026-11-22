@@ -2682,6 +2682,6 @@
     "method": "reservoir sampling per map (cap 3000/map, seed 42); systematic stride downsampling applied only if the 8 MB total budget would otherwise be exceeded",
     "per_map_cap": 3000
   },
-  "landing_zones_note": "landing-zones.json berisi ESTIMASI proyeksi balistik, bukan posisi pendaratan terukur — lihat pipeline/README.md",
-  "operator_evidence_note": "rounds_with_operator dari snapshot inventory (game-started-round / game-ended-round) + player-pickedUp-item; kill Operator dipakai sebagai bukti fallback bila tidak ada snapshot"
+  "landing_zones_note": "landing-zones.json contains ballistic-projection ESTIMATES, not measured landing positions — see pipeline/README.md",
+  "operator_evidence_note": "rounds_with_operator from inventory snapshots (game-started-round / game-ended-round) + player-pickedUp-item; Operator kills used as fallback evidence when no snapshot exists"
 }

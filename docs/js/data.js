@@ -34,7 +34,7 @@ async function loadDataset(name) {
     }
   }
   const res = await fetch(mockUrl);
-  if (!res.ok) throw new Error(`Gagal memuat ${name}.json (real + mock)`);
+  if (!res.ok) throw new Error(`Failed to load ${name}.json (real + mock)`);
   return { data: await res.json(), source: "mock" };
 }
 

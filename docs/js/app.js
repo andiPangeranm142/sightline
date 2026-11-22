@@ -12,8 +12,8 @@
 const state = {
   datasets: null,
   sources: {},
-  // filters
-  teamId: "sen",
+  // filters (teamId resolved from loaded data in resolveDefaults())
+  teamId: null,
   map: "Ascent",
   playerId: "all",
   agent: "all",
@@ -23,7 +23,7 @@ const state = {
   heatMode: "gradient", // "gradient" | "numbers"
   showLanding: true,
   selfScout: false,
-  operatorPlayerId: "sen-1",
+  operatorPlayerId: null, // resolved to first Operator profile on render
 };
 
 const BUCKETS = ["0-20s", "20-40s", "40-60s", "60s+"];
@@ -68,8 +68,9 @@ async function init() {
     state.datasets = datasets;
     state.sources = sources;
     if (!datasets.meta || !datasets.heatmaps) {
-      throw new Error("Data inti (meta / heatmaps) tidak dapat dimuat.");
+      throw new Error("Core data (meta / heatmaps) could not be loaded.");
     }
+    resolveDefaults();
     if (errors.length) renderDataErrors(errors);
     buildFilterOptions();
     wireEvents();
@@ -80,6 +81,30 @@ async function init() {
     showLoading(false);
     renderFatalError(e.message);
   }
+}
+
+/**
+ * Resolve filter defaults from the loaded data (never hardcode team ids:
+ * real GRID ids differ from mock ids). Prefers Sentinels as the default
+ * opponent for the demo narrative; falls back to the first team.
+ */
+function resolveDefaults() {
+  const meta = state.datasets.meta;
+  const teams = meta.teams || [];
+  const sen = teams.find((t) => t.name === "Sentinels");
+  if (!teams.some((t) => t.id === state.teamId)) {
+    state.teamId = sen ? sen.id : (teams[0] && teams[0].id);
+  }
+  if (!meta.maps.some((m) => m.name === state.map)) {
+    state.map = meta.maps[0].name;
+  }
+}
+
+/** Team ids for Cloud9 + Cloud9 GC, derived from meta by name. */
+function c9TeamIds() {
+  return new Set((state.datasets.meta.teams || [])
+    .filter((t) => t.name === "Cloud9" || t.name === "Cloud9 GC")
+    .map((t) => t.id));
 }
 
 function showLoading(on) {
@@ -96,19 +121,19 @@ function renderFatalError(msg) {
 function renderDataErrors(errors) {
   const el = $("#data-errors");
   el.hidden = false;
-  el.innerHTML = "<strong>Sebagian data gagal dimuat:</strong> "
+  el.innerHTML = "<strong>Some data failed to load:</strong> "
     + errors.map((e) => esc(e.file) + ".json").join(", ")
-    + " — panel terkait menampilkan keadaan kosong.";
+    + " — affected panels show an empty state.";
 }
 
 function renderSourceBadge() {
   const anyMock = Object.values(state.sources).includes("mock");
   const badge = $("#data-source-badge");
   if (anyMock) {
-    badge.textContent = "DATA: MOCK (agregat pipeline belum tersedia)";
+    badge.textContent = "DATA: MOCK (pipeline aggregates not available yet)";
     badge.classList.add("badge--mock");
   } else {
-    badge.textContent = "DATA: LIVE — agregat GRID";
+    badge.textContent = "DATA: LIVE — GRID aggregates";
     badge.classList.add("badge--live");
   }
 }
@@ -141,7 +166,7 @@ function rebuildPlayerOptions() {
   const meta = state.datasets.meta;
   const players = meta.players.filter((p) => p.team_id === state.teamId);
   const sel = $("#filter-player");
-  sel.innerHTML = `<option value="all">Semua pemain</option>` + players.map((p) =>
+  sel.innerHTML = `<option value="all">All players</option>` + players.map((p) =>
     `<option value="${esc(p.id)}">${esc(p.name)}</option>`).join("");
   if (!players.some((p) => p.id === state.playerId)) state.playerId = "all";
   sel.value = state.playerId;
@@ -152,11 +177,11 @@ function rebuildAbilityOptions() {
   const agents = [...new Set(pts.map((p) => p.agent))].sort();
   const abilities = [...new Set(pts.map((p) => p.ability))].sort();
   const agentSel = $("#filter-agent");
-  agentSel.innerHTML = `<option value="all">Semua agent</option>` + agents.map((a) =>
+  agentSel.innerHTML = `<option value="all">All agents</option>` + agents.map((a) =>
     `<option value="${esc(a)}">${esc(a)}</option>`).join("");
   agentSel.value = state.agent;
   const abSel = $("#filter-ability");
-  abSel.innerHTML = `<option value="all">Semua ability</option>` + abilities.map((a) =>
+  abSel.innerHTML = `<option value="all">All abilities</option>` + abilities.map((a) =>
     `<option value="${esc(a)}">${esc(a)}</option>`).join("");
   abSel.value = state.ability;
 }
@@ -238,7 +263,7 @@ function renderCoverage() {
   $("#cov-games").textContent = fmtNum(m.games_count);
   $("#cov-rounds").textContent = fmtNum(m.rounds_count);
   $("#cov-events").textContent = fmtNum(m.events_processed);
-  $("#meta-generated").textContent = "Agregat: " + (m.generated_at || "—");
+  $("#meta-generated").textContent = "Aggregates: " + (m.generated_at || "—");
 }
 
 /* ------------------------------------------------------------------ */
@@ -325,8 +350,8 @@ function renderHeatmap() {
   const totalForMap = state.datasets.heatmaps.filter((p) =>
     p.map === state.map && p.team_id === state.teamId).length;
   $("#heatmap-evidence").innerHTML = points.length
-    ? `<strong>n = ${fmtNum(points.length)}</strong> titik cast ditampilkan dari ${fmtNum(totalForMap)} titik ${esc(teamName(state.teamId))} di ${esc(state.map)} (filter aktif).`
-    : `Tidak ada titik cast untuk filter ini — longgarkan filter atau pilih map/tim lain.`;
+    ? `<strong>n = ${fmtNum(points.length)}</strong> cast points shown out of ${fmtNum(totalForMap)} points for ${esc(teamName(state.teamId))} on ${esc(state.map)} (active filters).`
+    : `No cast points for these filters — loosen the filters or pick another map/team.`;
 
   // Top-ability breakdown (evidence table)
   renderTopAbilities(points);
@@ -341,7 +366,7 @@ function renderTopAbilities(points) {
   const rows = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]).slice(0, 5);
   const el = $("#top-abilities");
   if (!rows.length) {
-    el.innerHTML = `<p class="muted">Tidak ada data untuk filter ini.</p>`;
+    el.innerHTML = `<p class="muted">No data for these filters.</p>`;
     return;
   }
   const total = points.length;
@@ -361,7 +386,7 @@ function renderOperator() {
   const teamOps = ops.filter((o) => o.team_id === state.teamId);
   sel.innerHTML = teamOps.length
     ? teamOps.map((o) => `<option value="${esc(o.player_id)}">${esc(o.player_name)}</option>`).join("")
-    : `<option value="">— tidak ada profil Operator —</option>`;
+    : `<option value="">— no Operator profile —</option>`;
   if (teamOps.length && !teamOps.some((o) => o.player_id === state.operatorPlayerId)) {
     state.operatorPlayerId = teamOps[0].player_id;
   }
@@ -374,8 +399,8 @@ function renderOperator() {
     empty.hidden = false;
     body.hidden = true;
     empty.textContent = prof
-      ? `${prof.player_name} belum punya profil Operator di ${state.map} (n=0).`
-      : `Tidak ada profil Operator untuk ${teamName(state.teamId)} di dataset ini.`;
+      ? `${prof.player_name} has no Operator profile on ${state.map} (n=0).`
+      : `No Operator profile for ${teamName(state.teamId)} in this dataset.`;
     return;
   }
   empty.hidden = true;
@@ -394,10 +419,10 @@ function renderOperator() {
   // Summary stats
   const kpr = m.rounds_with_operator ? (m.operator_kills / m.rounds_with_operator) : 0;
   $("#op-stats").innerHTML =
-    `<div class="kpi"><span class="kpi-num">${fmtNum(m.rounds_with_operator)}</span><span class="kpi-label">round dengan Operator</span></div>`
-    + `<div class="kpi"><span class="kpi-num">${fmtNum(m.operator_kills)}</span><span class="kpi-label">kill Operator</span></div>`
-    + `<div class="kpi"><span class="kpi-num">${kpr.toFixed(2)}</span><span class="kpi-label">kill / round OP</span></div>`
-    + `<div class="kpi"><span class="kpi-num">${m.setup_positions.length}</span><span class="kpi-label">posisi setup unik</span></div>`;
+    `<div class="kpi"><span class="kpi-num">${fmtNum(m.rounds_with_operator)}</span><span class="kpi-label">rounds with Operator</span></div>`
+    + `<div class="kpi"><span class="kpi-num">${fmtNum(m.operator_kills)}</span><span class="kpi-label">Operator kills</span></div>`
+    + `<div class="kpi"><span class="kpi-num">${kpr.toFixed(2)}</span><span class="kpi-label">kills / OP round</span></div>`
+    + `<div class="kpi"><span class="kpi-num">${m.setup_positions.length}</span><span class="kpi-label">unique setup positions</span></div>`;
 
   // Buy-rate bar chart (rounds 1-24)
   const rates = m.buy_rate_by_round || {};
@@ -409,19 +434,19 @@ function renderOperator() {
   }).join("");
   $("#op-buychart").innerHTML = bars;
   $("#op-buychart-note").textContent =
-    `Buy-rate Operator per nomor round — ${prof.player_name}, ${state.map} (n=${m.rounds_with_operator} round dengan Operator).`;
+    `Operator buy-rate by round number — ${prof.player_name}, ${state.map} (n=${m.rounds_with_operator} rounds with Operator).`;
 
   // Handoff: Operator ownership across teammates
   const mates = teamOps.filter((o) => o.player_id !== prof.player_id);
   const handoffEl = $("#op-handoff");
   if (!mates.length) {
-    handoffEl.innerHTML = `<p class="muted">${prof.player_name} satu-satunya pemegang Operator ${teamName(state.teamId)} di dataset ini.</p>`;
+    handoffEl.innerHTML = `<p class="muted">${prof.player_name} is the only Operator holder for ${teamName(state.teamId)} in this dataset.</p>`;
   } else {
     handoffEl.innerHTML = mates.map((o) => {
       const om = o.maps[state.map];
       const rounds = om ? om.rounds_with_operator : 0;
       return `<div class="stat-row"><span>${esc(o.player_name)}</span>`
-        + `<span class="stat-n">${fmtNum(rounds)} round OP · ${om ? fmtNum(om.operator_kills) : 0} kill</span></div>`;
+        + `<span class="stat-n">${fmtNum(rounds)} OP rounds · ${om ? fmtNum(om.operator_kills) : 0} kills</span></div>`;
     }).join("");
   }
 }
@@ -437,23 +462,24 @@ function renderAntiStrat() {
 
   let cards;
   if (state.selfScout) {
-    title.textContent = "Self-Scout — Kecenderungan C9 yang Paling Mudah Ditebak";
+    title.textContent = "Self-Scout — C9's Most Readable Tendencies";
+    const c9 = c9TeamIds();
     cards = (state.datasets["self-scout"] || []).filter((c) =>
-      c.team_id === "c9" && c.map === state.map);
-    note.textContent = "Mode self-scout: analisis yang sama diterapkan ke Cloud9 sendiri. "
-      + "Kartu di bawah adalah pola C9 yang paling mudah dibaca lawan — beserta saran variasi.";
+      c9.has(c.team_id) && c.map === state.map);
+    note.textContent = "Self-scout mode: the same analysis applied to Cloud9 itself. "
+      + "The cards below are C9's most readable patterns — with variation suggestions.";
   } else {
     title.textContent = `Anti-Strat — vs ${teamName(state.teamId)} · ${state.map}`;
     cards = (state.datasets["anti-strat"] || []).filter((c) =>
       c.team_id === state.teamId && c.map === state.map);
-    note.textContent = "Respons berbasis aturan dari data agregat (bukan LLM). "
-      + "Setiap kartu menunjukkan sample size dan frekuensi kecenderungannya.";
+    note.textContent = "Rule-based responses from aggregate data (not LLM). "
+      + "Every card shows its tendency's sample size and frequency.";
   }
 
   if (!cards.length) {
-    list.innerHTML = `<div class="empty-card">Belum ada kartu ${state.selfScout ? "self-scout" : "anti-strat"} `
-      + `untuk ${state.selfScout ? "Cloud9" : teamName(state.teamId)} di ${esc(state.map)}. `
-      + `Coba map lain.</div>`;
+    list.innerHTML = `<div class="empty-card">No ${state.selfScout ? "self-scout" : "anti-strat"} cards `
+      + `for ${state.selfScout ? "Cloud9" : teamName(state.teamId)} on ${esc(state.map)} yet. `
+      + `Try another map.</div>`;
     return;
   }
   list.innerHTML = cards.map((c) => `
@@ -462,8 +488,8 @@ function renderAntiStrat() {
         <h3>${esc(c.tendency)}</h3>
         <span class="freq-badge">${pct(c.frequency)}</span>
       </div>
-      <p class="strat-evidence">n = ${fmtNum(c.n)} round · frekuensi ${pct(c.frequency)} · ${esc(c.map)}</p>
-      <p class="strat-response"><span class="resp-label">${state.selfScout ? "SARAN VARIASI" : "RESPONS"}</span> ${esc(c.response)}</p>
+      <p class="strat-evidence">n = ${fmtNum(c.n)} rounds · frequency ${pct(c.frequency)} · ${esc(c.map)}</p>
+      <p class="strat-response"><span class="resp-label">${state.selfScout ? "VARIATION TIP" : "RESPONSE"}</span> ${esc(c.response)}</p>
     </article>`).join("");
 }
 
@@ -486,8 +512,8 @@ function topInsights() {
       const m = o.maps[state.map];
       if (!m) continue;
       insights.push({
-        text: `${o.player_name} membawa Operator di ${m.rounds_with_operator} round `
-          + `(${m.operator_kills} kill) — setup defense terkonsentrasi di ${m.setup_positions.length} posisi.`,
+        text: `${o.player_name} carried the Operator for ${m.rounds_with_operator} rounds `
+          + `(${m.operator_kills} kills) — defense setups concentrated in ${m.setup_positions.length} positions.`,
         n: m.rounds_with_operator, freq: null,
       });
       if (insights.length >= 3) break;
@@ -500,7 +526,7 @@ function renderScoutCard() {
   const insights = topInsights();
   const el = $("#scout-insights");
   if (!insights.length) {
-    el.innerHTML = `<li class="muted">Belum ada insight untuk ${teamName(state.teamId)} di ${state.map} — pilih lawan/map lain.</li>`;
+    el.innerHTML = `<li class="muted">No insights for ${teamName(state.teamId)} on ${state.map} yet — pick another opponent/map.</li>`;
   } else {
     el.innerHTML = insights.map((ins, i) =>
       `<li><span class="insight-num">${i + 1}</span><span>${esc(ins.text)} `
@@ -510,8 +536,8 @@ function renderScoutCard() {
     `SCOUT CARD — vs ${teamName(state.teamId)} · ${state.map}`;
   const m = state.datasets.meta;
   $("#scout-meta").textContent =
-    `Sumber: ${m.series_count} series · ${m.games_count} game · ${m.rounds_count} round GRID `
-    + `· agregat ${m.generated_at || ""} · SIGHTLINE / Cloud9 x JetBrains Hackathon 2026`;
+    `Source: ${m.series_count} series · ${m.games_count} games · ${m.rounds_count} rounds of GRID data `
+    + `· aggregates ${m.generated_at || ""} · SIGHTLINE / Cloud9 x JetBrains Hackathon 2026`;
 }
 
 /* ------------------------------------------------------------------ */

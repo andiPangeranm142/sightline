@@ -81,13 +81,30 @@ const MAP_GEOMETRY = {
 };
 
 /**
- * Render the base schematic (zones + corridors + spawns) as SVG inner markup.
+ * Generic 2-site schematic for maps without a bespoke layout. Reuses the
+ * Ascent zone structure (standard A/B site arrangement) with the map's
+ * own name as the label. Used for Abyss, Bind, Breeze, Corrode, Fracture,
+ * Icebox, Lotus, Pearl, Split, Summit and Sunset.
+ */
+function genericTwoSiteGeometry(mapName) {
+  const g = JSON.parse(JSON.stringify(MAP_GEOMETRY.Ascent));
+  g.label = mapName;
+  return g;
+}
+
+function getMapGeometry(mapName) {
+  return MAP_GEOMETRY[mapName] || genericTwoSiteGeometry(mapName);
+}
+
+/**
+ * Render the base schematic (zones + corridors + spawns + map label) as SVG
+ * inner markup.
  * @param {string} mapName
  * @returns {string} SVG inner markup (viewBox 0 0 1000 1000)
  */
 function renderMapBase(mapName) {
-  const geo = MAP_GEOMETRY[mapName] || MAP_GEOMETRY.Ascent;
-  let s = "";
+  const geo = getMapGeometry(mapName);
+  let s = `<text x="24" y="44" class="map-name-label">${mapName.toUpperCase()}</text>`;
   // corridors (under zones)
   for (const d of geo.corridors) {
     s += `<path d="${d}" class="map-corridor" />`;

@@ -1,18 +1,1 @@
-[
-  {
-    "team_id": "c9",
-    "map": "Ascent",
-    "tendency": "Viper wall mid yang sama di 81% round defense",
-    "n": 73,
-    "frequency": 0.81,
-    "response": "Variasikan: wall B link 1 dari 3 round; simpan wall untuk retake di round ekonomi lemah."
-  },
-  {
-    "team_id": "c9",
-    "map": "Haven",
-    "tendency": "Default A-heavy: 4 pemain A lobby di 68% round attack",
-    "n": 59,
-    "frequency": 0.68,
-    "response": "Tambah default C 2-1-2; rotasi lewat mid di round 3-6 untuk memecah pola."
-  }
-]
+[{"team_id": "c9", "map": "Ascent", "tendency": "Same Viper wall mid in 81% of defense rounds", "n": 73, "frequency": 0.81, "response": "Vary it: wall B link 1 in 3 rounds; save the wall for retakes on weak-economy rounds."}, {"team_id": "c9", "map": "Haven", "tendency": "A-heavy default: 4 players in A lobby in 68% of attack rounds", "n": 59, "frequency": 0.68, "response": "Add a C default 2-1-2; rotate through mid in rounds 3-6 to break the pattern."}]

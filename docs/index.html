@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIGHTLINE — C9 VALORANT Tactical Scouting Console</title>
-<meta name="description" content="Konsol scouting VALORANT: heatmap utility lawan, profil sniper Operator, dan rencana anti-strat berbasis data GRID — setiap insight dengan sample size.">
+<meta name="description" content="VALORANT scouting console: opponent utility heatmaps, Operator sniper profiles, and data-driven anti-strat plans from GRID data — every insight with its sample size.">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,12 +20,12 @@
       </div>
     </div>
     <div class="topbar-right">
-      <p class="hackathon-tag">Cloud9 × JetBrains Hackathon 2026 · Kategori 1 (VAL/GC)</p>
+      <p class="hackathon-tag">Cloud9 × JetBrains Hackathon 2026 · Category 1 (VAL/GC)</p>
       <p class="coverage">
         <span><strong id="cov-series">—</strong> series</span>
-        <span><strong id="cov-games">—</strong> game</span>
-        <span><strong id="cov-rounds">—</strong> round</span>
-        <span><strong id="cov-events">—</strong> event</span>
+        <span><strong id="cov-games">—</strong> games</span>
+        <span><strong id="cov-rounds">—</strong> rounds</span>
+        <span><strong id="cov-events">—</strong> events</span>
       </p>
       <p class="meta-line"><span id="meta-generated"></span> · <span id="data-source-badge" class="badge">DATA: —</span></p>
     </div>
@@ -35,13 +35,13 @@
 <!-- ============ LOADING / ERROR STATES ============ -->
 <div id="loading-state" class="state-panel">
   <div class="spinner" aria-hidden="true"></div>
-  <p>Memuat agregat scouting…</p>
+  <p>Loading scouting aggregates…</p>
 </div>
 
 <div id="error-state" class="state-panel state-panel--error" hidden>
-  <h2>Data tidak dapat dimuat</h2>
+  <h2>Data could not be loaded</h2>
   <p id="error-message"></p>
-  <p class="muted">Periksa koneksi, lalu muat ulang halaman. Agregat dibaca dari <code>docs/data/*.json</code> dengan fallback ke <code>docs/data/mock/*.json</code>.</p>
+  <p class="muted">Check your connection, then reload the page. Aggregates are read from <code>docs/data/*.json</code> with fallback to <code>docs/data/mock/*.json</code>.</p>
 </div>
 
 <div id="data-errors" class="notice" hidden></div>
@@ -50,20 +50,20 @@
 <main id="app-main" hidden>
 
   <!-- ===== Filter panel ===== -->
-  <section class="panel filter-panel" aria-label="Filter scouting">
+  <section class="panel filter-panel" aria-label="Scouting filters">
     <div class="panel-head">
-      <h2>Filter Scouting</h2>
+      <h2>Scouting Filters</h2>
       <span id="current-context" class="context-chip"></span>
-      <button id="btn-reset" class="btn btn-ghost" type="button">Reset filter</button>
+      <button id="btn-reset" class="btn btn-ghost" type="button">Reset filters</button>
     </div>
     <div class="filter-grid">
-      <label class="field">Tim lawan
+      <label class="field">Opponent team
         <select id="filter-team"></select>
       </label>
       <label class="field">Map
         <select id="filter-map"></select>
       </label>
-      <label class="field">Pemain
+      <label class="field">Player
         <select id="filter-player"></select>
       </label>
       <label class="field">Agent
@@ -81,24 +81,24 @@
       </label>
     </div>
     <div class="filter-row">
-      <div class="field-group" role="group" aria-label="Waktu round">
-        <span class="field-label">Waktu round</span>
+      <div class="field-group" role="group" aria-label="Round time">
+        <span class="field-label">Round time</span>
         <div class="bucket-row">
-          <button type="button" class="bucket-toggle active" data-bucket="0-20s">0–20 dtk</button>
-          <button type="button" class="bucket-toggle active" data-bucket="20-40s">20–40 dtk</button>
-          <button type="button" class="bucket-toggle active" data-bucket="40-60s">40–60 dtk</button>
-          <button type="button" class="bucket-toggle active" data-bucket="60s+">60 dtk+</button>
+          <button type="button" class="bucket-toggle active" data-bucket="0-20s">0–20s</button>
+          <button type="button" class="bucket-toggle active" data-bucket="20-40s">20–40s</button>
+          <button type="button" class="bucket-toggle active" data-bucket="40-60s">40–60s</button>
+          <button type="button" class="bucket-toggle active" data-bucket="60s+">60s+</button>
         </div>
       </div>
-      <div class="field-group" role="group" aria-label="Mode tampilan heatmap">
-        <span class="field-label">Tampilan heatmap</span>
-        <label class="radio"><input type="radio" name="heat-mode" id="heat-gradient" value="gradient" checked> Gradien</label>
-        <label class="radio"><input type="radio" name="heat-mode" id="heat-numbers" value="numbers"> Angka keras</label>
+      <div class="field-group" role="group" aria-label="Heatmap display mode">
+        <span class="field-label">Heatmap display</span>
+        <label class="radio"><input type="radio" name="heat-mode" id="heat-gradient" value="gradient" checked> Gradient</label>
+        <label class="radio"><input type="radio" name="heat-mode" id="heat-numbers" value="numbers"> Hard numbers</label>
       </div>
       <label class="toggle">
         <input type="checkbox" id="toggle-landing" checked>
         <span class="toggle-track"><span class="toggle-thumb"></span></span>
-        Landing zone (estimasi)
+        Landing zones (estimates)
       </label>
       <label class="toggle toggle--accent">
         <input type="checkbox" id="toggle-selfscout">
@@ -111,30 +111,30 @@
   <!-- ===== Heatmap ===== -->
   <section class="panel" aria-label="Utility heatmaps">
     <div class="panel-head">
-      <h2>Utility Heatmaps — Titik Cast</h2>
-      <span class="panel-note">Peta skematis orisinil (zona) · binning client-side dari titik cast</span>
+      <h2>Utility Heatmaps — Cast Points</h2>
+      <span class="panel-note">Original schematic maps (zones) · client-side binning from cast points</span>
     </div>
     <div class="heatmap-layout">
       <div class="map-wrap">
-        <svg id="heatmap-svg" viewBox="0 0 1000 1000" role="img" aria-label="Peta skematis dengan heatmap titik cast ability"></svg>
+        <svg id="heatmap-svg" viewBox="0 0 1000 1000" role="img" aria-label="Schematic map with ability cast-point heatmap"></svg>
         <div id="heatmap-empty" class="map-empty" hidden>
-          <p>Tidak ada titik cast untuk filter ini.</p>
-          <p class="muted">Longgarkan filter (pemain / ability / waktu round) atau pilih tim/map lain.</p>
+          <p>No cast points match these filters.</p>
+          <p class="muted">Loosen the filters (player / ability / round time) or pick another team/map.</p>
         </div>
         <div class="map-legend">
-          <span><i class="legend-dot legend-dot--low"></i> Rendah</span>
-          <span><i class="legend-dot legend-dot--mid"></i> Sedang</span>
-          <span><i class="legend-dot legend-dot--high"></i> Tinggi</span>
-          <span><i class="legend-dot legend-dot--lz"></i> Landing zone (ESTIMASI)</span>
+          <span><i class="legend-dot legend-dot--low"></i> Low</span>
+          <span><i class="legend-dot legend-dot--mid"></i> Medium</span>
+          <span><i class="legend-dot legend-dot--high"></i> High</span>
+          <span><i class="legend-dot legend-dot--lz"></i> Landing zone (ESTIMATE)</span>
         </div>
       </div>
       <aside class="heatmap-side">
         <p id="heatmap-evidence" class="evidence-line"></p>
-        <h3>Ability teratas (filter aktif)</h3>
+        <h3>Top abilities (active filters)</h3>
         <div id="top-abilities"></div>
-        <p class="muted small">Landing zone dihitung dari proyeksi balistik sederhana
-          (posisi + arah bidik + velocity dari ability supplement) dan SELALU ditandai
-          <strong>ESTIMASI</strong> beserta skor kepercayaannya — bukan posisi terukur.</p>
+        <p class="muted small">Landing zones come from a simple ballistic projection
+          (position + aim direction + velocity from the ability supplement) and are ALWAYS marked
+          <strong>ESTIMATE</strong> with a confidence score — not measured positions.</p>
       </aside>
     </div>
   </section>
@@ -142,8 +142,8 @@
   <!-- ===== Operator Profiler ===== -->
   <section class="panel" aria-label="Operator profiler">
     <div class="panel-head">
-      <h2>Operator Profiler — Sidik Jari Sniper</h2>
-      <label class="field field-inline">Pemain
+      <h2>Operator Profiler — Sniper Fingerprint</h2>
+      <label class="field field-inline">Player
         <select id="operator-player"></select>
       </label>
     </div>
@@ -151,18 +151,18 @@
     <div id="operator-body">
       <div class="op-layout">
         <div class="map-wrap map-wrap--small">
-          <svg id="operator-svg" viewBox="0 0 1000 1000" role="img" aria-label="Peta setup defense Operator"></svg>
+          <svg id="operator-svg" viewBox="0 0 1000 1000" role="img" aria-label="Operator setup map"></svg>
           <div class="map-legend">
-            <span><i class="legend-dot legend-dot--def"></i> Setup defense</span>
-            <span><i class="legend-dot legend-dot--atk"></i> Setup attack</span>
+            <span><i class="legend-dot legend-dot--def"></i> Defense setups</span>
+            <span><i class="legend-dot legend-dot--atk"></i> Attack setups</span>
           </div>
         </div>
         <div class="op-side">
           <div id="op-stats" class="kpi-row"></div>
-          <h3>Buy-rate Operator per nomor round</h3>
-          <div id="op-buychart" class="barchart" role="img" aria-label="Grafik batang buy-rate Operator per nomor round"></div>
+          <h3>Operator buy-rate by round number</h3>
+          <div id="op-buychart" class="barchart" role="img" aria-label="Bar chart of Operator buy-rate by round number"></div>
           <p id="op-buychart-note" class="muted small"></p>
-          <h3>Perpindahan Operator dalam tim</h3>
+          <h3>Operator handoffs within the team</h3>
           <div id="op-handoff"></div>
         </div>
       </div>
@@ -181,8 +181,8 @@
   <!-- ===== Scout Card ===== -->
   <section class="panel" aria-label="Scout card">
     <div class="panel-head">
-      <h2>Scout Card — Ekspor 1 Halaman</h2>
-      <button id="btn-print" class="btn btn-primary" type="button">Cetak / Simpan PDF</button>
+      <h2>Scout Card — 1-Page Export</h2>
+      <button id="btn-print" class="btn btn-primary" type="button">Print / Save PDF</button>
     </div>
     <article id="scout-card" class="scout-card">
       <header class="scout-card-head">
@@ -192,14 +192,14 @@
       <ol id="scout-insights" class="scout-insights"></ol>
       <footer class="scout-foot">
         <p id="scout-meta"></p>
-        <p class="muted small">Setiap insight di atas didukung sample size (n) dan frekuensi dari data agregat GRID. Landing zone bersifat estimasi dan tidak masuk kartu ini.</p>
+        <p class="muted small">Every insight above is backed by a sample size (n) and frequency from GRID aggregate data. Landing zones are estimates and are not included in this card.</p>
       </footer>
     </article>
   </section>
 
   <footer class="page-foot">
     <p>SIGHTLINE — Cloud9 × JetBrains Hackathon 2026 · Data: GRID VALORANT (VCT Americas + Game Changers) ·
-      Peta skematis orisinil, bukan aset Riot Games. VALORANT adalah merek Riot Games, Inc.</p>
+      Original schematic maps, not Riot Games assets. VALORANT is a trademark of Riot Games, Inc.</p>
   </footer>
 </main>
 

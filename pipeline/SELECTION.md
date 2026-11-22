@@ -1,19 +1,20 @@
 # Series selection — SIGHTLINE pipeline
 
-Dipilih dari `val/series.csv` (857 series) dengan aturan di `aggregate.py`
-(`EVENT_PREFIXES`): semua series yang nama event-nya diawali salah satu:
+Selected from `val/series.csv` (857 series) using the rules in
+`aggregate.py` (`EVENT_PREFIXES`): every series whose event name starts
+with one of:
 
-- `VCT Americas` — liga Cloud9 sendiri (fokus utama scouting).
-- `Game Changers NA` — liga Cloud9 GC.
-- `Game Changers Championship` — kejuaraan dunia GC (lawan-lawan top GC).
-- `VALORANT Masters` — turnamen internasional (Masters Toronto).
+- `VCT Americas` — Cloud9's own league (the main scouting focus).
+- `Game Changers NA` — Cloud9 GC's league.
+- `Game Changers Championship` — the GC world championship (top GC opponents).
+- `VALORANT Masters` — international tournaments (Masters Toronto).
 
-Alasan: SIGHTLINE adalah konsol scouting untuk pelatih C9 VAL + C9 GC,
-jadi dataset mencakup semua lawan yang relevan di liga mereka plus
-panggung internasional. Tidak ada penambahan region Game Changers lain:
-total sudah jauh di atas minimum 60 series.
+Rationale: SIGHTLINE is a scouting console for C9 VAL + C9 GC coaches, so
+the dataset covers every relevant opponent in their leagues plus the
+international stage. No other Game Changers regions were added: the total
+is already far above the 60-series minimum.
 
-Total terpilih: **337 series**.
+Total selected: **337 series**.
 
 ## Per event
 
@@ -28,9 +29,9 @@ Total terpilih: **337 series**.
 - VCT Americas - Stage 1 2025: 42
 - VCT Americas - Stage 2 2025: 42
 
-## Daftar lengkap
+## Full list
 
-Lihat `selected_series.csv` (series_id, event, stage, jadwal, tim).
-File events + ability supplement untuk series ini diunduh via HTTPS
-individual dari starter repo (BUKAN git clone — lihat README.md) dan
-disimpan di luar repo (`$STL_DATA_DIR`), TIDAK PERNAH di-commit.
+See `selected_series.csv` (series_id, event, stage, schedule, teams).
+Events + ability supplement files for these series were downloaded via
+individual HTTPS from the starter repo (NOT git clone — see README.md)
+and stored outside the repo (`$STL_DATA_DIR`), NEVER committed.

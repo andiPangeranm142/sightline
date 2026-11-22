@@ -33,9 +33,9 @@ MAX_FLIGHT_S = 4.0
 STEP_S = 0.02
 
 METHOD = (
-    "ESTIMASI: proyeksi balistik sederhana dari posisi + view + velocity "
-    "supplement (kecepatan proyektil nominal per kelas ability, gravitasi "
-    "800 u/s^2, tanah datar 150 unit di bawah titik lempar)"
+    "ESTIMATE: simple ballistic projection from supplement position + view "
+    "+ velocity (nominal projectile speed per ability class, gravity "
+    "800 u/s^2, flat ground 150 units below the throw point)"
 )
 
 # ability_id -> (nominal speed in GRID units/s, class label).

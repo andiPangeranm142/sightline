@@ -370,6 +370,13 @@ body.self-scout-mode .filter-panel { border-color: rgba(124, 92, 255, 0.6); }
   font-weight: 700;
   letter-spacing: 3px;
 }
+.map-name-label {
+  fill: #e8eef7;
+  font-family: var(--font);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
 .map-corridor { stroke: #2a3d5f; stroke-width: 10; stroke-linecap: round; fill: none; }
 .map-spawn circle { fill: #1d2f4f; stroke: #33507e; stroke-width: 2; }
 .map-spawn text { fill: #c9d8ef; font-size: 17px; font-weight: 700; font-family: var(--font); }

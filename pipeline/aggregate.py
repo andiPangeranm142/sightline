@@ -130,32 +130,32 @@ def is_placeable(ability_id: str) -> bool:
 
 RESPONSE_TEMPLATES = {
     "placeable": (
-        "Clear dengan util/drone sebelum execute; jangan walk-up tanpa info "
-        "ke zona trap ini."
+        "Clear with utility/drone before executing; don't walk up blind "
+        "into this trap zone."
     ),
     "recon": (
-        "Hancurkan atau bait recon sebelum execute; variasikan timing "
-        "execute agar info lawan basi."
+        "Destroy or bait recon before executing; vary execute timing "
+        "so enemy info goes stale."
     ),
     "smoke": (
-        "Siapkan counter-smoke/flash untuk execute; jangan commit buta ke "
-        "dalam smoke."
+        "Prepare counter-smoke/flash for the execute; don't commit blind "
+        "into smoke."
     ),
     "molly": (
-        "Hindari post-plant dan sudut default di zona molly; clear dengan "
-        "util dari jarak aman."
+        "Avoid post-plant and default corners in the molly zone; clear "
+        "with utility from a safe distance."
     ),
     "flash": (
-        "Hindari peek berulang dari angle yang sama; siapkan turn-away dan "
-        "trade siap."
+        "Avoid repeated peeks from the same angle; have a turn-away and "
+        "a trade ready."
     ),
     "operator": (
-        "Smoke angle Operator + peek berpasangan; simpan flash untuk "
-        "re-peek kedua."
+        "Smoke the Operator angle and peek in pairs; save a flash for "
+        "the second re-peek."
     ),
     "default": (
-        "Variasikan tempo dan rute; jangan ulangi pola yang sama dua round "
-        "berturut-turut."
+        "Vary tempo and routes; don't repeat the same pattern two rounds "
+        "in a row."
     ),
 }
 
@@ -181,8 +181,18 @@ def ability_category(ability_id: str) -> str:
     return "default"
 
 
+# Canonical display names for abilities whose ids lose punctuation.
+ABILITY_DISPLAY = {
+    "frag-ment": "FRAG/MENT",
+    "flash-drive": "FLASH/DRIVE",
+    "zero-point": "ZERO/POINT",
+}
+
+
 def pretty_ability(ability_id: str) -> str:
     """'toxic-screen' -> 'Toxic Screen' (display only)."""
+    if ability_id.lower() in ABILITY_DISPLAY:
+        return ABILITY_DISPLAY[ability_id.lower()]
     return ability_id.replace("-", " ").replace("_", " ").title()
 
 
@@ -751,13 +761,13 @@ def build_meta(agg: Aggregator, series_ids: list[str],
             "per_map_cap": agg.heatmap_cap,
         },
         "landing_zones_note": (
-            "landing-zones.json berisi ESTIMASI proyeksi balistik, bukan "
-            "posisi pendaratan terukur — lihat pipeline/README.md"
+            "landing-zones.json contains ballistic-projection ESTIMATES, not "
+            "measured landing positions — see pipeline/README.md"
         ),
         "operator_evidence_note": (
-            "rounds_with_operator dari snapshot inventory (game-started-round "
-            "/ game-ended-round) + player-pickedUp-item; kill Operator "
-            "dipakai sebagai bukti fallback bila tidak ada snapshot"
+            "rounds_with_operator from inventory snapshots (game-started-round "
+            "/ game-ended-round) + player-pickedUp-item; Operator kills used "
+            "as fallback evidence when no snapshot exists"
         ),
     }
 
@@ -921,14 +931,14 @@ def generate_cards(agg: Aggregator,
             if (best_side is not None and best_freq >= threshold
                     and best_freq >= freq + 0.15):
                 add(team, map_name,
-                    f"{pretty_agent(agent)} memakai {pretty_ability(ability)} "
-                    f"di {round(best_freq * 100)}% round {_side_word(best_side)}",
+                    f"{pretty_agent(agent)} uses {pretty_ability(ability)} "
+                    f"in {round(best_freq * 100)}% of {_side_word(best_side)} rounds",
                     best_n, best_freq,
                     RESPONSE_TEMPLATES[ability_category(ability)])
             elif freq >= threshold:
                 add(team, map_name,
-                    f"{pretty_agent(agent)} memakai {pretty_ability(ability)} "
-                    f"di {round(freq * 100)}% round",
+                    f"{pretty_agent(agent)} uses {pretty_ability(ability)} "
+                    f"in {round(freq * 100)}% of rounds",
                     n, freq, RESPONSE_TEMPLATES[ability_category(ability)])
         # (2) Placeable sector clustering.
         for (t, m, ability, cell), n_cell in agg.cell_rounds.items():
@@ -941,8 +951,8 @@ def generate_cards(agg: Aggregator,
             freq = n_cell / rounds_total
             if freq >= MIN_FREQ_CELL and share >= MIN_CELL_SHARE:
                 add(team, map_name,
-                    f"Penempatan {pretty_ability(ability)} terkonsentrasi di "
-                    f"sektor {cell} ({round(share * 100)}% dari pemakaian)",
+                    f"{pretty_ability(ability)} placements concentrated in "
+                    f"sector {cell} ({round(share * 100)}% of uses)",
                     n_cell, freq, RESPONSE_TEMPLATES["placeable"])
         # (3) Team Operator usage per side.
         for side in ("attack", "defense"):
@@ -952,8 +962,8 @@ def generate_cards(agg: Aggregator,
             if (side_rounds and n_op >= MIN_ROUNDS_TENDENCY
                     and n_op / side_rounds >= MIN_FREQ_OPERATOR):
                 add(team, map_name,
-                    f"Operator di {round(n_op / side_rounds * 100)}% round "
-                    f"{_side_word(side)}",
+                    f"Operator in {round(n_op / side_rounds * 100)}% of "
+                    f"{_side_word(side)} rounds",
                     n_op, n_op / side_rounds,
                     RESPONSE_TEMPLATES["operator"])
 
