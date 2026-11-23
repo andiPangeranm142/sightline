@@ -16,7 +16,7 @@ profiles, and one-click anti-strat plans.
 | App design, data pipeline (`pipeline/`), frontend (`docs/`), tests, demo deployment | A Muse coding agent (the author's AI assistant, "forza") |
 | Project rules for the AI tools (`.junie/guidelines.md`) | Written for Junie before the build, committed 23 Nov 2026 |
 | Junie CLI setup, auth, and BYOK model profile | Set up and verified working 23 Nov 2026 (see below) |
-| Junie reviews of the pipeline and frontend | **Running 24 Nov 2026** on JetBrains built-in models (AI Ultimate claimed; the 23 Nov OpenRouter quota block is gone). Reports will land in `.junie/reviews/`. |
+| Junie reviews of the pipeline and frontend | **Completed 24 Nov 2026** on JetBrains built-in models (AI Ultimate claimed; the 23 Nov OpenRouter quota block is gone). Reports in `.junie/reviews/` (16 pipeline + 8 frontend findings); fixes applied and aggregates regenerated. |
 | JetBrains Air repository indexing | **Blocked in this VM** — `jbcontext` 0.9.22 is installed and the browser OAuth authorization succeeded (23 Nov 2026), but the CLI login fails: jbcontext's HTTP client cannot CONNECT through this VM's egress proxy (its own log: "Failed to parse CONNECT response: unexpected EOF"), and no direct egress exists. The `--token` manual-auth path is unverified. Air is a nice-to-have; the JetBrains tool requirement is met by Junie. |
 
 **Junie did not build this app.** The app was built by the Muse agent; Junie's
@@ -58,9 +58,8 @@ documented here as they actually stand.
 - `.junie/guidelines.md` — project rules Junie follows (GRID data handling,
   honesty labels, no fabricated claims).
 - `.junie/models/openrouter-nemotron.json` — the working BYOK model profile.
-- `.junie/reviews/` — Junie's review reports (pipeline + frontend) will be
-  committed here once the review runs finish (running 24 Nov 2026 on
-  built-in models).
+- `.junie/reviews/` — Junie's review reports (pipeline + frontend),
+  completed 24 Nov 2026 on built-in models.
 
 ## Reproducing the Junie setup
 

@@ -12,7 +12,7 @@ Status as of 24 November 2026.
 | App design, data pipeline (`pipeline/`), frontend (`docs/`), tests, demo deployment | A Muse coding agent (the author's AI assistant, "forza") |
 | Project rules for the AI tools (`.junie/guidelines.md`) | Written for Junie before the build, committed 23 Nov 2026 |
 | Junie CLI setup, auth, and BYOK model profile | Set up and verified working 23 Nov 2026 (see below) |
-| Junie reviews of the pipeline and frontend | **Running 24 Nov 2026** on JetBrains built-in models (AI Ultimate claimed; see §3) |
+| Junie reviews of the pipeline and frontend | **Completed 24 Nov 2026** on JetBrains built-in models (AI Ultimate claimed; see §3) — reports in `.junie/reviews/`, fixes applied and aggregates regenerated |
 | JetBrains Air repository indexing | **Not done** — login was attempted and failed for an environmental reason (see §4) |
 
 **Junie did not build this app.** The app was built by the Muse agent;
@@ -101,25 +101,41 @@ Verified 24 Nov 2026, on the built-in path: authenticated successfully
 and completed a small task end-to-end (listed the repo's top-level files)
 with no license error.
 
-The 23 Nov review pass was interrupted, not finished: no review report
-exists yet, and none is claimed here. The reviews are running now on
-built-in models (see §3).
+The 23 Nov review pass was interrupted, not finished. The reviews were
+completed 24 Nov 2026 on built-in models (see §3).
 
-## 3. Reviews: running 24 Nov 2026 on built-in models
+## 3. Reviews: completed 24 Nov 2026 on built-in models
 
-The planned Junie work — a review of `pipeline/` (aggregation correctness,
-caveat handling, sampling) and a review of `docs/` (frontend correctness,
-honesty labels, accessibility) — is **running now** on JetBrains built-in
-models (started 24 Nov 2026 ~01:20 WIB). Their reports will land in
-`.junie/reviews/` (the directory does not exist yet because no report has
-been produced).
+Junie reviewed `pipeline/` (aggregation correctness, caveat handling,
+sampling) and `docs/` (frontend correctness, honesty labels,
+accessibility) on JetBrains built-in models, finishing 24 Nov 2026
+01:32 WIB. The reports are in `.junie/reviews/`:
+
+- `pipeline-2026-11-24.md` — 16 findings (5 High, 9 Medium, 2 Low).
+- `frontend-2026-11-24.md` — 8 findings (4 High, 4 Medium).
+
+Both reports were written by Junie in Indonesian and translated to
+English afterwards (translation note on each file; content unchanged).
+
+Findings acted on: Junie applied small safe fixes itself (bounds
+validation, `gap_exceeded` handling, timeout projections, the ballistic
+allowlist, plus frontend accessibility/contrast fixes), then the
+aggregates were regenerated with the fixed code — the 438
+non-ballistic landing-zone points are gone (verified live: 3,250 stored
+points, 0 non-ballistic), the heatmap binning edge bug is fixed (all
+cells inside 0–1000), and anti-strat cards now say "casts concentrated
+in sector" instead of "placements". All tests re-ran green after the
+regeneration (jsdom 30/30, Playwright 14/14, pipeline 5/5, frontend
+4/4). The remaining findings (sample-size denominators, historical
+Operator team attribution, cross-game context) are documented in the
+reports as follow-ups and were deliberately not changed this close to
+submission.
 
 History: on 23 Nov 2026 the reviews were blocked by the shared OpenRouter
 free tier (**50 requests/day across all free models and all projects on
 the key**), fully consumed (50/50) before the review runs could finish.
 The AI Ultimate claim (§1.1) removed that blocker entirely — built-in
-models have no OpenRouter ceiling. A 07:05 WIB retry (via cron) remains as
-a safety net in case the running review fails.
+models have no OpenRouter ceiling.
 
 ## 4. JetBrains Air (jbcontext) — attempted, failed, not done
 
@@ -162,9 +178,8 @@ requirement, and Air indexing is not on the critical path for the project.
   keep the demo fast).
 - `.junie/models/openrouter-nemotron.json` — the working BYOK model
   profile (§1.2).
-- `.junie/reviews/` — Junie's review reports (pipeline + frontend) will be
-  committed here once the review runs finish (running 24 Nov 2026 on
-  built-in models).
+- `.junie/reviews/` — Junie's review reports (pipeline + frontend),
+  completed 24 Nov 2026 on built-in models (§3).
 - `AI_SHOWCASE.md` — the showcase summary of JetBrains tool usage (its Air
   line records the diagnosed login failure; see §4).
 
@@ -177,7 +192,7 @@ until 23 Jan 2027; verified on the Licenses page):
 - The `403 NO_LICENSE` block is gone and **Junie's built-in models work
   directly** — no BYOK profile, no OpenRouter quota, no 50-requests/day
   ceiling on review runs.
-- The pipeline + frontend reviews are running on JetBrains models (§3),
+- The pipeline + frontend reviews are complete on JetBrains models (§3),
   and longer review/improvement sessions are now practical.
 - Air remains a separate question: the login failure was environmental
   (jbcontext's HTTP client vs. the sandbox egress proxy), not a license
@@ -185,4 +200,4 @@ until 23 Jan 2027; verified on the Licenses page):
   `--token` path (§4) would still need verification.
 
 Current honest status: Junie CLI works on built-in models, its reviews are
-running, and Air indexing is not done.
+complete and acted on, and Air indexing is not done.
