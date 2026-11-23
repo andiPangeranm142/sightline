@@ -1,0 +1,49 @@
+SIGHTLINE — Tooling: how JetBrains tools were used
+
+Status as of 24 November 2026. This text describes what actually happened — no more, no less.
+
+HONEST SPLIT: WHO BUILT WHAT
+
+The app design, data pipeline, frontend, tests and demo deployment were built by a Muse coding agent (the author's AI assistant, "forza"). Junie did not build this app. Junie's role is reviewer and improver. The project rules for the AI tools (.junie/guidelines.md) were written for Junie before the build and committed 23 Nov 2026. Junie CLI setup, auth and the BYOK model profile were set up and verified working 23 Nov 2026. Junie's reviews of the pipeline and frontend were COMPLETED 24 Nov 2026 on JetBrains built-in models (AI Ultimate claimed) — reports in .junie/reviews/, fixes applied and aggregates regenerated. JetBrains Air repository indexing is not done — login was attempted and failed for an environmental reason (see below).
+
+JUNIE CLI 26.11.2 — THE PRIMARY JETBRAINS TOOL
+
+Junie CLI is the main JetBrains tool used on this project. It is installed in the build environment and authenticates successfully with a JUNIE_API_KEY generated at junie.jetbrains.com/cli. The key itself is never committed; it lives outside the repo.
+
+Resolved 24 Nov 2026: built-in JetBrains models now work. On 23 Nov 2026 the JetBrains account had no active AI subscription, so the JetBrains LLM proxy answered every built-in-model request with 403 NO_LICENSE ("No active JetBrains AI subscription found"). That block is gone: the hackathon codes arrived by email 24 Nov 2026 00:31 WIB (Devpost Credits) and were claimed the same day — All Products Pack plus AI Ultimate, each 2 months of access, active until 23 Jan 2027 (verified on the Licenses page). A test task on the default (built-in) model completed successfully 24 Nov 2026 01:16 WIB: authenticated, no license error. Note: the codes give 2 months each, not 6 — the earlier 6-month figure came from the hackathon page; the codes email is authoritative.
+
+The fallback path: a BYOK custom model profile. Junie can run on a committed custom model profile, .junie/models/openrouter-nemotron.json, that routes Junie to the free tier of OpenRouter over the OpenAI Chat Completions format, using model nvidia/nemotron-3-ultra-550b-a55b:free. This was the working path on 23 Nov 2026; since the AI Ultimate claim it is the fallback, with built-in models primary. The profile references the API key only as an environment variable — no secret is stored in the repo. Note that Junie rejects passing an outside model ID on the command line (the model must be in Junie's own catalog); a custom profile is the only way to add one.
+
+Two environment fixes were needed before this path worked at all. First, TLS: the sandbox routes egress through a MITM proxy, and Junie's bundled JVM rejected its certificate; the fix was importing the egress CA into Junie's bundled JVM truststore. Second, auth method: the junie-lite model needs interactive ACP login, not the API key — the API-key path is the one that works non-interactively.
+
+To reproduce the setup: install Junie CLI, generate a key at junie.jetbrains.com/cli, export JUNIE_API_KEY and OPENROUTER_API_KEY (never commit them), then run: junie "Your task here" (built-in models, primary since 24 Nov 2026) — or, as fallback, junie --model custom:openrouter-nemotron "Your task here".
+
+WHAT JUNIE ACTUALLY DID
+
+Verified 23 Nov 2026, on the BYOK path: Junie authenticated successfully, listed and opened project files, completed a real task end-to-end on this path, read the full aggregation pipeline, and started the first review pass before the daily quota ran out. Verified 24 Nov 2026, on the built-in path: authenticated successfully and completed a small task end-to-end (listed the repo's top-level files) with no license error. The 23 Nov review pass was interrupted, not finished. The reviews were completed 24 Nov 2026 on built-in models (see below).
+
+REVIEWS: COMPLETED 24 NOV 2026 ON BUILT-IN MODELS
+
+Junie reviewed the pipeline (aggregation correctness, caveat handling, sampling) and the frontend (correctness, honesty labels, accessibility) on JetBrains built-in models, finishing 24 Nov 2026 01:32 WIB. The reports are in .junie/reviews/: pipeline-2026-11-24.md (16 findings: 5 High, 9 Medium, 2 Low) and frontend-2026-11-24.md (8 findings: 4 High, 4 Medium). Both reports were written by Junie in Indonesian and translated to English afterwards (translation note on each file; content unchanged). Findings acted on: Junie applied small safe fixes itself, then the aggregates were regenerated with the fixed code — the 438 non-ballistic landing-zone points are gone (verified live: 3,250 stored points, 0 non-ballistic), the heatmap binning edge bug is fixed, and anti-strat cards now say "casts concentrated in sector" instead of "placements". All tests re-ran green after the regeneration (jsdom 30/30, Playwright 14/14, pipeline 5/5, frontend 4/4). The remaining findings are documented in the reports as follow-ups and were deliberately not changed this close to submission.
+
+History: on 23 Nov 2026 the reviews were blocked by the shared OpenRouter free tier: 50 requests per day across all free models and all projects on the key, fully consumed (50 of 50) before Junie's review runs could finish. The AI Ultimate claim removed that blocker entirely — built-in models have no OpenRouter ceiling.
+
+JETBRAINS AIR (JBCONTEXT) — ATTEMPTED, FAILED, NOT DONE
+
+Air indexing is NOT done, and this text does not claim it is. jbcontext 0.9.22 (the Air CLI) is installed. On 23 Nov 2026 the full login was attempted: the browser completed the JetBrains OAuth authorization — the authorization code was obtained and the state matched — but delivering the callback to the CLI's localhost:62350 listener failed. Requests carrying code and state got empty responses (connection closed, no HTTP response), while a no-params request returned a normal 200 page. The CLI waited out its roughly 4-minute timeout, fell back to JetBrains Account login, and died with "OAuth login failed -- Unsupported HTTP version: muse:".
+
+Root cause (from the jbcontext log): jbcontext's HTTP client cannot do CONNECT through the sandbox egress proxy — its own log shows "Analytics push failed: Failed to parse CONNECT response: unexpected EOF". Direct egress does not exist in this VM, so bypassing the proxy is impossible.
+
+One remaining path is unverified: jbcontext login with a token (needs a JCP token from the JetBrains web console) plus --no-verify — and even then, index and search may still need the same broken HTTP client. Air is therefore treated as nice-to-have: Junie (the .junie/ directory plus the repo's AI_SHOWCASE.md) already satisfies the hackathon's JetBrains-tool requirement, and Air indexing is not on the critical path for the project.
+
+Note: AI_SHOWCASE.md in the repo was updated on 23 Nov 2026 to record the diagnosed Air login failure described above, so it now agrees with this text.
+
+EVIDENCE IN THE REPO
+
+.junie/guidelines.md — project rules Junie follows (GRID data handling: never commit raw data, never git-clone the starter repo; every insight carries its sample size; estimates always labeled; no fabricated claims; keep the demo fast). .junie/models/openrouter-nemotron.json — the working BYOK model profile. .junie/reviews/ — Junie's review reports (pipeline plus frontend), completed 24 Nov 2026 on built-in models. AI_SHOWCASE.md — the showcase summary of JetBrains tool usage (its Air line records the diagnosed login failure).
+
+HACKATHON CODES: CLAIMED 24 NOV 2026
+
+The All Products Pack plus AI Ultimate codes arrived by email 24 Nov 2026 00:31 WIB and were claimed the same day (each 2 months of access, active until 23 Jan 2027; verified on the Licenses page). The 403 NO_LICENSE block is gone and Junie's built-in models work directly — no BYOK profile, no OpenRouter quota, no 50-requests-per-day ceiling on review runs. The pipeline and frontend reviews are complete on JetBrains models, and longer review and improvement sessions are now practical. Air remains a separate question: the login failure was environmental (jbcontext's HTTP client versus the sandbox egress proxy), not a license issue, so the codes alone do not unblock Air indexing in this VM. The token-based path would still need verification.
+
+Current honest status: Junie CLI works on built-in models, its reviews are complete and acted on, and Air indexing is not done.

@@ -1,0 +1,57 @@
+SIGHTLINE — Methodology
+
+SIGHTLINE is a VALORANT tactical scouting console for coaches. It answers three questions from real pro match data: where does the opponent put its utility, who snipes and from where, and what should we do about it. Every insight carries its sample size, and every estimate is labeled ESTIMATE.
+
+DATA — GRID STARTER DATASET, 337 SERIES
+
+SIGHTLINE is built on the official Cloud9 GRID starter dataset: VALORANT event data as JSON Lines files compressed with zstd (one file per series), plus a per-series ability supplement (cast position, aim direction, velocity) and meta CSVs (teams, players, games, rosters). From the 857 series in the starter set, 337 were selected: every series from VCT Americas (106), Game Changers NA (189), Game Changers Championship 2025 (18), and VALORANT Masters Toronto (24). The dataset covers Cloud9 VAL and Cloud9 GC's own leagues plus the international stage.
+
+Coverage: 337 series, 848 games, 17,435 rounds, 1,421,082 events, 580,455 ability casts, 72 teams, 374 players, 13 maps. Most-played maps are Haven (102,531 casts), Lotus (96,914) and Ascent (64,773); rarest is Summit (1,981 casts).
+
+The raw GRID data is licensed hackathon-only and is never committed to the repo. The VALORANT raw data is about 160 GB uncompressed; the repo holds only the aggregates the pipeline produces — six JSON files totalling 5.38 MB. Raw files were downloaded individually over HTTPS and verified against the GitHub tree API; the starter repo was never git-cloned.
+
+PIPELINE — STREAMING AGGREGATION
+
+A Python pipeline (stdlib plus zstandard only) streams each .zst file through a zstd decoder event by event — it never decompresses a whole file to disk. A full run over 337 series takes about 20 minutes.
+
+Pass 1 (events): the pipeline tracks the active game, map and round, recording player snapshots at round start (agent, Operator inventory, positions), cast points at every ability use, Operator kills, and Operator pickups. All coordinates are normalized to 0-1000 from the map bounds in the data itself.
+
+Pass 2 (ability supplement): supplement records are joined to ability-use events on grid_event_id. The join succeeded for 579,027 of 579,027 in-grid records — 100.0%, zero unmatched. For throwable abilities, the supplement's position, aim and velocity feed a ballistic projection that produces the landing-zone estimates.
+
+Aggregation: anti-strat and self-scout cards from per-round counters; Operator profiles from ownership evidence; heatmaps and landing zones via per-map reservoir sampling (cap 3,000 per map for heatmaps, 250 per map for landing zones, seed 42), with systematic downsampling to stay under the 8 MB budget. Stored totals: 18,991 of 580,455 cast points and 3,250 of 152,876 projected landing zones. The reservoir is uniform random, so the sample's per-team and per-ability distribution follows the original.
+
+Validation: 261 heatmap points fell outside map bounds before clamping (all clamped; output has zero out-of-range points by construction). No map-bounds mismatches across series. Operator evidence: 4,174 rounds from inventory snapshots, 1,881 rounds from kill fallback, 3,813 total Operator kills.
+
+FRONTEND — STATIC, NO BACKEND
+
+The app is static HTML, CSS and vanilla JavaScript — no build step, no framework, no CDN dependencies — served from GitHub Pages. It loads only the six small aggregate JSON files, with automatic per-file fallback to mock data if a real file is missing; a header badge shows DATA: LIVE when real GRID aggregates are loaded. Maps are original schematic SVG drawings, not Riot assets. All user-facing text is English.
+
+HOW EACH FEATURE WORKS
+
+Utility heatmaps: cast points for the selected team and map, filtered by player, agent, ability, side (attack/defense) and round-time bucket. Binning happens in the browser: points are grouped into a 20x20 grid over the 0-1000 coordinate space, and each non-empty cell renders as a gradient blob sized by its count relative to the densest cell, or as a shaded cell with its exact count (hard-numbers mode). An evidence line states exactly how many points are shown versus how many exist for the team and map, and a top-5 ability breakdown lists the most-cast agent-ability pairs with sample size and share.
+
+Operator profiler: for each player on the selected team, per map — rounds with Operator, Operator kills, kills per Operator round, unique setup positions (split by attack/defense side, with deterministic spreading so overlapping markers stay visible and a dashed leader marking the true position of any displaced marker), a buy-rate-by-round-number bar chart (share of games the player held the Operator on each round number), and handoffs — the same counts for every teammate who also held the Operator, showing whether the sniper role is one player's job or shared.
+
+Anti-strat cards: each card names one opponent tendency on one map, with sample size, frequency, and a concrete response. Cards are generated by rule templates, not a language model. Ability frequency is measured against rounds in which the team actually played that agent, and must beat the global baseline for that agent-ability pair by at least 0.15, so routine abilities never become "tendencies"; abilities with a baseline above 0.90 are excluded. Cast sectors use a neutral grid reference (A1-E5) because the data carries no site names. Minimum sample is 5 rounds; maximum 5 cards per team and map. Total: 1,639 cards.
+
+C9 self-scout mode: the same analysis applied to Cloud9 itself (Cloud9 plus Cloud9 GC). Toggling it switches the panel to C9's most readable patterns and replaces each RESPONSE with a VARIATION TIP. 62 self-scout cards in total.
+
+Landing zones: for throwable abilities with a ballistic arc, the pipeline projects an estimated landing point from cast position, aim direction and player velocity, using a nominal projectile speed per ability class, gravity 800 units per second squared, and flat ground 150 units below the throw point. The app draws a dashed line from cast point to estimated landing, a zone circle, and an ESTIMATE label with confidence. Map-based smokes, walls, drones, straight or moving projectiles, and teleports are not modelled.
+
+Scout card: the top 3 insights for the current opponent and map (the first 3 anti-strat cards, filled from Operator profiles if fewer exist), each with its evidence, plus a Print / Save PDF export. Landing zones are deliberately excluded from the card — estimates do not belong on a one-page handout without their confidence context.
+
+HONEST CAVEATS AND LIMITATIONS
+
+Round-time buckets are estimated for 18.5% of rounds. GRID provides no reliable per-event round time, so buckets (0-20s, 20-40s, 40-60s, 60s+) are computed from envelope timestamps relative to the round-proper start — the end of freezetime when that event looks sane (20-45 seconds after the round started), otherwise round start plus 30 seconds. 3,230 freezetime-end events (18.5% of 17,435 rounds) were rejected as outside the 20-45 second window and fell back to the plus-30-seconds estimate. Timestamps are also sometimes delayed (one observed delay of 131 seconds), so a small fraction of points may land in the wrong bucket.
+
+Operator ownership: 31% of rounds rest on kill evidence alone. Primary evidence is inventory snapshots at round start and end plus pickups. When no snapshot exists, an Operator kill is used as fallback evidence of possession. 1,881 of 6,055 Operator rounds (31.1%) are evidenced by a kill only. Those rounds are real — a kill with the Operator proves possession — but the fallback cannot see rounds where a player held the Operator and got no kill, so Operator presence is, if anything, undercounted in the fallback cases.
+
+Landing zones are ballistic ESTIMATES (confidence at most 0.75). GRID does not publish per-ability projectile speeds, so the projection uses nominal speeds plus the assumptions above. Confidence is capped at 0.75, every item carries a method label explaining the assumptions, and the UI always renders the word ESTIMATE next to the confidence. Treat landing zones as where a throw probably goes, never as measured positions.
+
+Map Summit is rare — empty states are correct. Summit appears in only 1,981 casts (versus 102,531 on Haven), and only 991 points are stored for it. Some teams have no cast points there at all: Sentinels, the app's default team, have zero cast points on Summit. The empty state the app shows for Sentinels on Summit is correct behaviour, not a bug.
+
+Other limits: only a reservoir sample of cast points is stored (18,991 of 580,455); counts shown are counts within the stored sample, and the evidence line says so. Agent is recorded as "unknown" if a cast happens before the first full-state snapshot in a game (rare). Team names in events sometimes carry a (2) suffix (GRID's marker for the second team in a series); names from the meta CSVs take precedence when available. Anti-strat responses are rule templates, not a language model. The Print / Save PDF flow is wired to the browser print function and has not been exercised end-to-end in a real print dialog.
+
+TESTING
+
+jsdom end-to-end smoke test: 30 of 30 assertions passed (23 Nov 2026) — app loads with zero JS errors, real coverage header, LIVE badge, 72 teams and 13 maps in the filters, heatmap render with evidence line, Operator profiler KPIs and buy-rate bars, 5 anti-strat cards for Sentinels on Ascent, self-scout toggle, map switching including the Summit empty state, numbers mode, zero JS errors after all interactions. Playwright visual verification: 14 of 14 checks passed (23 Nov 2026) — hero wordmark and live stats, LIVE badge, zero horizontal overflow at desktop 1280px and mobile 390px, ESTIMATE labels visible, no non-English UI text, 13 maps in the filter, all 13 maps rendering, Bind teleporter link, Summit's 7 zones, mobile hero stats wrap, zero console errors, zero page errors. Syntax and JSON validation also pass on all files.
