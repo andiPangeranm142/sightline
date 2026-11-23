@@ -1,9 +1,9 @@
 # SIGHTLINE — Tooling: how JetBrains tools were used
 
 How JetBrains tooling (Junie CLI, and the attempted JetBrains Air setup)
-was actually used on SIGHTLINE — what works, what is queued, and what
+was actually used on SIGHTLINE — what works, what is running, and what
 failed. This document describes what actually happened — no more, no less.
-Status as of 23 November 2026.
+Status as of 24 November 2026.
 
 ## 0. Honest split: who built what
 
@@ -12,7 +12,7 @@ Status as of 23 November 2026.
 | App design, data pipeline (`pipeline/`), frontend (`docs/`), tests, demo deployment | A Muse coding agent (the author's AI assistant, "forza") |
 | Project rules for the AI tools (`.junie/guidelines.md`) | Written for Junie before the build, committed 23 Nov 2026 |
 | Junie CLI setup, auth, and BYOK model profile | Set up and verified working 23 Nov 2026 (see below) |
-| Junie reviews of the pipeline and frontend | **Queued, not yet run** — blocked by the shared OpenRouter free-tier daily quota (see §3) |
+| Junie reviews of the pipeline and frontend | **Running 24 Nov 2026** on JetBrains built-in models (AI Ultimate claimed; see §3) |
 | JetBrains Air repository indexing | **Not done** — login was attempted and failed for an environmental reason (see §4) |
 
 **Junie did not build this app.** The app was built by the Muse agent;
@@ -26,20 +26,26 @@ in the build environment and authenticates successfully with a
 `JUNIE_API_KEY` generated at junie.jetbrains.com/cli. (The key itself is
 never committed; it lives outside the repo.)
 
-### 1.1 The problem: built-in JetBrains models are blocked
+### 1.1 Resolved 24 Nov 2026: built-in JetBrains models now work
 
-The JetBrains account used for this project has no active JetBrains AI
-subscription yet, so the JetBrains LLM proxy answers every built-in-model
-request with `403 NO_LICENSE` ("No active JetBrains AI subscription
-found"). The hackathon's 6-month All Products Pack + AI Ultimate codes are
-expected by email within 5 business days of registration (~30 Nov 2026);
-until they are claimed, Junie's built-in models cannot run.
+On 23 Nov 2026 the JetBrains account had no active AI subscription, so the
+JetBrains LLM proxy answered every built-in-model request with `403
+NO_LICENSE` ("No active JetBrains AI subscription found"). That block is
+gone: the hackathon codes arrived by email 24 Nov 2026 00:31 WIB (Devpost
+Credits) and were claimed the same day — All Products Pack + AI Ultimate,
+each 2 months of access, active until 23 Jan 2027 (verified on the
+Licenses page). A test task on the default (built-in) model completed
+successfully 24 Nov 2026 01:16 WIB: authenticated, no license error. Note:
+the codes give 2 months each, not 6 — the earlier 6-month figure came from
+the hackathon page; the codes email is authoritative.
 
-### 1.2 The working path: BYOK custom model profile
+### 1.2 The fallback path: BYOK custom model profile
 
-Junie runs on a committed custom model profile,
+Junie can run on a committed custom model profile,
 `.junie/models/openrouter-nemotron.json`, that routes Junie to the free
-tier of OpenRouter over the OpenAI Chat Completions format:
+tier of OpenRouter over the OpenAI Chat Completions format. This was the
+working path on 23 Nov 2026; since the AI Ultimate claim (§1.1) it is the
+fallback, with built-in models primary:
 
 ```json
 {
@@ -75,7 +81,10 @@ Reproducing the setup:
 export JUNIE_API_KEY="..."
 export OPENROUTER_API_KEY="..."
 
-# 2. Run Junie on the committed BYOK profile:
+# 2. Run Junie on its built-in models (primary since 24 Nov 2026):
+junie "Your task here"
+
+# 3. Fallback if built-in models fail — the committed BYOK profile:
 junie --model custom:openrouter-nemotron "Your task here"
 ```
 
@@ -88,24 +97,29 @@ Verified 23 Nov 2026, on the BYOK path:
 - Read the full aggregation pipeline and **started the first review pass**
   before the daily quota ran out (see §3).
 
-The review pass was interrupted, not finished: no review report exists yet,
-and none is claimed here.
+Verified 24 Nov 2026, on the built-in path: authenticated successfully
+and completed a small task end-to-end (listed the repo's top-level files)
+with no license error.
 
-## 3. What is queued, and why
+The 23 Nov review pass was interrupted, not finished: no review report
+exists yet, and none is claimed here. The reviews are running now on
+built-in models (see §3).
+
+## 3. Reviews: running 24 Nov 2026 on built-in models
 
 The planned Junie work — a review of `pipeline/` (aggregation correctness,
 caveat handling, sampling) and a review of `docs/` (frontend correctness,
-honesty labels, accessibility) — is **queued**. Their reports will land in
+honesty labels, accessibility) — is **running now** on JetBrains built-in
+models (started 24 Nov 2026 ~01:20 WIB). Their reports will land in
 `.junie/reviews/` (the directory does not exist yet because no report has
 been produced).
 
-The blocker is the shared OpenRouter free tier: **50 requests/day across
-all free models and all projects on the key**. On 23 Nov 2026 the quota was
-fully consumed (50/50) before Junie's review runs could finish. The quota
-resets 24 Nov 2026 07:00 WIB, and the review runs are scheduled to retry
-24 Nov 2026 07:05 WIB (via cron), early in the day before other work
-consumes the quota again. Long Junie sessions on this path must always be
-scheduled early in the day for the same reason.
+History: on 23 Nov 2026 the reviews were blocked by the shared OpenRouter
+free tier (**50 requests/day across all free models and all projects on
+the key**), fully consumed (50/50) before the review runs could finish.
+The AI Ultimate claim (§1.1) removed that blocker entirely — built-in
+models have no OpenRouter ceiling. A 07:05 WIB retry (via cron) remains as
+a safety net in case the running review fails.
 
 ## 4. JetBrains Air (jbcontext) — attempted, failed, not done
 
@@ -149,26 +163,26 @@ requirement, and Air indexing is not on the critical path for the project.
 - `.junie/models/openrouter-nemotron.json` — the working BYOK model
   profile (§1.2).
 - `.junie/reviews/` — Junie's review reports (pipeline + frontend) will be
-  committed here once the quota allows the runs to finish.
+  committed here once the review runs finish (running 24 Nov 2026 on
+  built-in models).
 - `AI_SHOWCASE.md` — the showcase summary of JetBrains tool usage (its Air
   line records the diagnosed login failure; see §4).
 
-## 6. What changes when the hackathon codes arrive
+## 6. Hackathon codes: claimed 24 Nov 2026
 
-Once the 6-month All Products Pack + AI Ultimate codes arrive (~30 Nov
-2026) and are claimed on the JetBrains account:
+The All Products Pack + AI Ultimate codes arrived by email 24 Nov 2026
+00:31 WIB and were claimed the same day (each 2 months of access, active
+until 23 Jan 2027; verified on the Licenses page):
 
-- The `403 NO_LICENSE` block disappears and **Junie's built-in models work
+- The `403 NO_LICENSE` block is gone and **Junie's built-in models work
   directly** — no BYOK profile, no OpenRouter quota, no 50-requests/day
   ceiling on review runs.
-- The queued pipeline + frontend reviews can run on JetBrains models
-  instead of the free-tier Nemotron profile, and longer review/improvement
-  sessions become practical.
+- The pipeline + frontend reviews are running on JetBrains models (§3),
+  and longer review/improvement sessions are now practical.
 - Air remains a separate question: the login failure was environmental
   (jbcontext's HTTP client vs. the sandbox egress proxy), not a license
   issue, so the codes alone do not unblock Air indexing in this VM. The
   `--token` path (§4) would still need verification.
 
-Until then, the honest status stands: Junie CLI works via BYOK, its first
-review pass started and is queued for completion after the quota reset,
-and Air indexing is not done.
+Current honest status: Junie CLI works on built-in models, its reviews are
+running, and Air indexing is not done.
