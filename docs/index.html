@@ -5,15 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIGHTLINE — C9 VALORANT Tactical Scouting Console</title>
 <meta name="description" content="VALORANT scouting console: opponent utility heatmaps, Operator sniper profiles, and data-driven anti-strat plans from GRID data — every insight with its sample size.">
+<meta name="theme-color" content="#05070e">
+<!-- Original crosshair mark as an inline SVG data-URI favicon. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230090d5'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='white' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='4' fill='white'/%3E%3Cpath d='M32 6v12M32 46v12M6 32h12M46 32h12' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
+<!-- ============ HEADER (slim sticky bar) ============ -->
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <div class="brand-mark" aria-hidden="true"><span class="brand-cross">+</span></div>
+      <div class="brand-mark" aria-hidden="true">
+        <!-- Original crosshair/scope mark (drawn for this project). -->
+        <svg class="brand-mark-svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="24" cy="24" r="3" fill="currentColor"/>
+          <path d="M24 3v9M24 36v9M3 24h9M36 24h9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div>
         <h1 class="brand-name">SIGHTLINE</h1>
         <p class="brand-sub">C9 VALORANT Tactical Scouting Console</p>
@@ -21,13 +31,7 @@
     </div>
     <div class="topbar-right">
       <p class="hackathon-tag">Cloud9 × JetBrains Hackathon 2026 · Category 1 (VAL/GC)</p>
-      <p class="coverage">
-        <span><strong id="cov-series">—</strong> series</span>
-        <span><strong id="cov-games">—</strong> games</span>
-        <span><strong id="cov-rounds">—</strong> rounds</span>
-        <span><strong id="cov-events">—</strong> events</span>
-      </p>
-      <p class="meta-line"><span id="meta-generated"></span> · <span id="data-source-badge" class="badge">DATA: —</span></p>
+      <span id="data-source-badge" class="badge">DATA: —</span>
     </div>
   </div>
 </header>
@@ -49,8 +53,31 @@
 <!-- ============ MAIN ============ -->
 <main id="app-main" hidden>
 
+  <!-- ===== Hero: wordmark + live-data stats strip ===== -->
+  <section class="hero" aria-label="SIGHTLINE overview">
+    <!-- Decorative reticle (original drawing, aria-hidden). -->
+    <svg class="hero-reticle" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+      <circle cx="150" cy="150" r="138" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="150" cy="150" r="100" stroke="currentColor" stroke-width="1"/>
+      <circle cx="150" cy="150" r="62" stroke="currentColor" stroke-width="1"/>
+      <circle cx="150" cy="150" r="5" fill="currentColor"/>
+      <path d="M150 4v34M150 262v34M4 150h34M262 150h34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M52 52l18 18M230 52l-18 18M52 248l18-18M230 248l-18-18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <p class="hero-kicker">Every insight backed by its sample size</p>
+    <p class="hero-wordmark">SIGHTLINE</p>
+    <p class="hero-tagline">Opponent utility heatmaps, Operator sniper profiles, and data-driven anti-strat plans from GRID pro match data.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong id="cov-series">—</strong><span>series</span></div>
+      <div class="hero-stat"><strong id="cov-games">—</strong><span>games</span></div>
+      <div class="hero-stat"><strong id="cov-rounds">—</strong><span>rounds</span></div>
+      <div class="hero-stat"><strong id="cov-events">—</strong><span>events</span></div>
+    </div>
+    <p class="hero-meta"><span id="meta-generated"></span></p>
+  </section>
+
   <!-- ===== Filter panel ===== -->
-  <section class="panel filter-panel" aria-label="Scouting filters">
+  <section class="panel filter-panel panel--filters" aria-label="Scouting filters">
     <div class="panel-head">
       <h2>Scouting Filters</h2>
       <span id="current-context" class="context-chip"></span>
@@ -109,17 +136,19 @@
   </section>
 
   <!-- ===== Heatmap ===== -->
-  <section class="panel" aria-label="Utility heatmaps">
+  <section class="panel panel--heatmap" aria-label="Utility heatmaps">
     <div class="panel-head">
       <h2>Utility Heatmaps — Cast Points</h2>
       <span class="panel-note">Original schematic maps (zones) · client-side binning from cast points</span>
     </div>
     <div class="heatmap-layout">
       <div class="map-wrap">
-        <svg id="heatmap-svg" viewBox="0 0 1000 1000" role="img" aria-label="Schematic map with ability cast-point heatmap"></svg>
-        <div id="heatmap-empty" class="map-empty" hidden>
-          <p>No cast points match these filters.</p>
-          <p class="muted">Loosen the filters (player / ability / round time) or pick another team/map.</p>
+        <div class="map-frame">
+          <svg id="heatmap-svg" viewBox="0 0 1000 1000" role="img" aria-label="Schematic map with ability cast-point heatmap"></svg>
+          <div id="heatmap-empty" class="map-empty" hidden>
+            <p>No cast points match these filters.</p>
+            <p class="muted">Loosen the filters (player / ability / round time) or pick another team/map.</p>
+          </div>
         </div>
         <div class="map-legend">
           <span><i class="legend-dot legend-dot--low"></i> Low</span>
@@ -140,7 +169,7 @@
   </section>
 
   <!-- ===== Operator Profiler ===== -->
-  <section class="panel" aria-label="Operator profiler">
+  <section class="panel panel--operator" aria-label="Operator profiler">
     <div class="panel-head">
       <h2>Operator Profiler — Sniper Fingerprint</h2>
       <label class="field field-inline">Player
@@ -151,7 +180,9 @@
     <div id="operator-body">
       <div class="op-layout">
         <div class="map-wrap map-wrap--small">
-          <svg id="operator-svg" viewBox="0 0 1000 1000" role="img" aria-label="Operator setup map"></svg>
+          <div class="map-frame">
+            <svg id="operator-svg" viewBox="0 0 1000 1000" role="img" aria-label="Operator setup map"></svg>
+          </div>
           <div class="map-legend">
             <span><i class="legend-dot legend-dot--def"></i> Defense setups</span>
             <span><i class="legend-dot legend-dot--atk"></i> Attack setups</span>
@@ -170,7 +201,7 @@
   </section>
 
   <!-- ===== Anti-Strat / Self-Scout ===== -->
-  <section class="panel" aria-label="Anti-strat cards">
+  <section class="panel panel--strat" aria-label="Anti-strat cards">
     <div class="panel-head">
       <h2 id="anti-strat-title">Anti-Strat</h2>
     </div>
@@ -179,7 +210,7 @@
   </section>
 
   <!-- ===== Scout Card ===== -->
-  <section class="panel" aria-label="Scout card">
+  <section class="panel panel--scout" aria-label="Scout card">
     <div class="panel-head">
       <h2>Scout Card — 1-Page Export</h2>
       <button id="btn-print" class="btn btn-primary" type="button">Print / Save PDF</button>

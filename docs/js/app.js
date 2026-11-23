@@ -313,28 +313,34 @@ function renderHeatmap() {
   const empty = $("#heatmap-empty");
   empty.hidden = points.length > 0;
 
-  let markup = renderMapBase(state.map);
+  let markup = renderMapBase(state.map, "hm");
 
   if (points.length) {
     const CELL = 50; // 20x20 grid over 0-1000
     const bins = binPoints(points, CELL);
     const maxN = Math.max.apply(null, bins.map((b) => b.n));
     if (state.heatMode === "gradient") {
-      for (const b of bins) {
+      // Radial-gradient blobs (soft falloff) + staggered entrance.
+      // Radius is slightly larger than before because the gradient fades
+      // to transparent at the edge; intensity encoding (t, alpha) is
+      // unchanged, as are the low/mid/high thresholds.
+      bins.forEach((b, i) => {
         const t = b.n / maxN; // 0..1 intensity
-        const r = 26 + t * 46;
+        const r = 30 + t * 54;
         const alpha = 0.18 + t * 0.62;
-        const color = t > 0.66 ? "#ff4d4d" : t > 0.33 ? "#ff9f2e" : "#35c4ff";
-        markup += `<circle cx="${b.cx}" cy="${b.cy}" r="${r}" fill="${color}" fill-opacity="${alpha.toFixed(2)}" class="heat-blob" />`;
-      }
+        const tier = t > 0.66 ? "high" : t > 0.33 ? "mid" : "low";
+        const delay = Math.min(i * 14, 500);
+        markup += `<circle cx="${b.cx}" cy="${b.cy}" r="${r}" fill="url(#hm-heat-${tier})" fill-opacity="${alpha.toFixed(2)}" class="heat-blob" style="animation-delay:${delay}ms" />`;
+      });
     } else {
       // Hard numbers: cell counts as labels
-      for (const b of bins) {
+      bins.forEach((b, i) => {
         const t = b.n / maxN;
         const alpha = 0.15 + t * 0.55;
-        markup += `<rect x="${b.cx - CELL / 2}" y="${b.cy - CELL / 2}" width="${CELL}" height="${CELL}" fill="#35c4ff" fill-opacity="${alpha.toFixed(2)}" class="heat-cell" />`;
-        markup += `<text x="${b.cx}" y="${b.cy + 5}" class="heat-count" text-anchor="middle">${b.n}</text>`;
-      }
+        const delay = Math.min(i * 14, 500);
+        markup += `<rect x="${b.cx - CELL / 2}" y="${b.cy - CELL / 2}" width="${CELL}" height="${CELL}" fill="#35c4ff" fill-opacity="${alpha.toFixed(2)}" class="heat-cell" style="animation-delay:${delay}ms" />`;
+        markup += `<text x="${b.cx}" y="${b.cy + 5}" class="heat-count" text-anchor="middle" style="animation-delay:${delay}ms">${b.n}</text>`;
+      });
     }
     // Individual cast dots (subtle, always on top)
     for (const p of points) {
@@ -344,9 +350,9 @@ function renderHeatmap() {
 
   // Landing zones (estimates — always labelled as such). On-map text
   // labels are capped at the top 4 by confidence and skipped when their
-  // box would overlap an already-placed label, so ESTIMASI labels never
+  // box would overlap an already-placed label, so ESTIMATE labels never
   // pile into unreadable stacks. Every zone still renders its circle +
-  // dashed line, and a <title> tooltip carries the ability + ESTIMASI
+  // dashed line, and a <title> tooltip carries the ability + ESTIMATE
   // confidence on hover.
   $("#legend-lz").hidden = !state.showLanding;
   if (state.showLanding) {
@@ -370,12 +376,12 @@ function renderHeatmap() {
     }
     for (const z of zones) {
       const labelY = Math.max(22, z.est_y - 42);
-      markup += `<g class="lz"><title>${esc(z.ability)} — ESTIMASI ${pct(z.confidence)} (estimate, not a measured position)</title>`;
+      markup += `<g class="lz"><title>${esc(z.ability)} — ESTIMATE ${pct(z.confidence)} (estimate, not a measured position)</title>`;
       markup += `<line x1="${z.cast_x}" y1="${z.cast_y}" x2="${z.est_x}" y2="${z.est_y}" class="lz-line" />`;
       markup += `<circle cx="${z.cast_x}" cy="${z.cast_y}" r="7" class="lz-cast" />`;
       markup += `<circle cx="${z.est_x}" cy="${z.est_y}" r="34" class="lz-zone" />`;
       if (labeled.has(z)) {
-        markup += `<text x="${z.est_x}" y="${labelY}" class="lz-label" text-anchor="middle">ESTIMASI ${pct(z.confidence)}</text>`;
+        markup += `<text x="${z.est_x}" y="${labelY}" class="lz-label" text-anchor="middle">ESTIMATE ${pct(z.confidence)}</text>`;
         markup += `<text x="${z.est_x}" y="${z.est_y + 4}" class="lz-label-sub" text-anchor="middle">${esc(z.ability)}</text>`;
       }
       markup += `</g>`;
@@ -408,8 +414,8 @@ function renderTopAbilities(points) {
     return;
   }
   const total = points.length;
-  el.innerHTML = rows.map(([label, n]) =>
-    `<div class="stat-row"><span>${esc(label)}</span>`
+  el.innerHTML = rows.map(([label, n], i) =>
+    `<div class="stat-row"><span class="stat-rank">${i + 1}</span><span>${esc(label)}</span>`
     + `<span class="stat-bar"><i style="width:${Math.round((n / total) * 100)}%"></i></span>`
     + `<span class="stat-n">n=${n} · ${pct(n / total)}</span></div>`).join("");
 }
@@ -477,7 +483,7 @@ function renderOperator() {
   // Setup map (defense setups + attack setups). Near-identical
   // positions are spread out so each marker is visible; a dashed leader
   // line + small dot mark the true position of any displaced marker.
-  let markup = renderMapBase(state.map);
+  let markup = renderMapBase(state.map, "op");
   for (const s of spreadSetups(m.setup_positions)) {
     const displaced = Math.hypot(s.dx - s.x, s.dy - s.y) > 1;
     if (displaced) {
