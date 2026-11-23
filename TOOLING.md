@@ -137,10 +137,8 @@ Air is therefore treated as nice-to-have: Junie (`.junie/` + this repo's
 `AI_SHOWCASE.md`) already satisfies the hackathon's JetBrains-tool
 requirement, and Air indexing is not on the critical path for the project.
 
-> Note: `AI_SHOWCASE.md` in this repo still says the Air login "has not
-> been completed yet". That line is stale as of the 23 Nov login attempt
-> described above; it will be updated when the showcase document is next
-> revised. This file (TOOLING.md) carries the current, accurate status.
+> Note: `AI_SHOWCASE.md` in this repo was updated on 23 Nov 2026 to record
+> the diagnosed Air login failure above, so it now agrees with this file.
 
 ## 5. Evidence in this repo
 
@@ -152,8 +150,8 @@ requirement, and Air indexing is not on the critical path for the project.
   profile (§1.2).
 - `.junie/reviews/` — Junie's review reports (pipeline + frontend) will be
   committed here once the quota allows the runs to finish.
-- `AI_SHOWCASE.md` — the showcase summary of JetBrains tool usage (see the
-  staleness note in §4 about its Air line).
+- `AI_SHOWCASE.md` — the showcase summary of JetBrains tool usage (its Air
+  line records the diagnosed login failure; see §4).
 
 ## 6. What changes when the hackathon codes arrive
 
