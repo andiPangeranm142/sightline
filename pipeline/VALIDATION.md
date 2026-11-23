@@ -1,6 +1,6 @@
 # SIGHTLINE — Validation Report (pipeline)
 
-Generated: 2026-11-22T23:32:21Z — run `python pipeline/aggregate.py` to regenerate.
+Generated: 2026-11-23T18:55:51Z — run `python pipeline/aggregate.py` to regenerate.
 
 ## Coverage
 
@@ -20,7 +20,7 @@ Generated: 2026-11-22T23:32:21Z — run `python pipeline/aggregate.py` to regene
 ## Coordinate validation
 
 - Heatmap points outside map bounds (pre-clamp): **261** (all clamped into 0-1000; output has 0 out-of-range points by construction)
-- Landing-zone points outside bounds (pre-clamp): 2490 (2472 estimated landings clamped to bounds)
+- Landing-zone points outside bounds (pre-clamp): 2300 (2284 estimated landings clamped to bounds)
 - Map bounds mismatches across series: none
 
 ## Round-time buckets
@@ -40,16 +40,16 @@ Generated: 2026-11-22T23:32:21Z — run `python pipeline/aggregate.py` to regene
 - `meta.json`: 43,695 bytes
 - `heatmaps.json`: 2,961,771 bytes
 - `operators.json`: 1,056,505 bytes
-- `anti-strat.json`: 421,351 bytes
-- `self-scout.json`: 15,826 bytes
-- `landing-zones.json`: 1,151,505 bytes
-- **Total: 5,650,653 bytes (5.39 MB)**
+- `anti-strat.json`: 418,111 bytes
+- `self-scout.json`: 15,699 bytes
+- `landing-zones.json`: 1,144,835 bytes
+- **Total: 5,640,616 bytes (5.38 MB)**
 
 ## Sampling
 
 - Heatmap points: 18,991 kept of 580,455 total (reservoir per map, cap 3000/map)
-- Landing zones: 3,250 kept of 176,355 projected (reservoir per map, cap 250/map)
-- Budget downsampling (halvings applied to fit 8 MB): {'heatmaps.json': 1} (heatmap reservoir of 37,982 halved once to 18,991; 1,500/map, Summit 991)
+- Landing zones: 3,250 kept of 152,876 projected (reservoir per map, cap 250/map)
+- Budget downsampling (halvings applied to fit 8 MB): {'heatmaps.json': 1}
 
 ## Distribution per map (casts seen)
 

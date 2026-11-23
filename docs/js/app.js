@@ -299,10 +299,14 @@ function filteredPoints() {
 
 /** Bin points into a 20x20 grid; returns [{cx, cy, n}] for non-empty cells. */
 function binPoints(points, cellSize) {
+  // The grid spans 0-1000, so the last valid bin index is
+  // (1000 / cellSize) - 1: a point at exactly 1000 belongs in the last
+  // cell, not in a phantom cell centred at 1025, off the map.
+  const lastBin = Math.floor(1000 / cellSize) - 1;
   const bins = new Map();
   for (const p of points) {
-    const bx = Math.min(999, Math.max(0, Math.floor(p.x / cellSize)));
-    const by = Math.min(999, Math.max(0, Math.floor(p.y / cellSize)));
+    const bx = Math.min(lastBin, Math.max(0, Math.floor(p.x / cellSize)));
+    const by = Math.min(lastBin, Math.max(0, Math.floor(p.y / cellSize)));
     const key = bx + "," + by;
     bins.set(key, (bins.get(key) || 0) + 1);
   }

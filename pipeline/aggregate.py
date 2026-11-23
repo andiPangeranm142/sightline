@@ -133,6 +133,13 @@ RESPONSE_TEMPLATES = {
         "Clear with utility/drone before executing; don't walk up blind "
         "into this trap zone."
     ),
+    # Cast-sector cards (type 2): the sector marks where the caster stood
+    # when casting, NOT where the utility lands — so the response targets
+    # the thrower's angle, never a "trap zone".
+    "cast-sector": (
+        "Expect the cast from this sector — pre-aim the thrower's angle "
+        "and clear it before executing."
+    ),
     "recon": (
         "Destroy or bait recon before executing; vary execute timing "
         "so enemy info goes stale."
@@ -942,7 +949,9 @@ def generate_cards(agg: Aggregator,
                     f"{pretty_agent(agent)} uses {pretty_ability(ability)} "
                     f"in {round(freq * 100)}% of rounds",
                     n, freq, RESPONSE_TEMPLATES[ability_category(ability)])
-        # (2) Placeable sector clustering.
+        # (2) Cast-sector clustering — the sector is where the caster
+        # stood when casting (cell_rounds keys on the actor's position),
+        # NOT where the utility lands, so the label says "casts".
         for (t, m, ability, cell), n_cell in agg.cell_rounds.items():
             if t != team or m != map_name:
                 continue
@@ -953,9 +962,9 @@ def generate_cards(agg: Aggregator,
             freq = n_cell / rounds_total
             if freq >= MIN_FREQ_CELL and share >= MIN_CELL_SHARE:
                 add(team, map_name,
-                    f"{pretty_ability(ability)} placements concentrated in "
+                    f"{pretty_ability(ability)} casts concentrated in "
                     f"sector {cell} ({round(share * 100)}% of uses)",
-                    n_cell, freq, RESPONSE_TEMPLATES["placeable"])
+                    n_cell, freq, RESPONSE_TEMPLATES["cast-sector"])
         # (3) Team Operator usage per side.
         for side in ("attack", "defense"):
             side_rounds = agg.rounds_team_map_side.get(

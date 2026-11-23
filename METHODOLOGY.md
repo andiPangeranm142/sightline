@@ -66,7 +66,7 @@ plus the international stage. No other Game Changers regions were added —
 The raw GRID data is licensed hackathon-only and is **never committed** to
 this repo (`.gitignore` excludes `*.zst` / `*.jsonl`). The VALORANT raw data
 is ~160 GB uncompressed. The repo holds only the aggregates the pipeline
-produces: six JSON files totalling **5,650,653 bytes (5.39 MB)** in
+produces: six JSON files totalling **5,640,616 bytes (5.38 MB)** in
 `docs/data/`. Raw files were downloaded individually over HTTPS from the
 starter repo and verified against the GitHub tree API — the starter repo
 itself was never `git clone`d (see `pipeline/README.md`).
@@ -109,7 +109,7 @@ produces the landing-zone estimates (Section 5.5).
   3,000/map for heatmaps, 250/map for landing zones, seed 42), plus
   systematic downsampling if the total would exceed the 8 MB budget.
   The heatmap reservoir was halved once (37,982 → 18,991 points) to fit.
-  Stored totals: 18,991 of 580,455 cast points; 3,250 of 176,355 projected
+  Stored totals: 18,991 of 580,455 cast points; 3,250 of 152,876 projected
   landing zones. The reservoir is uniform random, so the per-team/ability
   distribution in the sample follows the original distribution; total vs.
   stored counts are recorded in `meta.json.heatmap_sampling`.
@@ -125,7 +125,7 @@ produces the landing-zone estimates (Section 5.5).
   `40-60s`: 79,559 · `60s+`: 147,056 · unknown: 0.
 - Operator evidence: 4,174 rounds from inventory snapshots, 1,881 rounds
   from kill fallback, 3,813 total Operator kills.
-- Output budget: 5.39 MB total, under the 8 MB cap.
+- Output budget: 5.38 MB total, under the 8 MB cap.
 
 ## 4. Frontend — static, no backend
 
@@ -189,7 +189,7 @@ from per-round counters by **rule templates, not an LLM**:
   that (agent, ability) pair by **≥ 0.15**, so routine abilities (Astra
   placing a star every round) never become "tendencies". Abilities with a
   baseline above 0.90 are excluded entirely.
-- Placement sectors use a neutral grid reference (A1–E5) because the data
+- Cast sectors use a neutral grid reference (A1–E5) because the data
   carries no site names.
 - Minimum sample: **n = 5 rounds**; maximum **5 cards per team+map**.
 - Total: 1,639 anti-strat cards across all team+map combinations.
@@ -260,7 +260,7 @@ nominal speeds per ability class plus the assumptions in Section 5.5.
 Confidence is therefore **capped at 0.75** (highest confidence observed in
 the data: exactly 0.75), every item carries a `method` label explaining the
 assumptions, and the UI always renders the word ESTIMATE next to the
-confidence. 2,490 projected points fell outside map bounds pre-clamp (2,472
+confidence. 2,300 projected points fell outside map bounds pre-clamp (2,284
 estimated landings clamped). Treat landing zones as "where this throw
 probably goes", never as measured positions.
 

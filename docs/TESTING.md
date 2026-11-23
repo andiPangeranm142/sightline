@@ -47,8 +47,10 @@ All assets returned HTTP 200:
   English; 1,707 cards translated, 0 markers left)
 
 ### 5. jsdom end-to-end smoke test — 30/30 assertions ✅
-Script: `/tmp/jsdom-test/smoke.js` (jsdom 31, page served over HTTP,
-real aggregates loaded). Covered:
+Script: `docs/tests/smoke.js` (committed 24 Nov 2026; previously only at
+`/tmp/jsdom-test/smoke.js`). Run `npm install` once in `docs/tests/`,
+then `node smoke.js` (jsdom 31, page served over HTTP, real aggregates
+loaded). Covered:
 - App loads with 0 JS errors; error state hidden; main visible
 - Coverage header from real meta: 337 series / 848 games / 17,435 rounds
 - Badge: `DATA: LIVE — GRID aggregates`
@@ -68,12 +70,25 @@ Known data quirk (not a bug): Sentinels have **0 cast points on Summit**
 (991 total points on that map) — the empty state is correct behaviour
 there. The numbers-mode assertion runs on Ascent for this reason.
 
+### 5b. Re-run after 24 Nov 2026 aggregate regeneration — 30/30 ✅
+After the Junie-review fixes (cast-sector card labels, heatmap binning
+cap, non-ballistic landing zones removed) and a full pipeline
+regeneration (152,876 projections, 3,250 stored zones, 0 non-ballistic),
+the committed smoke test re-ran **30/30** with no assertion changes:
+Sentinels/Ascent has no boundary points, so its 33 blobs are unchanged;
+card counts (5/10) and coverage (337/848/17,435/1,421,082) are unchanged.
+The binning fix itself was verified separately on C9 GC/Summit (the
+team/map with the most boundary points, 54): 153 → 146 blobs, all
+centres/cells/labels inside 0–1000, 0 JS errors
+(one-off script, not committed: `/tmp/jsdom-test/check-binning.js`).
+
 ## Verified in a real browser (23 Nov 2026)
 - **Visual appearance** (SVG heatmap rendering, responsive layout,
   design quality): Playwright suite `~/workspace/cloud9/visual-qa/verify-upgrade.js`
   — **14/14 checks passed** (hero + stats from data, ESTIMATE labels,
   all 13 maps render, zero horizontal overflow at 1280px and 390px,
-  zero console/page errors).
+  zero console/page errors). Re-run 24 Nov 2026 after the aggregate
+  regeneration + binning fix: **14/14 again**.
 - **GitHub Pages live**: Pages build `built`; the live URL serves the app
   with real data (DATA: LIVE badge, hero stats 337/848/17,435/1,421,082).
 

@@ -105,7 +105,7 @@ All coordinates are normalized to **0–1000** from `map.bounds` in the data
    which the team played that agent** (not all rounds), and must beat the
    global baseline for the (agent, ability) pair by ≥ 0.15 — so routine
    abilities (Astra placing a star every round) do not become
-   "tendencies". Abilities with baseline > 0.90 are excluded. Placement
+   "tendencies". Abilities with baseline > 0.90 are excluded. Cast
    sectors use a neutral grid reference (A1–E5), because the data carries
    no site names. Minimum n = 5 rounds; maximum 5 cards per team+map.
 5. **Heatmap sampling.** All cast points are counted, but only a

@@ -1,0 +1,1 @@
+{"dependencies":{"jsdom":"^31.0.1"},"description":"SIGHTLINE frontend tests: jsdom smoke test (needs jsdom) + node:test unit tests (no deps).","name":"sightline-frontend-tests","private":true,"scripts":{"smoke":"node smoke.js","test":"node --test frontend.test.js"},"version":"1.0.0"}
