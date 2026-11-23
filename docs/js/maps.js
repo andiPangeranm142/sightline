@@ -475,7 +475,10 @@ function renderMapBase(mapName, uid) {
     + `</defs>`;
   // faint blueprint grid under everything
   s += `<rect width="1000" height="1000" fill="url(#${uid}-grid)" />`;
-  s += `<text x="24" y="44" class="map-name-label">${mapName.toUpperCase()}</text>`;
+  const label = mapName.toUpperCase().replace(/[&<>"']/g, (c) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  }[c]));
+  s += `<text x="24" y="44" class="map-name-label">${label}</text>`;
   // corridors (under zones); a corridor may be a plain path string or
   // { d, cls } for a styled variant (e.g. Bind's teleporter link)
   for (const c of geo.corridors) {

@@ -157,7 +157,8 @@ def normalise_xy(
     """Map raw GRID coords to the 0-1000 contract grid using map bounds.
 
     Returns (nx, ny, in_bounds). Values are clamped to [0, 1000]; the
-    caller counts ``in_bounds == False`` as a validation signal.
+    caller counts ``in_bounds == False`` as a validation signal. Degenerate
+    or reversed bounds are invalid even when the fallback coordinate is 500.
     """
     min_x = bounds["min"]["x"]
     max_x = bounds["max"]["x"]
@@ -165,7 +166,10 @@ def normalise_xy(
     max_y = bounds["max"]["y"]
     nx = (x - min_x) / (max_x - min_x) * 1000.0 if max_x > min_x else 500.0
     ny = (y - min_y) / (max_y - min_y) * 1000.0 if max_y > min_y else 500.0
-    in_bounds = 0.0 <= nx <= 1000.0 and 0.0 <= ny <= 1000.0
+    in_bounds = (
+        max_x > min_x and max_y > min_y
+        and 0.0 <= nx <= 1000.0 and 0.0 <= ny <= 1000.0
+    )
     return (
         round(min(1000.0, max(0.0, nx)), 1),
         round(min(1000.0, max(0.0, ny)), 1),

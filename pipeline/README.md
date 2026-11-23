@@ -91,7 +91,9 @@ All coordinates are normalized to **0–1000** from `map.bounds` in the data
    carries a `method` label explaining these assumptions. Only throwable
    abilities with a ballistic arc are modelled (list in `landing.py`);
    map-based smokes, walls, drones, straight/moving projectiles, and
-   teleports are NOT included.
+   teleports are NOT included. Records with `quality=gap_exceeded` and
+   flights that do not reach the assumed ground within four seconds are
+   omitted from new projections.
 3. **Operator ownership from evidence, not assumption.** Primary sources:
    inventory snapshots at `game-started-round`/`game-ended-round` +
    `player-pickedUp-item` (id `operator`). Operator kills are used as

@@ -679,6 +679,8 @@ class SeriesProcessor:
             ability = ctx["ability"]
             if not is_throwable(ability):
                 continue
+            if rec.get("quality") == "gap_exceeded":
+                continue  # GRID warns that interpolated frames may cross rounds.
             interp = rec.get("interpolated") or rec.get("frame_before") or {}
             pos = interp.get("position") or {}
             view = interp.get("view") or {}

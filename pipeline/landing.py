@@ -9,7 +9,7 @@ Model (simple ballistic projection — an ESTIMATE, never a ground truth):
 * Gravity ``GRAVITY`` pulls the projectile down; the flight is integrated
   in fixed steps until the projectile falls back to ``DROP_BELOW_LAUNCH``
   units under its launch height (approximating flat ground below the
-  caster's eye level) or ``MAX_FLIGHT_S`` elapses.
+  caster's eye level). Flights exceeding ``MAX_FLIGHT_S`` are discarded.
 * The result is clamped to the map bounds and reported with a confidence
   score derived from the supplement record's ``quality`` and its
   ``interpolated.weight``.
@@ -63,15 +63,12 @@ THROWABLE_ABILITIES: dict[str, tuple[float, str]] = {
     "dizzy": (1300.0, "orb"),
     "special-delivery": (1100.0, "grenade"),
     # Thrown flashes / smokes / bolts.
-    "curveball": (1400.0, "flash"),
     "blindside": (1400.0, "flash"),
-    "cloudburst": (1300.0, "smoke"),
     "cyber-cage": (1300.0, "smoke"),
     "relay-bolt": (1400.0, "bolt"),
     "undercut": (1400.0, "bolt"),
     "meddle": (1300.0, "orb"),
     "saturate": (1300.0, "orb"),
-    "gatecrash": (1400.0, "tether"),
     "razorvine": (1100.0, "grenade"),
 }
 
@@ -108,8 +105,9 @@ def project_landing(
 ) -> tuple[float, float] | None:
     """Project a landing (x, y) in RAW GRID coords, or None if unusable.
 
-    Returns None when the view vector is degenerate (zero-length) or the
-    launch data is missing — the caller then skips the record.
+    Returns None when the view vector is degenerate (zero-length), the
+    ability is unsupported, or the flight does not reach the assumed ground
+    in time — the caller then skips the record.
     """
     spec = THROWABLE_ABILITIES.get(ability_id)
     if spec is None:
@@ -137,5 +135,5 @@ def project_landing(
         z += pz * STEP_S
         t += STEP_S
         if z <= ground_z:
-            break
-    return (x, y)
+            return (x, y)
+    return None

@@ -9,6 +9,7 @@
 <!-- Original crosshair mark as an inline SVG data-URI favicon. -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230090d5'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='white' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='4' fill='white'/%3E%3Cpath d='M32 6v12M32 46v12M6 32h12M46 32h12' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
+<noscript><style>#loading-state { display: none; }</style></noscript>
 </head>
 <body>
 
@@ -41,6 +42,9 @@
   <div class="spinner" aria-hidden="true"></div>
   <p>Loading scouting aggregates…</p>
 </div>
+<noscript>
+  <div class="state-panel">JavaScript is required to load the scouting console.</div>
+</noscript>
 
 <div id="error-state" class="state-panel state-panel--error" hidden>
   <h2>Data could not be loaded</h2>
@@ -111,10 +115,10 @@
       <div class="field-group" role="group" aria-label="Round time">
         <span class="field-label">Round time</span>
         <div class="bucket-row">
-          <button type="button" class="bucket-toggle active" data-bucket="0-20s">0–20s</button>
-          <button type="button" class="bucket-toggle active" data-bucket="20-40s">20–40s</button>
-          <button type="button" class="bucket-toggle active" data-bucket="40-60s">40–60s</button>
-          <button type="button" class="bucket-toggle active" data-bucket="60s+">60s+</button>
+          <button type="button" class="bucket-toggle active" data-bucket="0-20s" aria-pressed="true">0–20s</button>
+          <button type="button" class="bucket-toggle active" data-bucket="20-40s" aria-pressed="true">20–40s</button>
+          <button type="button" class="bucket-toggle active" data-bucket="40-60s" aria-pressed="true">40–60s</button>
+          <button type="button" class="bucket-toggle active" data-bucket="60s+" aria-pressed="true">60s+</button>
         </div>
       </div>
       <div class="field-group" role="group" aria-label="Heatmap display mode">

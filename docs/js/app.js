@@ -89,7 +89,8 @@ async function init() {
     showLoading(false);
     renderSourceBadge();
   } catch (e) {
-    showLoading(false);
+    $("#loading-state").hidden = true;
+    $("#app-main").hidden = true;
     renderFatalError(e.message);
   }
 }
@@ -215,6 +216,7 @@ function wireEvents() {
       const b = btn.dataset.bucket;
       if (state.buckets.has(b)) state.buckets.delete(b); else state.buckets.add(b);
       btn.classList.toggle("active", state.buckets.has(b));
+      btn.setAttribute("aria-pressed", String(state.buckets.has(b)));
       renderAll();
     });
   });
@@ -252,7 +254,10 @@ function resetFilters() {
   $("#filter-agent").value = "all";
   $("#filter-ability").value = "all";
   $("#filter-side").value = "all";
-  $$(".bucket-toggle").forEach((b) => b.classList.add("active"));
+  $$(".bucket-toggle").forEach((b) => {
+    b.classList.add("active");
+    b.setAttribute("aria-pressed", "true");
+  });
   $("#heat-gradient").checked = true;
   renderAll();
 }
@@ -520,7 +525,7 @@ function renderOperator() {
   const mates = teamOps.filter((o) => o.player_id !== prof.player_id);
   const handoffEl = $("#op-handoff");
   if (!mates.length) {
-    handoffEl.innerHTML = `<p class="muted">${prof.player_name} is the only Operator holder for ${teamName(state.teamId)} in this dataset.</p>`;
+    handoffEl.innerHTML = `<p class="muted">${esc(prof.player_name)} is the only Operator holder for ${esc(teamName(state.teamId))} in this dataset.</p>`;
   } else {
     handoffEl.innerHTML = mates.map((o) => {
       const om = o.maps[state.map];
@@ -558,7 +563,7 @@ function renderAntiStrat() {
 
   if (!cards.length) {
     list.innerHTML = `<div class="empty-card">No ${state.selfScout ? "self-scout" : "anti-strat"} cards `
-      + `for ${state.selfScout ? "Cloud9" : teamName(state.teamId)} on ${esc(state.map)} yet. `
+      + `for ${state.selfScout ? "Cloud9" : esc(teamName(state.teamId))} on ${esc(state.map)} yet. `
       + `Try another map.</div>`;
     return;
   }
@@ -606,7 +611,7 @@ function renderScoutCard() {
   const insights = topInsights();
   const el = $("#scout-insights");
   if (!insights.length) {
-    el.innerHTML = `<li class="muted">No insights for ${teamName(state.teamId)} on ${state.map} yet — pick another opponent/map.</li>`;
+    el.innerHTML = `<li class="muted">No insights for ${esc(teamName(state.teamId))} on ${esc(state.map)} yet — pick another opponent/map.</li>`;
   } else {
     el.innerHTML = insights.map((ins, i) =>
       `<li><span class="insight-num">${i + 1}</span><span>${esc(ins.text)} `

@@ -394,7 +394,7 @@ main {
 .btn:active { transform: translateY(1px); }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .btn-primary {
-  background: linear-gradient(180deg, #0ea5e9, #0077b6);
+  background: linear-gradient(180deg, #006aa0, #005b89);
   color: var(--white);
   box-shadow: 0 6px 18px rgba(0, 144, 213, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
@@ -833,7 +833,7 @@ body.self-scout-mode .filter-panel { border-color: rgba(124, 92, 255, 0.6); }
 
 .strat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 1rem;
 }
 .strat-card {
@@ -916,7 +916,7 @@ body.self-scout-mode .freq-badge {
   padding-bottom: 0.6rem;
   margin-bottom: 0.9rem;
 }
-.scout-brand { font-weight: 800; letter-spacing: 0.14em; color: var(--accent-2); }
+.scout-brand { font-weight: 800; letter-spacing: 0.14em; color: #006aa0; }
 .scout-card-head h3 { margin: 0; font-size: 1.15rem; color: #101828; }
 .scout-insights { margin: 0; padding-left: 0; list-style: none; }
 .scout-insights li {
@@ -957,7 +957,8 @@ body.self-scout-mode .freq-badge {
   html { scroll-behavior: auto; }
   .heat-blob, .heat-cell, .heat-count, .lz-line, .lz-zone,
   .badge--live::before, .spinner { animation: none !important; }
-  .btn, .strat-card, .kpi, .bucket-toggle, .stat-row { transition: none !important; }
+  .btn, .strat-card, .kpi, .bucket-toggle, .stat-row,
+  .toggle-track, .toggle-thumb { transition: none !important; }
 }
 
 /* ---------------- Responsive ---------------- */
@@ -1002,7 +1003,7 @@ body.self-scout-mode .freq-badge {
   .panel { box-shadow: none; border: none; padding: 0; page-break-inside: avoid; }
   .panel::before { display: none; }
   /* Only the scout card section prints */
-  .panel:not(:has(#scout-card)) { display: none !important; }
+  .panel:not(.panel--scout) { display: none !important; }
   .panel-head h2 { display: none; }
   .scout-card { max-width: none; padding: 0; box-shadow: none; }
   .scout-card::before { display: none; }
