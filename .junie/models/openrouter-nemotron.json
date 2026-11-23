@@ -1,0 +1,8 @@
+{
+  "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "baseUrl": "https://openrouter.ai/api/v1/chat/completions",
+  "apiType": "OpenAICompletion",
+  "apiKey": "${OPENROUTER_API_KEY}",
+  "displayName": "Nemotron 3 Ultra 550B (OpenRouter free)",
+  "providerName": "OpenRouter"
+}
