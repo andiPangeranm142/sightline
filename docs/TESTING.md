@@ -68,11 +68,15 @@ Known data quirk (not a bug): Sentinels have **0 cast points on Summit**
 (991 total points on that map) — the empty state is correct behaviour
 there. The numbers-mode assertion runs on Ascent for this reason.
 
+## Verified in a real browser (23 Nov 2026)
+- **Visual appearance** (SVG heatmap rendering, responsive layout,
+  design quality): Playwright suite `~/workspace/cloud9/visual-qa/verify-upgrade.js`
+  — **14/14 checks passed** (hero + stats from data, ESTIMATE labels,
+  all 13 maps render, zero horizontal overflow at 1280px and 390px,
+  zero console/page errors).
+- **GitHub Pages live**: Pages build `built`; the live URL serves the app
+  with real data (DATA: LIVE badge, hero stats 337/848/17,435/1,421,082).
+
 ## Not yet verified in this VM
-- **Visual appearance in a real browser** (SVG heatmap rendering,
-  responsive layout, design quality): needs a real browser check — not
-  done yet.
 - **Print / Save PDF flow**: button wired to `window.print()`; not
   exercised end-to-end.
-- **GitHub Pages live**: after push, verify the Pages URL serves the app
-  with real data (LIVE badge).

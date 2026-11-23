@@ -17,11 +17,11 @@ profiles, and one-click anti-strat plans.
 | Project rules for the AI tools (`.junie/guidelines.md`) | Written for Junie before the build, committed 23 Nov 2026 |
 | Junie CLI setup, auth, and BYOK model profile | Set up and verified working 23 Nov 2026 (see below) |
 | Junie reviews of the pipeline and frontend | **Queued, not yet run** — blocked by the shared OpenRouter free-tier daily quota (50/50 used on 23 Nov; resets 24 Nov 2026 07:00 WIB). Junie already read the full pipeline and started the review before the quota ran out; the review runs will be re-attempted after the reset, and their reports will land in `.junie/reviews/`. |
-| JetBrains Air repository indexing | **Pending** — `jbcontext` 0.9.22 is installed, but indexing needs an interactive login to the JetBrains AI Platform (OAuth in the browser), which has not been completed yet. |
+| JetBrains Air repository indexing | **Blocked in this VM** — `jbcontext` 0.9.22 is installed and the browser OAuth authorization succeeded (23 Nov 2026), but the CLI login fails: jbcontext's HTTP client cannot CONNECT through this VM's egress proxy (its own log: "Failed to parse CONNECT response: unexpected EOF"), and no direct egress exists. The `--token` manual-auth path is unverified. Air is a nice-to-have; the JetBrains tool requirement is met by Junie. |
 
 **Junie did not build this app.** The app was built by the Muse agent; Junie's
-role is reviewer and improver, and Air's role is repository indexing for
-semantic search. Both are real uses of JetBrains tools, and both are
+role is reviewer and improver. Air's intended role was repository indexing
+for semantic search, but it could not be run in this environment. Both are
 documented here as they actually stand.
 
 ## Junie CLI — what works and what doesn't (yet)
