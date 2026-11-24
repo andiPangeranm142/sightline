@@ -37,8 +37,7 @@ each 2 months of access, valid through 22 Jan 2027 (per the license
 certificates; the Licenses page shows the next billing date as 23 Jan
 2027). A test task on the default (built-in) model completed
 successfully 24 Nov 2026 01:16 WIB: authenticated, no license error. Note:
-the codes give 2 months each, not 6 — the earlier 6-month figure came from
-the hackathon page; the codes email is authoritative.
+the codes give 2 months each, not 6 — the codes email is authoritative.
 
 ### 1.2 The fallback path: BYOK custom model profile
 
