@@ -11,8 +11,8 @@ with one of:
 
 Rationale: SIGHTLINE is a scouting console for C9 VAL + C9 GC coaches, so
 the dataset covers every relevant opponent in their leagues plus the
-international stage. No other Game Changers regions were added: the total
-is already far above the 60-series minimum.
+international stage. No other Game Changers regions were added: 337 series
+already covers every relevant opponent in those leagues.
 
 Total selected: **337 series**.
 

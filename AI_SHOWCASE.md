@@ -32,7 +32,8 @@ documented here as they actually stand.
 - **Built-in JetBrains models work now (resolved 24 Nov 2026):** the
   hackathon codes arrived by email 24 Nov 2026 00:31 WIB and were claimed
   the same day — All Products Pack + AI Ultimate, each 2 months of access,
-  active until 23 Jan 2027 (verified on the Licenses page). The earlier
+  valid through 22 Jan 2027 (per the license certificates; the Licenses
+  page shows the next billing date as 23 Jan 2027). The earlier
   `403 NO_LICENSE` block is gone; a test task on the default (built-in)
   model completed successfully 24 Nov 2026 01:16 WIB.
 - **Fallback path — BYOK custom model:** Junie can run on a custom model profile
@@ -48,7 +49,7 @@ documented here as they actually stand.
   truststore before the model service was reachable at all.
 - **Verified 24 Nov 2026:** built-in models work — Junie authenticated and
   completed a small task end-to-end on the default model with no license
-  error (codes claimed, AI Ultimate active until 23 Jan 2027).
+  error (codes claimed, AI Ultimate valid through 22 Jan 2027).
 - **Known limits of the BYOK path:** the shared OpenRouter free tier allows
   50 requests/day across all free models, so long Junie sessions must be
   scheduled early in the day, before other work consumes the quota.

@@ -23,7 +23,8 @@ MIT license. Static web app (GitHub Pages) + Python aggregation pipeline.
 ## Stack
 
 - Pipeline: Python 3.12, `zstandard` (streaming decompression — never
-  decompress whole files to disk; VALORANT raw data is ~160 GB).
+  decompress whole files to disk; full VALORANT starter dataset is ~160 GB,
+  the 337 selected series ~65 GB).
 - Frontend: static HTML/CSS/JS, no build step, no framework. Served from
   `docs/` via GitHub Pages.
 - Maps are original schematic SVG drawings (zone-based), NOT Riot assets.

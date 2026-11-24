@@ -8,7 +8,7 @@ SIGHTLINE is built on the official Cloud9 GRID starter dataset: VALORANT event d
 
 Coverage: 337 series, 848 games, 17,435 rounds, 1,421,082 events, 580,455 ability casts, 72 teams, 374 players, 13 maps. Most-played maps are Haven (102,531 casts), Lotus (96,914) and Ascent (64,773); rarest is Summit (1,981 casts).
 
-The raw GRID data is licensed hackathon-only and is never committed to the repo. The VALORANT raw data is about 160 GB uncompressed; the repo holds only the aggregates the pipeline produces — six JSON files totalling 5.38 MB. Raw files were downloaded individually over HTTPS and verified against the GitHub tree API; the starter repo was never git-cloned.
+The raw GRID data is licensed hackathon-only and is never committed to the repo. The full VALORANT starter dataset is about 160 GB uncompressed (all 857 series, per the starter README); the 337 selected series are about 65 GB uncompressed (measured by streaming every selected file). The repo holds only the aggregates the pipeline produces — six JSON files totalling 5.38 MB. Raw files were downloaded individually over HTTPS and verified against the GitHub tree API; the starter repo was never git-cloned.
 
 PIPELINE — STREAMING AGGREGATION
 

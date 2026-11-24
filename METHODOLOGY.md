@@ -2,7 +2,7 @@
 
 How SIGHTLINE turns raw GRID VALORANT data into a tactical scouting console
 for coaches. Every number in this document is verified against
-`pipeline/VALIDATION.md` (run 22 Nov 2026) and `docs/TESTING.md`.
+`pipeline/VALIDATION.md` (run 23 Nov 2026) and `docs/TESTING.md`.
 
 > **Read the caveats first.** Section 6 lists every known limitation of the
 > data and the estimates SIGHTLINE makes — including the fact that round-time
@@ -51,7 +51,7 @@ rationale in `pipeline/SELECTION.md`):
 Rationale: SIGHTLINE is a scouting console for Cloud9 VAL and Cloud9 GC
 coaches, so the dataset covers every relevant opponent in their own leagues
 plus the international stage. No other Game Changers regions were added —
-337 series is already far above the 60-series minimum.
+337 series already covers every relevant opponent in those leagues.
 
 ### Coverage (verified, `pipeline/VALIDATION.md`)
 
@@ -64,8 +64,10 @@ plus the international stage. No other Game Changers regions were added —
 ### Licensing and size
 
 The raw GRID data is licensed hackathon-only and is **never committed** to
-this repo (`.gitignore` excludes `*.zst` / `*.jsonl`). The VALORANT raw data
-is ~160 GB uncompressed. The repo holds only the aggregates the pipeline
+this repo (`.gitignore` excludes `*.zst` / `*.jsonl`). The full VALORANT
+starter dataset is ~160 GB uncompressed (all 857 series, per the starter
+README); the 337 selected series are ~65 GB uncompressed (measured by
+streaming every selected file). The repo holds only the aggregates the pipeline
 produces: six JSON files totalling **5,640,616 bytes (5.38 MB)** in
 `docs/data/`. Raw files were downloaded individually over HTTPS from the
 starter repo and verified against the GitHub tree API — the starter repo
@@ -114,7 +116,7 @@ produces the landing-zone estimates (Section 5.5).
   distribution in the sample follows the original distribution; total vs.
   stored counts are recorded in `meta.json.heatmap_sampling`.
 
-### Validation (from `pipeline/VALIDATION.md`, run 22 Nov 2026)
+### Validation (from `pipeline/VALIDATION.md`, run 23 Nov 2026)
 
 - Supplement join: **579,027 of 579,027 in-grid records joined (100.0%)**,
   0 unmatched.

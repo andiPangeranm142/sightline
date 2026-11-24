@@ -33,8 +33,9 @@ JetBrains LLM proxy answered every built-in-model request with `403
 NO_LICENSE` ("No active JetBrains AI subscription found"). That block is
 gone: the hackathon codes arrived by email 24 Nov 2026 00:31 WIB (Devpost
 Credits) and were claimed the same day — All Products Pack + AI Ultimate,
-each 2 months of access, active until 23 Jan 2027 (verified on the
-Licenses page). A test task on the default (built-in) model completed
+each 2 months of access, valid through 22 Jan 2027 (per the license
+certificates; the Licenses page shows the next billing date as 23 Jan
+2027). A test task on the default (built-in) model completed
 successfully 24 Nov 2026 01:16 WIB: authenticated, no license error. Note:
 the codes give 2 months each, not 6 — the earlier 6-month figure came from
 the hackathon page; the codes email is authoritative.
@@ -109,7 +110,7 @@ completed 24 Nov 2026 on built-in models (see §3).
 Junie reviewed `pipeline/` (aggregation correctness, caveat handling,
 sampling) and `docs/` (frontend correctness, honesty labels,
 accessibility) on JetBrains built-in models, finishing 24 Nov 2026
-01:32 WIB. The reports are in `.junie/reviews/`:
+01:30 WIB. The reports are in `.junie/reviews/`:
 
 - `pipeline-2026-11-24.md` — 16 findings (5 High, 9 Medium, 2 Low).
 - `frontend-2026-11-24.md` — 8 findings (4 High, 4 Medium).
@@ -186,8 +187,8 @@ requirement, and Air indexing is not on the critical path for the project.
 ## 6. Hackathon codes: claimed 24 Nov 2026
 
 The All Products Pack + AI Ultimate codes arrived by email 24 Nov 2026
-00:31 WIB and were claimed the same day (each 2 months of access, active
-until 23 Jan 2027; verified on the Licenses page):
+00:31 WIB and were claimed the same day (each 2 months of access, valid
+through 22 Jan 2027 per the license certificates):
 
 - The `403 NO_LICENSE` block is gone and **Junie's built-in models work
   directly** — no BYOK profile, no OpenRouter quota, no 50-requests/day
